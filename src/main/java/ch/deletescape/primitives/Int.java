@@ -1,6 +1,10 @@
 package ch.deletescape.primitives;
 
+import java.util.Random;
+
 public class Int {
+  private static Random random;
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -50,5 +54,19 @@ public class Int {
    */
   public static int from(boolean bool) {
     return bool ? 1 : 0;
+  }
+
+  /**
+   * Convenience method for {@link Random#nextInt()}, the first time this method is called a new
+   * {@link Random} instance is created
+   * 
+   * @return a pseudorandom integer value.
+   * @see Random
+   */
+  public static int random() {
+    if (random == null) {
+      random = new Random();
+    }
+    return random.nextInt();
   }
 }
