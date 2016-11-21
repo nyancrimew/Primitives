@@ -23,8 +23,8 @@ public class PrIntTest {
 
   @Test
   public void fromFloat() {
-    assertThat(PrInt.from((float) 1), is(1));
-    assertThat(PrInt.from((float) 1.3), is(1));
+    assertThat(PrInt.from(1f), is(1));
+    assertThat(PrInt.from(1.3f), is(1));
     assertThat(PrInt.from(Float.MAX_VALUE), is(2147483647));
   }
 
