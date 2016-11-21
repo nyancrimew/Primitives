@@ -2,13 +2,13 @@ package ch.deletescape.primitives;
 
 import java.util.Random;
 
-public class Int {
+public class PrInt {
   private static Random random;
 
   /**
    * Private Constructor to prevent initialization
    */
-  private Int() {
+  private PrInt() {
   }
 
   /**
