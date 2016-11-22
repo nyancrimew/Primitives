@@ -135,4 +135,23 @@ public final class PrLongArray {
     }
     return tmp;
   }
+
+  /**
+   * See {@link String#join(CharSequence, CharSequence...)}
+   * 
+   * @param delimiter
+   *          the delimiter that separates each element
+   * @param elements
+   *          the elements to join together.
+   * @return a new {@code String} that is composed of the {@code elements} separated by the
+   *         {@code delimiter}
+   * @see String#join(CharSequence, CharSequence...)
+   */
+  public static String join(CharSequence delimiter, long... elements) {
+    String[] tmp = new String[elements.length];
+    for (int i = 0; i < tmp.length; i++) {
+      tmp[i] = String.valueOf(elements[i]);
+    }
+    return String.join(delimiter, tmp);
+  }
 }

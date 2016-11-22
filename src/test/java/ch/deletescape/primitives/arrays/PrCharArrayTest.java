@@ -42,4 +42,8 @@ public class PrCharArrayTest {
     assertThat(PrCharArray.from(new boolean[] { true, false }), is(new char[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrCharArray.join(";", 'a', 'b', ';'), is("a;b;;"));
+  }
 }

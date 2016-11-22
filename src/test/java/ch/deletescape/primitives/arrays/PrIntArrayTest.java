@@ -41,4 +41,8 @@ public class PrIntArrayTest {
     assertThat(PrIntArray.from(new boolean[] { true, false }), is(new int[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrIntArray.join(";", 1, -20, 3), is("1;-20;3"));
+  }
 }

@@ -41,4 +41,8 @@ public class PrShortArrayTest {
     assertThat(PrShortArray.from(new boolean[] { true, false }), is(new short[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrShortArray.join(";", (short) 1, (short) 2), is("1;2"));
+  }
 }

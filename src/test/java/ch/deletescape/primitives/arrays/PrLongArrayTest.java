@@ -44,4 +44,8 @@ public class PrLongArrayTest {
     assertThat(PrLongArray.from(new boolean[] { true, false }), is(new long[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrLongArray.join(";", 2, 6), is("2;6"));
+  }
 }

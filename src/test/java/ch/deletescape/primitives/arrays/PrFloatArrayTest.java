@@ -43,4 +43,8 @@ public class PrFloatArrayTest {
     assertThat(PrFloatArray.from(new boolean[] { true, false }), is(new float[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrFloatArray.join(";", 1f, 1.5f), is("1.0;1.5"));
+  }
 }

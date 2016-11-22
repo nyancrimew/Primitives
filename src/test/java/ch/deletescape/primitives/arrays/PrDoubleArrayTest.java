@@ -42,4 +42,8 @@ public class PrDoubleArrayTest {
     assertThat(PrDoubleArray.from(new boolean[] { true, false }), is(new double[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrDoubleArray.join(";", 1.0, 2.5), is("1.0;2.5"));
+  }
 }

@@ -41,4 +41,8 @@ public class PrBoolArrayTest {
     assertThat(PrBoolArray.from(new byte[] { 1, 2 }), is(new boolean[] { true, false }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrBoolArray.join(";", true, false), is("true;false"));
+  }
 }

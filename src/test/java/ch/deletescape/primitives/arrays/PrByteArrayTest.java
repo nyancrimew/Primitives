@@ -41,4 +41,8 @@ public class PrByteArrayTest {
     assertThat(PrByteArray.from(new boolean[] { true, false }), is(new byte[] { 1, 0 }));
   }
 
+  @Test
+  public void join() {
+    assertThat(PrByteArray.join(";", (byte) 1, (byte) 5, (byte) 30), is("1;5;30"));
+  }
 }
