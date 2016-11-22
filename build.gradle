@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin:"jacoco"
 repositories {
     jcenter()
 }
@@ -21,3 +22,10 @@ artifacts {
 dependencies {
     testCompile 'junit:junit:4.12'
 }
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+check.dependsOn jacocoTestReport
