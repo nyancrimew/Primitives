@@ -11,7 +11,7 @@
     int[] example = PrIntArray.from(new byte[] { 1, 2, 3 });
 ```
 * You need to concatenate two `char` arrays?<br>
-**Simple!**
+**Nothing easier than that!**
 ```java
     char[] pt1 = new char[] { 'h', 'e', 'l' };
     char[] pt2 = new char[] { 'l', 'o' };
