@@ -20,6 +20,12 @@ public class PrCharTest {
   }
 
   @Test
+  public void fromByte() {
+    assertThat(PrChar.from((byte) 1), is((char) 1));
+    assertThat(PrChar.from(Byte.MAX_VALUE), is((char) 127));
+  }
+
+  @Test
   public void fromShort() {
     assertThat(PrChar.from((short) 1), is((char) 1));
     assertThat(PrChar.from(Short.MAX_VALUE), is((char) 32767));

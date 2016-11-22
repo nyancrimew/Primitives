@@ -10,6 +10,17 @@ public final class PrChar {
   }
 
   /**
+   * Converts a byte value to char by simply casting it
+   * 
+   * @param shrt
+   *          the short value to convert
+   * @return the resulting char.
+   */
+  public static char from(byte b) {
+    return (char) b;
+  }
+
+  /**
    * Converts a short value to char by simply casting it
    * 
    * @param shrt
