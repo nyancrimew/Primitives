@@ -5,20 +5,20 @@
 
 #Deletescape Primitives
 
-* Dreaming of a simple way to convert `byte[]` to `int[]`?<br>
-**How about that:**
+* Dreaming of a simple way to convert `byte[]` to `int[]`?
+	**How about that:**
 ```java
     int[] example = PrIntArray.from(new byte[] { 1, 2, 3 });
 ```
-* You need to concatenate two `char` arrays?<br>
-**Nothing easier than that!**
+* You need to concatenate two `char` arrays?
+	**Nothing easier than that!**
 ```java
     char[] pt1 = new char[] { 'h', 'e', 'l' };
     char[] pt2 = new char[] { 'l', 'o' };
     char[] result = PrCharArray.concatAll(pt1, pt2);
 ```
-* `String.join()` doesn't work for your `int` array?<br>
-**It might not, but the following code sure does!**
+* `String.join()` doesn't work for your `int` array?
+	**It might not, but the following code sure does!**
 ```java
     int[] input = new int[]{ 3, 2, 1 };
     String result = PrIntArray.join(";", input);
