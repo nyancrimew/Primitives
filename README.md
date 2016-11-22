@@ -4,3 +4,21 @@
 [![Github All Releases](https://img.shields.io/github/downloads/Deletescape-Media/Primitives/total.svg)](https://github.com/Deletescape-Media/Primitives/releases)
 
 #Deletescape Primitives
+
+* Dreaming of a simple way to convert `byte[]` to `int[]`? **How about that:**
+```java
+    int[] example = PRIntArray.from(new byte[] { 1, 2, 3 });
+```
+* You need to concatenate two `char` arrays? **Simple!**
+```java
+    char[] pt1 = new char[] { 'h', 'e', 'l' };
+    char[] pt2 = new char[] { 'l', 'o' };
+    char[] result = PRCharArray.concatAll(pt1, pt2);
+```
+* `String.join()` doesn't work for your `int` array? **It might not, but the following sure does!**
+```java
+    int[] input = new int[]{ 3, 2, 1 };
+    String result = PRIntArray.join(";", input);
+```
+
+**Primitives is everything you need to work with primitive types in Java!**
