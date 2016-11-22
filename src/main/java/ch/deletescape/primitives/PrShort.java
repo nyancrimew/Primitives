@@ -34,8 +34,8 @@ public final class PrShort {
   /**
    * Converts a int value to short by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param i
+   *          the int value to convert
    * @return the resulting short.
    */
   public static short from(int i) {

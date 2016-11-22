@@ -126,7 +126,8 @@ public final class PrByteArray {
   }
 
   /**
-   * Convenience method for {@link Random#nextBytes()}, the first time this method is called a new
+   * Convenience method for {@link Random#nextBytes(byte[])}, the first time this method is called a
+   * new
    * {@link Random} instance is created
    * 
    * @param size

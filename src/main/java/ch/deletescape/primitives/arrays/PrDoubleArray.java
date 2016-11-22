@@ -63,10 +63,10 @@ public final class PrDoubleArray {
    *          the short array to convert
    * @return the resulting double array.
    */
-  public static double[] from(short[] iArr) {
-    double[] tmp = new double[iArr.length];
-    for (int i = 0; i < iArr.length; i++) {
-      tmp[i] = iArr[i];
+  public static double[] from(short[] shrtArr) {
+    double[] tmp = new double[shrtArr.length];
+    for (int i = 0; i < shrtArr.length; i++) {
+      tmp[i] = shrtArr[i];
     }
     return tmp;
   }

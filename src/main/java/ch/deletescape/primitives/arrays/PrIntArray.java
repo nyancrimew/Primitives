@@ -64,10 +64,10 @@ public final class PrIntArray {
    *          the short array to convert
    * @return the resulting int array.
    */
-  public static int[] from(short[] iArr) {
-    int[] tmp = new int[iArr.length];
-    for (int i = 0; i < iArr.length; i++) {
-      tmp[i] = iArr[i];
+  public static int[] from(short[] shrtArr) {
+    int[] tmp = new int[shrtArr.length];
+    for (int i = 0; i < shrtArr.length; i++) {
+      tmp[i] = shrtArr[i];
     }
     return tmp;
   }

@@ -28,17 +28,17 @@ public final class PrCharArray {
   }
 
   /**
-   * Converts a short array to a char array using {@link PrChar#from(char)}
+   * Converts a short array to a char array using {@link PrChar#from(short)}
    * 
-   * @param cArr
-   *          the char array to convert
+   * @param shrtArr
+   *          the short array to convert
    * @return the resulting char array.
    * @see PrChar#from(short)
    */
-  public static char[] from(short[] cArr) {
-    char[] tmp = new char[cArr.length];
-    for (int i = 0; i < cArr.length; i++) {
-      tmp[i] = PrChar.from(cArr[i]);
+  public static char[] from(short[] shrtArr) {
+    char[] tmp = new char[shrtArr.length];
+    for (int i = 0; i < shrtArr.length; i++) {
+      tmp[i] = PrChar.from(shrtArr[i]);
     }
     return tmp;
   }
@@ -46,7 +46,7 @@ public final class PrCharArray {
   /**
    * Converts a byte array to a char array
    * 
-   * @param shrtArr
+   * @param bArr
    *          the byte array to convert
    * @return the resulting char array.
    */

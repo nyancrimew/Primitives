@@ -63,10 +63,10 @@ public final class PrFloatArray {
    *          the short array to convert
    * @return the resulting float array.
    */
-  public static float[] from(short[] iArr) {
-    float[] tmp = new float[iArr.length];
-    for (int i = 0; i < iArr.length; i++) {
-      tmp[i] = iArr[i];
+  public static float[] from(short[] shrtArr) {
+    float[] tmp = new float[shrtArr.length];
+    for (int i = 0; i < shrtArr.length; i++) {
+      tmp[i] = shrtArr[i];
     }
     return tmp;
   }

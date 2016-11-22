@@ -45,8 +45,8 @@ public final class PrByte {
   /**
    * Converts a int value to byte by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param i
+   *          the int value to convert
    * @return the resulting byte.
    */
   public static byte from(int i) {

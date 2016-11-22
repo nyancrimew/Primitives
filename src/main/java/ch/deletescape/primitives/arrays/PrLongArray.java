@@ -63,10 +63,10 @@ public final class PrLongArray {
    *          the short array to convert
    * @return the resulting long array.
    */
-  public static long[] from(short[] iArr) {
-    long[] tmp = new long[iArr.length];
-    for (int i = 0; i < iArr.length; i++) {
-      tmp[i] = iArr[i];
+  public static long[] from(short[] shrtArr) {
+    long[] tmp = new long[shrtArr.length];
+    for (int i = 0; i < shrtArr.length; i++) {
+      tmp[i] = shrtArr[i];
     }
     return tmp;
   }

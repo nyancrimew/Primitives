@@ -12,8 +12,8 @@ public final class PrChar {
   /**
    * Converts a byte value to char by simply casting it
    * 
-   * @param shrt
-   *          the short value to convert
+   * @param b
+   *          the byte value to convert
    * @return the resulting char.
    */
   public static char from(byte b) {
@@ -45,8 +45,8 @@ public final class PrChar {
   /**
    * Converts a int value to char by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param i
+   *          the int value to convert
    * @return the resulting char.
    */
   public static char from(int i) {

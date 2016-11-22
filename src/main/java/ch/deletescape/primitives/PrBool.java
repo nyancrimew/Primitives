@@ -58,8 +58,8 @@ public final class PrBool {
   /**
    * Converts a int value to boolean (value {@code 1} equals {@code true})
    * 
-   * @param lng
-   *          the long value to convert
+   * @param i
+   *          the int value to convert
    * @return the resulting boolean.
    */
   public static boolean from(int i) {
