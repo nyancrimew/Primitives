@@ -25,3 +25,11 @@
 ```
 
 >**Primitives is everything you'll ever need to work with primitive types!**
+
+## Quick Start
+
+### Installation
+
+1. Download the binary jar file from the [latest release on GitHub](https://github.com/Deletescape-Media/Primitives/releases/latest)
+* Additionally download the source and/or javadoc jar if needed
+* Add the binary jar to your projects classpath 
