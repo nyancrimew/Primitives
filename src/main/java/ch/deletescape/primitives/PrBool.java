@@ -3,6 +3,8 @@ package ch.deletescape.primitives;
 import java.util.Random;
 
 public final class PrBool {
+  private static Random random;
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -87,13 +89,16 @@ public final class PrBool {
   }
 
   /**
-   * calls {@link PrInt#random()} and casts the result to {@code boolean}
+   * Convenience method for {@link Random#nextBoolean()}, the first time this method is called a new
+   * {@link Random} instance is created
    * 
    * @return a pseudorandom boolean value.
    * @see Random
-   * @see PrInt#random()
    */
   public static boolean random() {
-    return from(PrInt.random());
+    if (random == null) {
+      random = new Random();
+    }
+    return random.nextBoolean();
   }
 }
