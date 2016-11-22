@@ -45,4 +45,10 @@ public class PrBoolArrayTest {
   public void join() {
     assertThat(PrBoolArray.join(";", true, false), is("true;false"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrBoolArray.concatAll(new boolean[] { true, false }, new boolean[] { false, false }),
+        is(new boolean[] { true, false, false, false }));
+  }
 }

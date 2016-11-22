@@ -153,4 +153,25 @@ public final class PrFloatArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of float arrays
+   * 
+   * @param arrays
+   *          the {@code float} arrays to concatenate
+   * @return an {@code float} array cotaining the values of all {@code arrays}
+   */
+  public static float[] concatAll(float[]... arrays) {
+    int totalLength = 0;
+    for (float[] array : arrays) {
+      totalLength += array.length;
+    }
+    float[] result = new float[totalLength];
+    int offset = 0;
+    for (float[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

@@ -45,4 +45,9 @@ public class PrByteArrayTest {
   public void join() {
     assertThat(PrByteArray.join(";", (byte) 1, (byte) 5, (byte) 30), is("1;5;30"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrByteArray.concatAll(new byte[] { 1, 3 }, new byte[] { -2, 5 }), is(new byte[] { 1, 3, -2, 5 }));
+  }
 }

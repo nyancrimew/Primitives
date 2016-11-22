@@ -152,4 +152,25 @@ public final class PrDoubleArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of double arrays
+   * 
+   * @param arrays
+   *          the {@code double} arrays to concatenate
+   * @return an {@code double} array cotaining the values of all {@code arrays}
+   */
+  public static double[] concatAll(double[]... arrays) {
+    int totalLength = 0;
+    for (double[] array : arrays) {
+      totalLength += array.length;
+    }
+    double[] result = new double[totalLength];
+    int offset = 0;
+    for (double[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

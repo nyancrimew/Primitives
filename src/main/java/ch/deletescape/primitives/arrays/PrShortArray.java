@@ -157,4 +157,25 @@ public final class PrShortArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of short arrays
+   * 
+   * @param arrays
+   *          the {@code short} arrays to concatenate
+   * @return an {@code short} array cotaining the values of all {@code arrays}
+   */
+  public static short[] concatAll(short[]... arrays) {
+    int totalLength = 0;
+    for (short[] array : arrays) {
+      totalLength += array.length;
+    }
+    short[] result = new short[totalLength];
+    int offset = 0;
+    for (short[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

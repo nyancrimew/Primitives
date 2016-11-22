@@ -154,4 +154,25 @@ public final class PrLongArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of long arrays
+   * 
+   * @param arrays
+   *          the {@code long} arrays to concatenate
+   * @return an {@code long} array cotaining the values of all {@code arrays}
+   */
+  public static long[] concatAll(long[]... arrays) {
+    int totalLength = 0;
+    for (long[] array : arrays) {
+      totalLength += array.length;
+    }
+    long[] result = new long[totalLength];
+    int offset = 0;
+    for (long[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

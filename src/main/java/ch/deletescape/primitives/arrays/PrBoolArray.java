@@ -158,4 +158,25 @@ public final class PrBoolArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of boolean arrays
+   * 
+   * @param arrays
+   *          the {@code boolean} arrays to concatenate
+   * @return an {@code boolean} array cotaining the values of all {@code arrays}
+   */
+  public static boolean[] concatAll(boolean[]... arrays) {
+    int totalLength = 0;
+    for (boolean[] array : arrays) {
+      totalLength += array.length;
+    }
+    boolean[] result = new boolean[totalLength];
+    int offset = 0;
+    for (boolean[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

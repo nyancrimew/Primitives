@@ -46,4 +46,9 @@ public class PrCharArrayTest {
   public void join() {
     assertThat(PrCharArray.join(";", 'a', 'b', ';'), is("a;b;;"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrCharArray.concatAll(new char[] { 1, 3 }, new char[] { 'a', 5 }), is(new char[] { 1, 3, 'a', 5 }));
+  }
 }

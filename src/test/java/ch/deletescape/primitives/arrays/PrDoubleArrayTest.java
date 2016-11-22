@@ -46,4 +46,10 @@ public class PrDoubleArrayTest {
   public void join() {
     assertThat(PrDoubleArray.join(";", 1.0, 2.5), is("1.0;2.5"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrDoubleArray.concatAll(new double[] { 1.0, 1.3 }, new double[] { -2, 5 }),
+        is(new double[] { 1, 1.3, -2, 5 }));
+  }
 }

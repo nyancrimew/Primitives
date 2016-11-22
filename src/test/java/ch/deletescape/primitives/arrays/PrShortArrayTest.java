@@ -45,4 +45,9 @@ public class PrShortArrayTest {
   public void join() {
     assertThat(PrShortArray.join(";", (short) 1, (short) 2), is("1;2"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrShortArray.concatAll(new short[] { 1, 3 }, new short[] { -2, 5 }), is(new short[] { 1, 3, -2, 5 }));
+  }
 }

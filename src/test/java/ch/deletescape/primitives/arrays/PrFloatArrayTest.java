@@ -47,4 +47,10 @@ public class PrFloatArrayTest {
   public void join() {
     assertThat(PrFloatArray.join(";", 1f, 1.5f), is("1.0;1.5"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrFloatArray.concatAll(new float[] { 1, 3.34f }, new float[] { -2, 5 }),
+        is(new float[] { 1, 3.34f, -2, 5 }));
+  }
 }

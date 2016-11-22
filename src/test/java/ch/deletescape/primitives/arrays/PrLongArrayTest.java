@@ -48,4 +48,9 @@ public class PrLongArrayTest {
   public void join() {
     assertThat(PrLongArray.join(";", 2, 6), is("2;6"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrLongArray.concatAll(new long[] { 1, 3 }, new long[] { -2, 5 }), is(new long[] { 1, 3, -2, 5 }));
+  }
 }

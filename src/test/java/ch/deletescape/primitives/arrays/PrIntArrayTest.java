@@ -45,4 +45,9 @@ public class PrIntArrayTest {
   public void join() {
     assertThat(PrIntArray.join(";", 1, -20, 3), is("1;-20;3"));
   }
+
+  @Test
+  public void concat() {
+    assertThat(PrIntArray.concatAll(new int[] { 1, 3 }, new int[] { -2, 5 }), is(new int[] { 1, 3, -2, 5 }));
+  }
 }

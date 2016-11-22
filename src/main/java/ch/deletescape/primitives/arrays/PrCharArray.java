@@ -157,4 +157,25 @@ public final class PrCharArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of char arrays
+   * 
+   * @param arrays
+   *          the {@code char} arrays to concatenate
+   * @return an {@code char} array cotaining the values of all {@code arrays}
+   */
+  public static char[] concatAll(char[]... arrays) {
+    int totalLength = 0;
+    for (char[] array : arrays) {
+      totalLength += array.length;
+    }
+    char[] result = new char[totalLength];
+    int offset = 0;
+    for (char[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

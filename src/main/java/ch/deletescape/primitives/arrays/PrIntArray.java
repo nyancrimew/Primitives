@@ -155,4 +155,25 @@ public final class PrIntArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of int arrays
+   * 
+   * @param arrays
+   *          the {@code int} arrays to concatenate
+   * @return an {@code int} array cotaining the values of all {@code arrays}
+   */
+  public static int[] concatAll(int[]... arrays) {
+    int totalLength = 0;
+    for (int[] array : arrays) {
+      totalLength += array.length;
+    }
+    int[] result = new int[totalLength];
+    int offset = 0;
+    for (int[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }

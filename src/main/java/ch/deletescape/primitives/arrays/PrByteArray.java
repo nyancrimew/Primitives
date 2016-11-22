@@ -162,4 +162,25 @@ public final class PrByteArray {
     }
     return String.join(delimiter, tmp);
   }
+
+  /**
+   * Concatenate any number of byte arrays
+   * 
+   * @param arrays
+   *          the {@code byte} arrays to concatenate
+   * @return an {@code byte} array cotaining the values of all {@code arrays}
+   */
+  public static byte[] concatAll(byte[]... arrays) {
+    int totalLength = 0;
+    for (byte[] array : arrays) {
+      totalLength += array.length;
+    }
+    byte[] result = new byte[totalLength];
+    int offset = 0;
+    for (byte[] array : arrays) {
+      System.arraycopy(array, 0, result, offset, array.length);
+      offset += array.length;
+    }
+    return result;
+  }
 }
