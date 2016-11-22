@@ -12,7 +12,7 @@ public class PrIntArrayTest {
   }
 
   @Test
-  public void fromInt() {
+  public void fromShort() {
     assertThat(PrIntArray.from(new short[] { 1, Short.MAX_VALUE }), is(new int[] { 1, 32767 }));
   }
 
