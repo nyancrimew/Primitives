@@ -153,7 +153,7 @@ public final class PrCharArray {
   public static String join(CharSequence delimiter, char... elements) {
     String[] tmp = new String[elements.length];
     for (int i = 0; i < tmp.length; i++) {
-      tmp[i] = String.valueOf(elements[i]);
+      tmp[i] = Character.toString(elements[i]);
     }
     return String.join(delimiter, tmp);
   }

@@ -151,7 +151,7 @@ public final class PrIntArray {
   public static String join(CharSequence delimiter, int... elements) {
     String[] tmp = new String[elements.length];
     for (int i = 0; i < tmp.length; i++) {
-      tmp[i] = String.valueOf(elements[i]);
+      tmp[i] = Integer.toString(elements[i]);
     }
     return String.join(delimiter, tmp);
   }

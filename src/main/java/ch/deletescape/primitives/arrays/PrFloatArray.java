@@ -149,7 +149,7 @@ public final class PrFloatArray {
   public static String join(CharSequence delimiter, float... elements) {
     String[] tmp = new String[elements.length];
     for (int i = 0; i < tmp.length; i++) {
-      tmp[i] = String.valueOf(elements[i]);
+      tmp[i] = Float.toString(elements[i]);
     }
     return String.join(delimiter, tmp);
   }
