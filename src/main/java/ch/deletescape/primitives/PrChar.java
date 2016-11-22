@@ -12,8 +12,8 @@ public class PrChar {
   /**
    * Converts a short value to char by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param shrt
+   *          the short value to convert
    * @return the resulting char.
    */
   public static char from(short shrt) {

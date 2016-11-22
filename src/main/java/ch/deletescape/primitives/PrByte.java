@@ -12,8 +12,8 @@ public class PrByte {
   /**
    * Converts a char value to byte by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param c
+   *          the char value to convert
    * @return the resulting byte.
    */
   public static byte from(char c) {
@@ -23,8 +23,8 @@ public class PrByte {
   /**
    * Converts a short value to byte by simply casting it
    * 
-   * @param lng
-   *          the long value to convert
+   * @param shrt
+   *          the short value to convert
    * @return the resulting byte.
    */
   public static byte from(short shrt) {
