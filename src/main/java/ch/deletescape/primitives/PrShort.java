@@ -10,6 +10,17 @@ public final class PrShort {
   }
 
   /**
+   * Converts a char value to short by simply casting it
+   * 
+   * @param c
+   *          the char value to convert
+   * @return the resulting short.
+   */
+  public static short from(char c) {
+    return (short) c;
+  }
+
+  /**
    * Converts a long value to short by simply casting it
    * 
    * @param lng
