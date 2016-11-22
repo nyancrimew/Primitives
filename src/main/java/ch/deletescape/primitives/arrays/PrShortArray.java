@@ -44,8 +44,8 @@ public final class PrShortArray {
   /**
    * Converts a byte array to a short array
    * 
-   * @param shrtArr
-   *          the short array to convert
+   * @param bArr
+   *          the byte array to convert
    * @return the resulting short array.
    */
   public static short[] from(byte[] bArr) {
