@@ -2,7 +2,7 @@ package ch.deletescape.primitives;
 
 import java.util.Random;
 
-public class PrInt {
+public final class PrInt {
   private static Random random;
 
   /**

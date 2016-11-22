@@ -2,7 +2,7 @@ package ch.deletescape.primitives;
 
 import java.util.Random;
 
-public class PrByte {
+public final class PrByte {
   /**
    * Private Constructor to prevent initialization
    */

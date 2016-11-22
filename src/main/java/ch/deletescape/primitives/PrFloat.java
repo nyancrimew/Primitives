@@ -2,7 +2,7 @@ package ch.deletescape.primitives;
 
 import java.util.Random;
 
-public class PrFloat {
+public final class PrFloat {
   private static Random random;
 
   /**

@@ -2,7 +2,7 @@ package ch.deletescape.primitives.arrays;
 
 import ch.deletescape.primitives.PrByte;
 
-public class PrByteArray {
+public final class PrByteArray {
   /**
    * Private Constructor to prevent initialization
    */
