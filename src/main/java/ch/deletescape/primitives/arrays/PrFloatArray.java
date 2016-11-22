@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrFloat;
 
 public final class PrFloatArray {
@@ -112,6 +114,23 @@ public final class PrFloatArray {
     float[] tmp = new float[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrFloat.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random float values using {@link PrFloat#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom float values.
+   * @see Random
+   * @see PrFloat#random()
+   */
+  public static float[] random(int size) {
+    float[] tmp = new float[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrFloat.random();
     }
     return tmp;
   }

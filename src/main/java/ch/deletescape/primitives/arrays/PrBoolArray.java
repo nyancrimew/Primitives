@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrBool;
 
 public final class PrBoolArray {
@@ -117,6 +119,23 @@ public final class PrBoolArray {
     boolean[] tmp = new boolean[bArr.length];
     for (int i = 0; i < bArr.length; i++) {
       tmp[i] = PrBool.from(bArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random boolean values using {@link PrBool#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom boolean values.
+   * @see Random
+   * @see PrBool#random()
+   */
+  public static boolean[] random(int size) {
+    boolean[] tmp = new boolean[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrBool.random();
     }
     return tmp;
   }

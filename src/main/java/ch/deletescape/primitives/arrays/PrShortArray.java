@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrShort;
 
 public final class PrShortArray {
@@ -116,6 +118,23 @@ public final class PrShortArray {
     short[] tmp = new short[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrShort.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random short values using {@link PrShort#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom short values.
+   * @see Random
+   * @see PrShort#random()
+   */
+  public static short[] random(int size) {
+    short[] tmp = new short[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrShort.random();
     }
     return tmp;
   }

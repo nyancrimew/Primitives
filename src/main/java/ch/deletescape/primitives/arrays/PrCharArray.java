@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrChar;
 
 public final class PrCharArray {
@@ -116,6 +118,23 @@ public final class PrCharArray {
     char[] tmp = new char[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrChar.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random char values using {@link PrChar#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom char values.
+   * @see Random
+   * @see PrChar#random()
+   */
+  public static char[] random(int size) {
+    char[] tmp = new char[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrChar.random();
     }
     return tmp;
   }

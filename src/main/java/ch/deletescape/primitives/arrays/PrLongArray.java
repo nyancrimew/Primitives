@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrLong;
 
 public final class PrLongArray {
@@ -113,6 +115,23 @@ public final class PrLongArray {
     long[] tmp = new long[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrLong.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random long values using {@link PrLong#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom long values.
+   * @see Random
+   * @see PrLong#random()
+   */
+  public static long[] random(int size) {
+    long[] tmp = new long[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrLong.random();
     }
     return tmp;
   }

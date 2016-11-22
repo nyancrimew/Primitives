@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrInt;
 
 public final class PrIntArray {
@@ -114,6 +116,23 @@ public final class PrIntArray {
     int[] tmp = new int[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrInt.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random int values using {@link PrInt#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom int values.
+   * @see Random
+   * @see PrInt#random()
+   */
+  public static int[] random(int size) {
+    int[] tmp = new int[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrInt.random();
     }
     return tmp;
   }

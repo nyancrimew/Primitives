@@ -1,8 +1,12 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrByte;
 
 public final class PrByteArray {
+  private static Random random;
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -118,6 +122,24 @@ public final class PrByteArray {
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrByte.from(boolArr[i]);
     }
+    return tmp;
+  }
+
+  /**
+   * Convenience method for {@link Random#nextBytes()}, the first time this method is called a new
+   * {@link Random} instance is created
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom byte values.
+   * @see Random
+   */
+  public static byte[] random(int size) {
+    if (random == null) {
+      random = new Random();
+    }
+    byte[] tmp = new byte[size];
+    random.nextBytes(tmp);
     return tmp;
   }
 }

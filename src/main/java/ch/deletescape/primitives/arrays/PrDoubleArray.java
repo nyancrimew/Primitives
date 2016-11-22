@@ -1,5 +1,7 @@
 package ch.deletescape.primitives.arrays;
 
+import java.util.Random;
+
 import ch.deletescape.primitives.PrDouble;
 
 public final class PrDoubleArray {
@@ -111,6 +113,23 @@ public final class PrDoubleArray {
     double[] tmp = new double[boolArr.length];
     for (int i = 0; i < boolArr.length; i++) {
       tmp[i] = PrDouble.from(boolArr[i]);
+    }
+    return tmp;
+  }
+
+  /**
+   * Creates an array of random double values using {@link PrDouble#random()}
+   * 
+   * @param size
+   *          the amount of random values
+   * @return an array pseudorandom double values.
+   * @see Random
+   * @see PrDouble#random()
+   */
+  public static double[] random(int size) {
+    double[] tmp = new double[size];
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrDouble.random();
     }
     return tmp;
   }
