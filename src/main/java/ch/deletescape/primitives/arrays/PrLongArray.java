@@ -55,7 +55,7 @@ public final class PrLongArray {
   }
 
   /**
-   * Converts a short array to a long array using {@link PrLong#from(long)}
+   * Converts a short array to a long array
    * 
    * @param shrtArr
    *          the short array to convert

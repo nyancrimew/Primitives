@@ -56,7 +56,7 @@ public final class PrIntArray {
   }
 
   /**
-   * Converts a short array to a int array using {@link PrInt#from(int)}
+   * Converts a short array to a int array
    * 
    * @param shrtArr
    *          the short array to convert
