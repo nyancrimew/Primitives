@@ -5,6 +5,8 @@
 
 #Deletescape Primitives
 
+**[Quick Start](#quick-start) --- [Usage](#usage)**
+
 * Dreaming of a simple way to convert `byte[]` to `int[]`?
 	
 	**How about that:**
