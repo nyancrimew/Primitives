@@ -207,6 +207,10 @@ header ul a:active {
   background-color:#f0f0f0;
 }
 
+.license strong{
+  text-decoration: underline;
+}
+
 strong {
   color:#222;
   font-weight:700;
@@ -293,6 +297,9 @@ footer {
   }
 
   header ul, header p.view {
+    position:static;
+  }
+  header ul, header p.license {
     position:static;
   }
 
