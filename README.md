@@ -44,6 +44,16 @@
 
 ## Usage
 
+* [Available Classes](#available-classes)
+	* [Package `ch.deletescape.primitives`](#package-ch-deletescape-primitives)
+	* [Package `ch.deletescape.primitives.arrays`](#package-ch-deletescape-primitives-arrays)
+* [Conversions](#conversions)
+	* [`boolean` Conversions](#boolean-conversions)
+* [Random](#random)
+	* [Random Arrays](#random-arrays)
+* [Array Concatenation](#array-concatenation)
+* [Array Joining](#array-joining)
+
 ### Available Classes
 
 #### Package `ch.deletescape.primitives`
