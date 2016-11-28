@@ -28,7 +28,7 @@
 	**It might not, but the following code sure does!**
 	
 ```java
-    int[] input = new int[]{ 3, 2, 1 };
+    int[] input = new int[] { 3, 2, 1 };
     String result = PrIntArray.join(";", input);
 ```
 
