@@ -73,11 +73,27 @@
 In the following example an `int` value is converted to `short` using `PrShort`, all other conversions work exactly the same way.
 
 ```java
-	int i = 1;
-    short s = PrShort.from(i);
+int i = 1;
+short s = PrShort.from(i);
 ```
 
 > Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` a value of `1` returns `true`, any other value will result in `false`.
+
+### Random
+
+The next small code snipped shows how to generate a [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandom) `int` value using `PrInt`, random generation for other primitive types work the same way.
+
+```java
+int i = PrInt.random();
+```
+
+#### Random Arrays
+
+The difference when generating an array of random values, for example a `byte` array, is that the size of the array needs to be specified.
+
+```java
+byte[] ba = PrByteArray.random(5);
+```
 
 ## License
 
