@@ -208,7 +208,12 @@ header ul a:active {
 }
 
 .license strong {
+  color: #39c;
   text-decoration: underline;
+}
+
+.license strong:hover {
+  color: #069;
 }
 
 strong {
