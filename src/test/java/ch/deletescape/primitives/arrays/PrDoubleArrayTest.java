@@ -52,4 +52,10 @@ public class PrDoubleArrayTest {
     assertThat(PrDoubleArray.concatAll(new double[] { 1.0, 1.3 }, new double[] { -2, 5 }),
         is(new double[] { 1, 1.3, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrDoubleArray.contains(new double[] { 1, 3 }, 3), is(true));
+    assertThat(PrDoubleArray.contains(new double[] { 1, 3 }, 5), is(false));
+  }
 }

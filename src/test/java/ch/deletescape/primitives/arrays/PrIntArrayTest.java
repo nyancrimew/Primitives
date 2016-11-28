@@ -50,4 +50,10 @@ public class PrIntArrayTest {
   public void concat() {
     assertThat(PrIntArray.concatAll(new int[] { 1, 3 }, new int[] { -2, 5 }), is(new int[] { 1, 3, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrIntArray.contains(new int[] { 1, 3 }, 3), is(true));
+    assertThat(PrIntArray.contains(new int[] { 1, 3 }, 5), is(false));
+  }
 }

@@ -50,4 +50,10 @@ public class PrByteArrayTest {
   public void concat() {
     assertThat(PrByteArray.concatAll(new byte[] { 1, 3 }, new byte[] { -2, 5 }), is(new byte[] { 1, 3, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrByteArray.contains(new byte[] { 1, 3 }, (byte) 3), is(true));
+    assertThat(PrByteArray.contains(new byte[] { 1, 3 }, (byte) 5), is(false));
+  }
 }

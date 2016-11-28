@@ -53,4 +53,10 @@ public class PrFloatArrayTest {
     assertThat(PrFloatArray.concatAll(new float[] { 1, 3.34f }, new float[] { -2, 5 }),
         is(new float[] { 1, 3.34f, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrFloatArray.contains(new float[] { 1, 3 }, 3), is(true));
+    assertThat(PrFloatArray.contains(new float[] { 1, 3 }, 5), is(false));
+  }
 }

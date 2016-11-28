@@ -178,4 +178,22 @@ public final class PrCharArray {
     }
     return result;
   }
+
+  /**
+   * Returns true if the array contains the specified value
+   * 
+   * @param array
+   *          the array to search for {@code value}
+   * @param value
+   *          the value to check for
+   * @return whether or not {@code array} contains {@code value}
+   */
+  public static boolean contains(char[] array, char value) {
+    for (char item : array) {
+      if (item == value) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

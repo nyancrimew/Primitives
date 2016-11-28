@@ -50,4 +50,10 @@ public class PrShortArrayTest {
   public void concat() {
     assertThat(PrShortArray.concatAll(new short[] { 1, 3 }, new short[] { -2, 5 }), is(new short[] { 1, 3, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrShortArray.contains(new short[] { 1, 3 }, (short) 3), is(true));
+    assertThat(PrShortArray.contains(new short[] { 1, 3 }, (short) 5), is(false));
+  }
 }

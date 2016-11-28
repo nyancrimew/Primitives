@@ -179,4 +179,22 @@ public final class PrBoolArray {
     }
     return result;
   }
+
+  /**
+   * Returns true if the array contains the specified value
+   * 
+   * @param array
+   *          the array to search for {@code value}
+   * @param value
+   *          the value to check for
+   * @return whether or not {@code array} contains {@code value}
+   */
+  public static boolean contains(boolean[] array, boolean value) {
+    for (boolean item : array) {
+      if (item == value) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

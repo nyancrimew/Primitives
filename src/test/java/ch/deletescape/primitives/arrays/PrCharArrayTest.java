@@ -51,4 +51,10 @@ public class PrCharArrayTest {
   public void concat() {
     assertThat(PrCharArray.concatAll(new char[] { 1, 3 }, new char[] { 'a', 5 }), is(new char[] { 1, 3, 'a', 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrCharArray.contains(new char[] { 1, 3 }, (char) 3), is(true));
+    assertThat(PrCharArray.contains(new char[] { 1, 3 }, (char) 5), is(false));
+  }
 }

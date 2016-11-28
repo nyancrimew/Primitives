@@ -53,4 +53,10 @@ public class PrLongArrayTest {
   public void concat() {
     assertThat(PrLongArray.concatAll(new long[] { 1, 3 }, new long[] { -2, 5 }), is(new long[] { 1, 3, -2, 5 }));
   }
+
+  @Test
+  public void contains() {
+    assertThat(PrLongArray.contains(new long[] { 1, 3 }, 3), is(true));
+    assertThat(PrLongArray.contains(new long[] { 1, 3 }, 5), is(false));
+  }
 }
