@@ -61,6 +61,7 @@ public class PrBoolArrayTest {
   @Test
   public void distinct() {
     assertThat(PrBoolArray.distinct(new boolean[] { true, true, false, true }), is(new boolean[] { true, false }));
+    assertThat(PrBoolArray.distinct(new boolean[] { false, false, false, false }), is(new boolean[] { false }));
     assertThat(PrBoolArray.distinct(new boolean[0]), is(new boolean[0]));
   }
 }
