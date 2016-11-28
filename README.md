@@ -77,7 +77,9 @@ int i = 1;
 short s = PrShort.from(i);
 ```
 
-> Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` a value of `1` returns `true`, any other value will result in `false`.
+#### `boolean` Conversions
+
+Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` a value of `1` returns `true`, any other value will result in `false`. The same applies to `boolean[]` conversions.
 
 ### Random
 
