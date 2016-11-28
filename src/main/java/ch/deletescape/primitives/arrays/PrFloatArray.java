@@ -192,4 +192,25 @@ public final class PrFloatArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static float[] distinct(float[] array) {
+    float[] tmp = new float[array.length];
+    int i = 0;
+    for (float item : array) {
+      if (!contains(tmp, item)) {
+        tmp[i] = item;
+        i++;
+      }
+    }
+    float[] distincts = new float[i];
+    System.arraycopy(tmp, 0, distincts, 0, i);
+    return distincts;
+  }
 }

@@ -57,4 +57,10 @@ public class PrCharArrayTest {
     assertThat(PrCharArray.contains(new char[] { 1, 3 }, (char) 3), is(true));
     assertThat(PrCharArray.contains(new char[] { 1, 3 }, (char) 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrCharArray.distinct(new char[] { 1, 2, 1, 3 }), is(new char[] { 1, 2, 3 }));
+    assertThat(PrCharArray.distinct(new char[0]), is(new char[0]));
+  }
 }

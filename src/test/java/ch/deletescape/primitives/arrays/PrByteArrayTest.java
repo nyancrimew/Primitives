@@ -56,4 +56,10 @@ public class PrByteArrayTest {
     assertThat(PrByteArray.contains(new byte[] { 1, 3 }, (byte) 3), is(true));
     assertThat(PrByteArray.contains(new byte[] { 1, 3 }, (byte) 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrByteArray.distinct(new byte[] { 1, 2, 1, 3 }), is(new byte[] { 1, 2, 3 }));
+    assertThat(PrByteArray.distinct(new byte[0]), is(new byte[0]));
+  }
 }

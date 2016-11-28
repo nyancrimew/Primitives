@@ -58,4 +58,10 @@ public class PrDoubleArrayTest {
     assertThat(PrDoubleArray.contains(new double[] { 1, 3 }, 3), is(true));
     assertThat(PrDoubleArray.contains(new double[] { 1, 3 }, 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrDoubleArray.distinct(new double[] { 1, 2, 1, 3 }), is(new double[] { 1, 2, 3 }));
+    assertThat(PrDoubleArray.distinct(new double[0]), is(new double[0]));
+  }
 }

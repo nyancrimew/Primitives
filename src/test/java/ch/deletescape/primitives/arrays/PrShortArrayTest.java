@@ -56,4 +56,10 @@ public class PrShortArrayTest {
     assertThat(PrShortArray.contains(new short[] { 1, 3 }, (short) 3), is(true));
     assertThat(PrShortArray.contains(new short[] { 1, 3 }, (short) 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrShortArray.distinct(new short[] { 1, 2, 1, 3 }), is(new short[] { 1, 2, 3 }));
+    assertThat(PrShortArray.distinct(new short[0]), is(new short[0]));
+  }
 }

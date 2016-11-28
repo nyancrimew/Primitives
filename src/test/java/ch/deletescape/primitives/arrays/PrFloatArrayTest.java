@@ -59,4 +59,10 @@ public class PrFloatArrayTest {
     assertThat(PrFloatArray.contains(new float[] { 1, 3 }, 3), is(true));
     assertThat(PrFloatArray.contains(new float[] { 1, 3 }, 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrFloatArray.distinct(new float[] { 1, 2, 1, 3 }), is(new float[] { 1, 2, 3 }));
+    assertThat(PrFloatArray.distinct(new float[0]), is(new float[0]));
+  }
 }

@@ -191,4 +191,25 @@ public final class PrDoubleArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static double[] distinct(double[] array) {
+    double[] tmp = new double[array.length];
+    int i = 0;
+    for (double item : array) {
+      if (!contains(tmp, item)) {
+        tmp[i] = item;
+        i++;
+      }
+    }
+    double[] distincts = new double[i];
+    System.arraycopy(tmp, 0, distincts, 0, i);
+    return distincts;
+  }
 }

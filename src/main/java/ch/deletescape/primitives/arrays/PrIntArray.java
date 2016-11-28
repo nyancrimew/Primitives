@@ -194,4 +194,25 @@ public final class PrIntArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static int[] distinct(int[] array) {
+    int[] tmp = new int[array.length];
+    int i = 0;
+    for (int item : array) {
+      if (!contains(tmp, item)) {
+        tmp[i] = item;
+        i++;
+      }
+    }
+    int[] distincts = new int[i];
+    System.arraycopy(tmp, 0, distincts, 0, i);
+    return distincts;
+  }
 }

@@ -201,4 +201,25 @@ public final class PrByteArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static byte[] distinct(byte[] array) {
+    byte[] tmp = new byte[array.length];
+    int i = 0;
+    for (byte item : array) {
+      if (!contains(tmp, item)) {
+        tmp[i] = item;
+        i++;
+      }
+    }
+    byte[] distincts = new byte[i];
+    System.arraycopy(tmp, 0, distincts, 0, i);
+    return distincts;
+  }
 }

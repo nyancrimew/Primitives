@@ -56,4 +56,10 @@ public class PrIntArrayTest {
     assertThat(PrIntArray.contains(new int[] { 1, 3 }, 3), is(true));
     assertThat(PrIntArray.contains(new int[] { 1, 3 }, 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrIntArray.distinct(new int[] { 1, 2, 1, 3 }), is(new int[] { 1, 2, 3 }));
+    assertThat(PrIntArray.distinct(new int[0]), is(new int[0]));
+  }
 }

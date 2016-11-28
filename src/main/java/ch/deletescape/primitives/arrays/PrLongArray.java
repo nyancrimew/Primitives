@@ -193,4 +193,25 @@ public final class PrLongArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static long[] distinct(long[] array) {
+    long[] tmp = new long[array.length];
+    int i = 0;
+    for (long item : array) {
+      if (!contains(tmp, item)) {
+        tmp[i] = item;
+        i++;
+      }
+    }
+    long[] distincts = new long[i];
+    System.arraycopy(tmp, 0, distincts, 0, i);
+    return distincts;
+  }
 }

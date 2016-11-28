@@ -59,4 +59,10 @@ public class PrLongArrayTest {
     assertThat(PrLongArray.contains(new long[] { 1, 3 }, 3), is(true));
     assertThat(PrLongArray.contains(new long[] { 1, 3 }, 5), is(false));
   }
+
+  @Test
+  public void distinct() {
+    assertThat(PrLongArray.distinct(new long[] { 1, 2, 1, 3 }), is(new long[] { 1, 2, 3 }));
+    assertThat(PrLongArray.distinct(new long[0]), is(new long[0]));
+  }
 }

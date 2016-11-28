@@ -197,4 +197,23 @@ public final class PrBoolArray {
     }
     return false;
   }
+
+  /**
+   * Returns a new array containing only the unique values of the original array
+   * 
+   * @param array
+   *          the array to search
+   * @return only the distinct values in {@code array}
+   */
+  public static boolean[] distinct(boolean[] array) {
+    if (array.length == 0) {
+      return new boolean[0];
+    }
+    boolean first = array[0];
+    if (contains(array, !first)) {
+      return new boolean[] { first, !first };
+    } else {
+      return new boolean[] { first };
+    }
+  }
 }
