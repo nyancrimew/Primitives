@@ -20,4 +20,9 @@ public class PrFloatTest {
     assertThat(PrFloat.from(false), is(0f));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrFloat.random();
+  }
 }

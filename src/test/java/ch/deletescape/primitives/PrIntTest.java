@@ -34,4 +34,9 @@ public class PrIntTest {
     assertThat(PrInt.from(false), is(0));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrInt.random();
+  }
 }

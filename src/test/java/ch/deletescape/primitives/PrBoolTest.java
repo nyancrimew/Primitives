@@ -51,4 +51,10 @@ public class PrBoolTest {
     assertThat(PrBool.from(Float.MAX_VALUE), is(false));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrBool.random();
+  }
+
 }

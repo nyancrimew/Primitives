@@ -62,4 +62,10 @@ public class PrIntArrayTest {
     assertThat(PrIntArray.distinct(new int[] { 1, 2, 1, 3 }), is(new int[] { 1, 2, 3 }));
     assertThat(PrIntArray.distinct(new int[0]), is(new int[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrIntArray.random(1);
+  }
 }

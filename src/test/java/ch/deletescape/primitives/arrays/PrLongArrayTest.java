@@ -65,4 +65,10 @@ public class PrLongArrayTest {
     assertThat(PrLongArray.distinct(new long[] { 1, 2, 1, 3 }), is(new long[] { 1, 2, 3 }));
     assertThat(PrLongArray.distinct(new long[0]), is(new long[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrLongArray.random(1);
+  }
 }

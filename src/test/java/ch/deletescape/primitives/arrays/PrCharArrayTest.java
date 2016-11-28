@@ -63,4 +63,10 @@ public class PrCharArrayTest {
     assertThat(PrCharArray.distinct(new char[] { 1, 2, 1, 3 }), is(new char[] { 1, 2, 3 }));
     assertThat(PrCharArray.distinct(new char[0]), is(new char[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrCharArray.random(1);
+  }
 }

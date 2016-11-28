@@ -51,4 +51,9 @@ public class PrCharTest {
     assertThat(PrChar.from(false), is((char) 0));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrChar.random();
+  }
 }

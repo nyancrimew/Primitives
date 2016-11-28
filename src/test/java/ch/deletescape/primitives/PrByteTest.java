@@ -52,4 +52,10 @@ public class PrByteTest {
     assertThat(PrByte.from(false), is((byte) 0));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrByte.random();
+  }
+
 }

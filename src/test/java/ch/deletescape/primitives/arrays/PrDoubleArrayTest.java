@@ -64,4 +64,10 @@ public class PrDoubleArrayTest {
     assertThat(PrDoubleArray.distinct(new double[] { 1, 2, 1, 3 }), is(new double[] { 1, 2, 3 }));
     assertThat(PrDoubleArray.distinct(new double[0]), is(new double[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrDoubleArray.random(1);
+  }
 }

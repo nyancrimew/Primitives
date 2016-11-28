@@ -62,4 +62,10 @@ public class PrShortArrayTest {
     assertThat(PrShortArray.distinct(new short[] { 1, 2, 1, 3 }), is(new short[] { 1, 2, 3 }));
     assertThat(PrShortArray.distinct(new short[0]), is(new short[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrShortArray.random(1);
+  }
 }

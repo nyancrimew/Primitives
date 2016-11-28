@@ -65,4 +65,10 @@ public class PrFloatArrayTest {
     assertThat(PrFloatArray.distinct(new float[] { 1, 2, 1, 3 }), is(new float[] { 1, 2, 3 }));
     assertThat(PrFloatArray.distinct(new float[0]), is(new float[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrFloatArray.random(1);
+  }
 }

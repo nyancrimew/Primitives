@@ -13,4 +13,9 @@ public class PrDoubleTest {
     assertThat(PrDouble.from(false), is(0.0));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrDouble.random();
+  }
 }

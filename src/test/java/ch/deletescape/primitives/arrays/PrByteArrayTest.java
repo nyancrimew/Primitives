@@ -62,4 +62,10 @@ public class PrByteArrayTest {
     assertThat(PrByteArray.distinct(new byte[] { 1, 2, 1, 3 }), is(new byte[] { 1, 2, 3 }));
     assertThat(PrByteArray.distinct(new byte[0]), is(new byte[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrByteArray.random(1);
+  }
 }

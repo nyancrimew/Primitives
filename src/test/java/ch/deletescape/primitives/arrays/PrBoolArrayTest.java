@@ -64,4 +64,10 @@ public class PrBoolArrayTest {
     assertThat(PrBoolArray.distinct(new boolean[] { false, false, false, false }), is(new boolean[] { false }));
     assertThat(PrBoolArray.distinct(new boolean[0]), is(new boolean[0]));
   }
+
+  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void random() {
+    PrBoolArray.random(1);
+  }
 }

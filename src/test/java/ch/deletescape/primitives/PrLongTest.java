@@ -27,4 +27,9 @@ public class PrLongTest {
     assertThat(PrLong.from(false), is(0L));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrLong.random();
+  }
 }

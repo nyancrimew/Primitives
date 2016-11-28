@@ -45,4 +45,9 @@ public class PrShortTest {
     assertThat(PrShort.from(false), is((short) 0));
   }
 
+  // Calls the #random() method for coverage reasons
+  @Test
+  public void random() {
+    PrShort.random();
+  }
 }
