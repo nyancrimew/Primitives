@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Primitives by Deletescape-Media</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Primitives</h1>
+        <p>Everything you&#39;ll ever need to work with Java primitive types!</p>
+
+        <p class="view"><a href="https://github.com/Deletescape-Media/Primitives">View the Project on GitHub <small>Deletescape-Media/Primitives</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Deletescape-Media/Primitives/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Deletescape-Media/Primitives/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Deletescape-Media/Primitives">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="deletescape-primitives" class="anchor" href="#deletescape-primitives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deletescape Primitives</h1>
+
+<p><strong><a href="#quick-start">Quick Start</a> --- <a href="#usage">Usage</a> --- <a href="#license">License</a></strong></p>
+
+<ul>
+<li>
+<p>Dreaming of a simple way to convert <code>byte[]</code> to <code>int[]</code>?</p>
+
+<p><strong>How about that:</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">int</span>[] example <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>from(<span class="pl-k">new</span> <span class="pl-smi">byte</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> });</pre></div>
+
+<ul>
+<li>
+<p>You need to concatenate two <code>char</code> arrays?</p>
+
+<p><strong>Nothing easier than that!</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">char</span>[] pt1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span> };
+    <span class="pl-k">char</span>[] pt2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };
+    <span class="pl-k">char</span>[] result <span class="pl-k">=</span> <span class="pl-smi">PrCharArray</span><span class="pl-k">.</span>concatAll(pt1, pt2);</pre></div>
+
+<ul>
+<li>
+<p><code>String.join()</code> doesn't work for your <code>int</code> array?</p>
+
+<p><strong>It might not, but the following code sure does!</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">int</span>[] input <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[]{ <span class="pl-c1">3</span>, <span class="pl-c1">2</span>, <span class="pl-c1">1</span> };
+    <span class="pl-smi">String</span> result <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>;<span class="pl-pds">"</span></span>, input);</pre></div>
+
+<blockquote>
+<p><strong>Primitives is everything you'll ever need to work with primitive types!</strong></p>
+</blockquote>
+
+<h2>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Start</h2>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+
+<ol>
+<li>Download the binary jar file from the <a href="https://github.com/Deletescape-Media/Primitives/releases/latest">latest release on GitHub</a>
+</li>
+<li>Additionally download the source and/or javadoc jar if needed</li>
+<li>Add the binary jar to your projects classpath</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>
+<a href="#available-classes">Available Classes</a>
+
+<ul>
+<li><a href="#package-ch-deletescape-primitives">Package <code>ch.deletescape.primitives</code></a></li>
+<li><a href="#package-ch-deletescape-primitives-arrays">Package <code>ch.deletescape.primitives.arrays</code></a></li>
+</ul>
+</li>
+<li>
+<a href="#conversions">Conversions</a>
+
+<ul>
+<li><a href="#boolean-conversions"><code>boolean</code> Conversions</a></li>
+</ul>
+</li>
+<li>
+<a href="#random">Random</a>
+
+<ul>
+<li><a href="#random-arrays">Random Arrays</a></li>
+</ul>
+</li>
+<li><a href="#array-concatenation">Array Concatenation</a></li>
+<li><a href="#array-joining">Array Joining</a></li>
+</ul>
+
+<h3>
+<a id="available-classes" class="anchor" href="#available-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available Classes</h3>
+
+<h4>
+<a id="package-chdeletescapeprimitives" class="anchor" href="#package-chdeletescapeprimitives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives</code>
+</h4>
+
+<ul>
+<li><code>PrBool</code></li>
+<li><code>PrByte</code></li>
+<li><code>PrChar</code></li>
+<li><code>PrDouble</code></li>
+<li><code>PrFloat</code></li>
+<li><code>PrInt</code></li>
+<li><code>PrLong</code></li>
+<li><code>PrShort</code></li>
+</ul>
+
+<h4>
+<a id="package-chdeletescapeprimitivesarrays" class="anchor" href="#package-chdeletescapeprimitivesarrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives.arrays</code>
+</h4>
+
+<ul>
+<li><code>PrBoolArray</code></li>
+<li><code>PrByteArray</code></li>
+<li><code>PrCharArray</code></li>
+<li><code>PrDoubleArray</code></li>
+<li><code>PrFloatArray</code></li>
+<li><code>PrIntArray</code></li>
+<li><code>PrLongArray</code></li>
+<li><code>PrShortArray</code></li>
+</ul>
+
+<h3>
+<a id="conversions" class="anchor" href="#conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conversions</h3>
+
+<p>In the following example an <code>int</code> value is converted to <code>short</code> using <code>PrShort</code>, all other conversions work exactly the same way.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">short</span> s <span class="pl-k">=</span> <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(i);</pre></div>
+
+<h4>
+<a id="boolean-conversions" class="anchor" href="#boolean-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>boolean</code> Conversions</h4>
+
+<p>Conversions from <code>boolean</code> return a value of <code>1</code> for <code>true</code> and a value of <code>0</code> for <code>false</code>. When converting to <code>boolean</code> a value of <code>1</code> returns <code>true</code>, any other value will result in <code>false</code>. The same applies to <code>boolean[]</code> conversions.</p>
+
+<h3>
+<a id="random" class="anchor" href="#random" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random</h3>
+
+<p>The next small code snipped shows how to generate a <a href="https://en.wikipedia.org/wiki/Pseudorandom">pseudorandom</a> <code>int</code> value using <code>PrInt</code>, random generation for other primitive types work the same way.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-smi">PrInt</span><span class="pl-k">.</span>random();</pre></div>
+
+<h4>
+<a id="random-arrays" class="anchor" href="#random-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random Arrays</h4>
+
+<p>The difference when generating an array of random values, for example a <code>byte</code> array, is that the size of the array needs to be specified.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">byte</span>[] ba <span class="pl-k">=</span> <span class="pl-smi">PrByteArray</span><span class="pl-k">.</span>random(<span class="pl-c1">5</span>);</pre></div>
+
+<h3>
+<a id="array-concatenation" class="anchor" href="#array-concatenation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Concatenation</h3>
+
+<p>To concate two or more <code>boolean</code> arrays using <code>PrBoolArray</code> you can refer to the following piece of code. Array concatenations of other types follow the same pattern.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">boolean</span>[] ba1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">boolean</span>[] { <span class="pl-c1">true</span>, <span class="pl-c1">false</span> };
+<span class="pl-k">boolean</span>[] ba2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">boolean</span>[] { <span class="pl-c1">false</span>, <span class="pl-c1">false</span> };
+<span class="pl-k">boolean</span>[] merge <span class="pl-k">=</span> <span class="pl-smi">PrBoolArray</span><span class="pl-k">.</span>concatAll(ba1, ba2);</pre></div>
+
+<h3>
+<a id="array-joining" class="anchor" href="#array-joining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Joining</h3>
+
+<p>The following code shows how to easily convert an <code>int</code> array to a beautiful <code>String</code>, the same way <code>String.join()</code> works for <code>CharSequence</code> items. This can also be used for arrays of all other types.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-smi">String</span> str <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>; <span class="pl-pds">"</span></span>, ia);</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT License</p>
+
+<p>Copyright (c) 2016 Deletescape Media</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Deletescape-Media">Deletescape-Media</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
