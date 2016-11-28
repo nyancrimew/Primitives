@@ -10,8 +10,7 @@ public final class PrByteArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrByteArray() {
-  }
+  private PrByteArray() {}
 
   /**
    * Converts a long array to a byte array using {@link PrByte#from(long)}

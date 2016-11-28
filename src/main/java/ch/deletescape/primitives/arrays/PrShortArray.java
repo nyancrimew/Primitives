@@ -8,8 +8,7 @@ public final class PrShortArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrShortArray() {
-  }
+  private PrShortArray() {}
 
   /**
    * Converts a long array to a short array using {@link PrShort#from(long)}

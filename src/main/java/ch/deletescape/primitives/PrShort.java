@@ -6,8 +6,7 @@ public final class PrShort {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrShort() {
-  }
+  private PrShort() {}
 
   /**
    * Converts a char value to short by simply casting it

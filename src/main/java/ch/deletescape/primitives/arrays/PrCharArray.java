@@ -8,8 +8,7 @@ public final class PrCharArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrCharArray() {
-  }
+  private PrCharArray() {}
 
   /**
    * Converts a long array to a char array using {@link PrChar#from(long)}

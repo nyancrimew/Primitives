@@ -8,8 +8,7 @@ public final class PrFloatArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrFloatArray() {
-  }
+  private PrFloatArray() {}
 
   /**
    * Converts a int array to a float array

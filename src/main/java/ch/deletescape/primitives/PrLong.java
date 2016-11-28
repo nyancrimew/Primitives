@@ -8,8 +8,7 @@ public final class PrLong {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrLong() {
-  }
+  private PrLong() {}
 
   /**
    * Converts a double value to long by simply casting it

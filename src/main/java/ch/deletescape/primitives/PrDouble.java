@@ -8,8 +8,7 @@ public class PrDouble {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrDouble() {
-  }
+  private PrDouble() {}
 
   /**
    * Converts a boolean value to double, {@code true} resulting in {@code 1} and {@code false}

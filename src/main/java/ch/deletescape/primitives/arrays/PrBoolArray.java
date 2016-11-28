@@ -8,8 +8,7 @@ public final class PrBoolArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrBoolArray() {
-  }
+  private PrBoolArray() {}
 
   /**
    * Converts a long array to a boolean array using {@link PrBool#from(long)}

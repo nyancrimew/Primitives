@@ -8,8 +8,7 @@ public final class PrLongArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrLongArray() {
-  }
+  private PrLongArray() {}
 
   /**
    * Converts a int array to a long array

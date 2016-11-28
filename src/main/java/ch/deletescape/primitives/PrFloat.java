@@ -8,8 +8,7 @@ public final class PrFloat {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrFloat() {
-  }
+  private PrFloat() {}
 
   /**
    * Converts a double value to float by simply casting it

@@ -8,8 +8,7 @@ public final class PrInt {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrInt() {
-  }
+  private PrInt() {}
 
   /**
    * Converts a long value to integer by simply casting it

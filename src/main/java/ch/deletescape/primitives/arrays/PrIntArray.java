@@ -8,8 +8,7 @@ public final class PrIntArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrIntArray() {
-  }
+  private PrIntArray() {}
 
   /**
    * Converts a long array to a int array using {@link PrInt#from(long)}

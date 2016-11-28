@@ -6,8 +6,7 @@ public final class PrChar {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrChar() {
-  }
+  private PrChar() {}
 
   /**
    * Converts a byte value to char by simply casting it

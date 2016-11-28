@@ -8,8 +8,7 @@ public final class PrBool {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrBool() {
-  }
+  private PrBool() {}
 
   /**
    * Converts a byte value to boolean (value {@code 1} equals {@code true})

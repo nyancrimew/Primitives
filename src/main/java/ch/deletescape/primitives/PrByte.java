@@ -6,8 +6,7 @@ public final class PrByte {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrByte() {
-  }
+  private PrByte() {}
 
   /**
    * Converts a char value to byte by simply casting it

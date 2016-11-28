@@ -8,8 +8,7 @@ public final class PrDoubleArray {
   /**
    * Private Constructor to prevent initialization
    */
-  private PrDoubleArray() {
-  }
+  private PrDoubleArray() {}
 
   /**
    * Converts a int array to a double array
