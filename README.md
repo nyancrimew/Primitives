@@ -75,4 +75,4 @@ In the following example an `int` value is converted to `short` using `PrShort`,
     short s = PrShort.from(i);
 ```
 
-> Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` on the other hand a value of `1` returns `true`, any other value will result in `false`.
+> Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` a value of `1` returns `true`, any other value will result in `false`.
