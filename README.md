@@ -53,6 +53,7 @@
 	* [Random Arrays](#random-arrays)
 * [Array Concatenation](#array-concatenation)
 * [Array Joining](#array-joining)
+* [Array Contains](#array-contains)
 
 ### Available Classes
 
@@ -125,6 +126,17 @@ The following code shows how to easily convert an `int` array to a beautiful `St
 int[] ia = new int[] { 1, 4, 5 };
 String str = PrIntArray.join("; ", ia);
 ```
+
+### Array Contains
+
+You can check if a `short` array contains a certain value like this:
+
+```java
+short[] sa = new short[] { 1, 2, 3 };
+boolean contains = PrShort.contains(sa, PrShort.from(2));
+```
+
+The same pattern can be applied to all the other types.
 
 ## License
 
