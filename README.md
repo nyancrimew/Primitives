@@ -38,4 +38,41 @@
 
 1. Download the binary jar file from the [latest release on GitHub](https://github.com/Deletescape-Media/Primitives/releases/latest)
 * Additionally download the source and/or javadoc jar if needed
-* Add the binary jar to your projects classpath 
+* Add the binary jar to your projects classpath
+
+## Usage
+
+### Available Classes
+
+#### Package `ch.deletescape.primitives`
+
+* `PrBool`
+* `PrByte`
+* `PrChar`
+* `PrDouble`
+* `PrFloat`
+* `PrInt`
+* `PrLong`
+* `PrShort`
+
+#### Package `ch.deletescape.primitives.arrays`
+
+* `PrBoolArray`
+* `PrByteArray`
+* `PrCharArray`
+* `PrDoubleArray`
+* `PrFloatArray`
+* `PrIntArray`
+* `PrLongArray`
+* `PrShortArray`
+
+### Conversions
+
+In the following example an `int` value is converted to `short` using `PrShort`, all other conversions work exactly the same way.
+
+```java
+	int i = 1;
+    short s = PrShort.from(i);
+```
+
+> Conversions from `boolean` return a value of `1` for `true` and a value of `0` for `false`. When converting to `boolean` on the other hand a value of `1` returns `true`, any other value will result in `false`.
