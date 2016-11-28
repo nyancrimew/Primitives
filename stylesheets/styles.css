@@ -39,7 +39,14 @@ a {
   text-decoration:none;
 }
 
+a code {
+  color: #39c;
+}
+
 a:hover {
+  color:#069;
+}
+a code:hover {
   color:#069;
 }
 
