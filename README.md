@@ -95,6 +95,25 @@ The difference when generating an array of random values, for example a `byte` a
 byte[] ba = PrByteArray.random(5);
 ```
 
+### Array Concatenation
+
+To concate two or more `boolean` arrays using `PrBoolArray` you can refer to the following piece of code. Array concatenations of other types follow the same pattern.
+
+```java
+boolean[] ba1 = new boolean[] { true, false };
+boolean[] ba2 = new boolean[] { false, false };
+boolean[] merge = PrBoolArray.concatAll(ba1, ba2);
+```
+
+### Array Joining
+
+The following code shows how to easily convert an `int` array to a beautiful `String`, the same way `String.join()` works for `CharSequence` items. This can also be used for arrays of all other types.
+
+```java
+int[] ia = new int[] { 1, 4, 5 };
+String str = PrIntArray.join("; ", ia);
+```
+
 ## License
 
 MIT License
