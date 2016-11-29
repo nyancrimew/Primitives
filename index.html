@@ -113,6 +113,8 @@
 </li>
 <li><a href="#array-concatenation">Array Concatenation</a></li>
 <li><a href="#array-joining">Array Joining</a></li>
+<li><a href="#array-contains">Array Contains</a></li>
+<li><a href="#array-distinct">Array Distinct</a></li>
 </ul>
 
 <h3>
@@ -192,6 +194,25 @@
 <div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
 <span class="pl-smi">String</span> str <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>; <span class="pl-pds">"</span></span>, ia);</pre></div>
 
+<h3>
+<a id="array-contains" class="anchor" href="#array-contains" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Contains</h3>
+
+<p>You can check if a <code>short</code> array contains a certain value like this:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">boolean</span> contains <span class="pl-k">=</span> <span class="pl-smi">PrShort</span><span class="pl-k">.</span>contains(sa, <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(<span class="pl-c1">2</span>));</pre></div>
+
+<p>The same pattern can be applied to all the other types.</p>
+
+<h3>
+<a id="array-distinct" class="anchor" href="#array-distinct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Distinct</h3>
+
+<p>To get only the unique values in a <code>long</code> array, you can use the following code which also applies to all other types.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">long</span>[] uniques <span class="pl-k">=</span> <span class="pl-smi">PrLong</span><span class="pl-k">.</span>distinct(la);</pre></div>
+
+<p>The above snippet would result in an array containing <code>{ 5, 3, 4 }</code>.</p>
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
