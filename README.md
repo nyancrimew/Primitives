@@ -138,6 +138,17 @@ boolean contains = PrShort.contains(sa, PrShort.from(2));
 
 The same pattern can be applied to all the other types.
 
+### Array Distinct
+
+To get only the unique values in a `long` array, you can use the following code which also applies to all other types.
+
+```java
+long[] la = new long[] { 5, 3, 4, 5, 4, 5 };
+long[] uniques = PrLong.distinct(la);
+```
+
+The above snippet would result in an array containing `{ 5, 3, 4 }`.
+
 ## License
 
 MIT License
