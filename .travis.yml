@@ -12,3 +12,13 @@ cache:
     - $HOME/.gradle/wrapper/
 install: echo "skip './gradlew assemble' step"
 script: ./gradlew build --continue --no-daemon 
+deploy:
+  provider: releases
+  api_key: $GITHUB_OAUTH_TOKEN
+  file: 
+    - "build/libs/Primitives.jar"
+    - "build/libs/Primitives-javadoc.jar"
+    - "build/libs/Primitives-sources.jar"
+  skip_cleanup: true
+  on:
+    tags: true
