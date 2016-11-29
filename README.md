@@ -54,6 +54,7 @@
 * [Array Concatenation](#array-concatenation)
 * [Array Joining](#array-joining)
 * [Array Contains](#array-contains)
+* [Array Distinct](#array-distinct)
 
 ### Available Classes
 
