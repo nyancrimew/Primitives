@@ -216,4 +216,27 @@ public final class PrCharArray {
     System.arraycopy(tmp, 0, distincts, 0, i);
     return distincts;
   }
+
+  /**
+   * Finds the first occurrence of a sequence of values in an array
+   * 
+   * @param array
+   *          the array to search
+   * @param sequence
+   *          the sequence to search for
+   * @return the index of the first sequence occurrence inside {@code array} or {@code -1} if the
+   *         sequence isn't found
+   */
+  public static int findSequence(char[] array, char... sequence) {
+    final int seqLen = sequence.length;
+    final int maxIdx = array.length - seqLen;
+    for (int i = 0; i <= maxIdx; i++) {
+      for (int j = 0; array[i + j] == sequence[j]; j++) {
+        if (j == seqLen - 1) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
 }

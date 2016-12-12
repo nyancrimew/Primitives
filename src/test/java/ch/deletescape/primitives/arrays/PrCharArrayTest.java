@@ -64,6 +64,15 @@ public class PrCharArrayTest {
     assertThat(PrCharArray.distinct(new char[0]), is(new char[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 2, (char) 1), is(1));
+    assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 1, (char) 3), is(2));
+    assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 1, (char) 1), is(-1));
+    assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 3), is(3));
+    assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 4), is(-1));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
