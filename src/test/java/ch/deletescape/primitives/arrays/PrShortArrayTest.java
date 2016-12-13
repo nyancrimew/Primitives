@@ -63,6 +63,33 @@ public class PrShortArrayTest {
     assertThat(PrShortArray.distinct(new short[0]), is(new short[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 2, (short) 1), is(1));
+    assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 1, (short) 3), is(2));
+    assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 1, (short) 1), is(-1));
+    assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 3), is(3));
+    assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 4), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrShortArray.insert(new short[] { 1, 2, 3, 4 }, new short[] { 10, 11 }, 2),
+        is(new short[] { 1, 2, 10, 11, 3, 4 }));
+    assertThat(PrShortArray.insert(new short[] { 1, 2, 3, 4 }, new short[0], 0), is(new short[] { 1, 2, 3, 4 }));
+    assertThat(PrShortArray.insert(new short[] { 1, 2, 3, 4 }, new short[] { 10, 11 }, 5),
+        is(new short[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrShortArray.insert(new short[] { 1, 2, 3, 4 }, new short[] { 10, 11 }, -4),
+        is(new short[] { 10, 11, 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrShortArray.append(new short[] { 1, 2, 3, 4 }, (short) 10, (short) 11),
+        is(new short[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrShortArray.append(new short[] { 1, 2, 3, 4 }), is(new short[] { 1, 2, 3, 4 }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
