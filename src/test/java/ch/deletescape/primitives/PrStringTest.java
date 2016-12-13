@@ -3,9 +3,13 @@ package ch.deletescape.primitives;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class PrStringTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void reverse() {
@@ -23,9 +27,20 @@ public class PrStringTest {
     assertThat(PrString.simpleFormat("No elements supplied"), is("No elements supplied"));
     assertThat(PrString.simpleFormat("No elements supplied", null), is("No elements supplied"));
     assertThat(PrString.simpleFormat("{} {}", "Test", null), is("Test null"));
-    // TODO: Throw Exception in the following cases:
-    assertThat(PrString.simpleFormat("{} {}", "Test"), is("Test {}"));
-    assertThat(PrString.simpleFormat("{}", "Test", "Test 2", "Test 3"), is("Test"));
+    // TODO: This should not work this way:
+    assertThat(PrString.simpleFormat("{} {}", "{}", "Test", "Test2"), is("Test Test2"));
+  }
+
+  @Test
+  public void simpleFormatNotEnoughElements() {
+    PrString.simpleFormat("{} {}", "Test");
+  }
+
+  @Test
+  public void simpleFormatTooManyElements() {
+    thrown.expect(SimpleFormatException.class);
+    thrown.expectMessage(is("Too many elements supplied for \"{}\""));
+    PrString.simpleFormat("{}", "Test", "Test 2", "Test 3");
   }
 
 }

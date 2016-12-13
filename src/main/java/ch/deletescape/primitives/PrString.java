@@ -50,7 +50,7 @@ public final class PrString {
     for (Object element : elements) {
       int idx = PrCharArray.findSequence(str, FORMAT_TOKEN);
       if (idx == -1) {
-        break;
+        throw new SimpleFormatException("Too many elements supplied for \"" + format + "\"");
       }
       // Replace null values with the string "null" which is a char[] for performance reasons
       char[] eStr = element != null ? element.toString().toCharArray() : FORMAT_NULL_REPLACEMENT;
@@ -70,4 +70,5 @@ public final class PrString {
     }
     return new String(str);
   }
+
 }
