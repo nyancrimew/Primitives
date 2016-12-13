@@ -65,6 +65,35 @@ public class PrBoolArrayTest {
     assertThat(PrBoolArray.distinct(new boolean[0]), is(new boolean[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, false, true), is(1));
+    assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, true, true), is(2));
+    assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, false, false), is(-1));
+    assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, false), is(1));
+    assertThat(PrBoolArray.findSequence(new boolean[] { true, true, true }, false), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrBoolArray.insert(new boolean[] { true, false, true, true }, new boolean[] { true, false }, 2),
+        is(new boolean[] { true, false, true, false, true, true }));
+    assertThat(PrBoolArray.insert(new boolean[] { true, false, true, true }, new boolean[0], 0),
+        is(new boolean[] { true, false, true, true }));
+    assertThat(PrBoolArray.insert(new boolean[] { true, false, true, true }, new boolean[] { false, true }, 5),
+        is(new boolean[] { true, false, true, true, false, true }));
+    assertThat(PrBoolArray.insert(new boolean[] { true, false, true, true }, new boolean[] { false, false }, -4),
+        is(new boolean[] { false, false, true, false, true, true }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrBoolArray.append(new boolean[] { true, false, true, true }, false, true),
+        is(new boolean[] { true, false, true, true, false, true }));
+    assertThat(PrBoolArray.append(new boolean[] { true, false, true, true }),
+        is(new boolean[] { true, false, true, true }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
