@@ -1,11 +1,17 @@
 package ch.deletescape.primitives;
 
+import ch.deletescape.primitives.arrays.PrCharArray;
+
 /**
  * Technically String isn't a primitive type, but it is used almost the same way.
  * 
  * @author deletescape
  */
 public final class PrString {
+  private static final char[] FORMAT_TOKEN = new char[] { '{', '}' };
+  private static final int TOKEN_LENGTH = FORMAT_TOKEN.length;
+  private static final char[] FORMAT_NULL_REPLACEMENT = new char[] { 'n', 'u', 'l', 'l' };
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -34,17 +40,34 @@ public final class PrString {
   }
 
   // following TODOs need to be done before making this a public api method
-  // TODO: Rewrite in a more performant way (replace on char array level)
   // TODO: Throw exceptions in illegal cases (see TODOs in Test)
   static String simpleFormat(String format, Object... elements) {
     if (elements == null) {
       return format;
     }
-    String str = format;
+    // Working with a char array is better for performance than working with a String
+    char[] str = format.toCharArray();
     for (Object element : elements) {
-      String eStr = element != null ? element.toString() : "null";
-      str = str.replaceFirst("\\{\\}", eStr);
+      int idx = PrCharArray.findSequence(str, FORMAT_TOKEN);
+      if (idx == -1) {
+        break;
+      }
+      // Replace null values with the string "null" which is a char[] for performance reasons
+      char[] eStr = element != null ? element.toString().toCharArray() : FORMAT_NULL_REPLACEMENT;
+      // We want to trim away the {} token, so we subtract it from the format strings total length
+      int lenArr = str.length - TOKEN_LENGTH;
+      int lenIns = eStr.length;
+      // A Temporary array of the required size is created
+      char[] arr = new char[lenArr + lenIns];
+      // Here we take the first part of our original format string and place it in the temp array
+      System.arraycopy(str, 0, arr, 0, idx);
+      // Placing the replacement at the index of our token
+      System.arraycopy(eStr, 0, arr, idx, lenIns);
+      // Adding the end of the format string back to our new string, trimming away the {} sequence
+      System.arraycopy(str, idx + TOKEN_LENGTH, arr, idx + lenIns, lenArr - idx);
+      // Reassinging the value of our temp array to our original array
+      str = arr;
     }
-    return str;
+    return new String(str);
   }
 }
