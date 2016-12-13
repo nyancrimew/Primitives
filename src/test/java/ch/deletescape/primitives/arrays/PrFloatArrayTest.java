@@ -66,6 +66,32 @@ public class PrFloatArrayTest {
     assertThat(PrFloatArray.distinct(new float[0]), is(new float[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 1, 3), is(2));
+    assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 1, 1), is(-1));
+    assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, (float) 3), is(3));
+    assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, (float) 4), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrFloatArray.insert(new float[] { 1, 2, 3, 4 }, new float[] { 10, 11 }, 2),
+        is(new float[] { 1, 2, 10, 11, 3, 4 }));
+    assertThat(PrFloatArray.insert(new float[] { 1, 2, 3, 4 }, new float[0], 0), is(new float[] { 1, 2, 3, 4 }));
+    assertThat(PrFloatArray.insert(new float[] { 1, 2, 3, 4 }, new float[] { 10, 11 }, 5),
+        is(new float[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrFloatArray.insert(new float[] { 1, 2, 3, 4 }, new float[] { 10, 11 }, -4),
+        is(new float[] { 10, 11, 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrFloatArray.append(new float[] { 1, 2, 3, 4 }, 10, 11), is(new float[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrFloatArray.append(new float[] { 1, 2, 3, 4 }), is(new float[] { 1, 2, 3, 4 }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
