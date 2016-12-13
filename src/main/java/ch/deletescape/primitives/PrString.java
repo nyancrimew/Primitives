@@ -39,9 +39,25 @@ public final class PrString {
     return new String(ca);
   }
 
-  // following TODOs need to be done before making this a public api method
-  // TODO: Throw exceptions in illegal cases (see TODOs in Test)
-  static String simpleFormat(String format, Object... elements) {
+  /**
+   * This is a simple and fast alternative to {@link String#format(String, Object...)}, formatting
+   * works by replacing "{}" tokens with the supplied elements. "Hello {}!" and a element "World"
+   * would result in "Hello World!". Elements with null values are replaced by the String "null"
+   * 
+   * @param format
+   *          a formatting string following the described syntax
+   * @param elements
+   *          the elements to be used as replacements for formatting tokens by invoking
+   *          {@code toString()} on them.
+   * @return a formatted String.
+   * @throws SimpleFormatException
+   *           if there are either too many or not enough elements for the number of formatting
+   *           tokens
+   */
+  public static String simpleFormat(String format, Object... elements) {
+    // We simply return the format string if we have no elements at all
+    // TODO: This should be improved to also check if there are any formatting tokens inside the
+    // format string
     if (elements == null) {
       return format;
     }
@@ -50,6 +66,8 @@ public final class PrString {
     int lastIndex = 0;
     for (Object element : elements) {
       int idx = PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN);
+      // If there are still elements left but no more formatting tokens can be found there are too
+      // many elements
       if (idx == -1) {
         throw new SimpleFormatException(simpleFormat("Too many elements supplied for \"{}\"", format));
       }
@@ -68,8 +86,11 @@ public final class PrString {
       System.arraycopy(str, idx + TOKEN_LENGTH, arr, idx + lenIns, lenArr - idx);
       // Reassigning the value of our temp array to our original array
       str = arr;
+      // We need a way to save how much of the string we have processed already
       lastIndex = idx + lenIns;
     }
+    // If we end up here with the end of the string still containing formatting tokens there aren't
+    // enough elements
     if (PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN) != -1) {
       throw new SimpleFormatException(simpleFormat("Not enough elements supplied for \"{}\"", format));
     }
