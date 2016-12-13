@@ -65,6 +65,32 @@ public class PrDoubleArrayTest {
     assertThat(PrDoubleArray.distinct(new double[0]), is(new double[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 1, 3), is(2));
+    assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 1, 1), is(-1));
+    assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, (double) 3), is(3));
+    assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, (double) 4), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrDoubleArray.insert(new double[] { 1, 2, 3, 4 }, new double[] { 10, 11 }, 2),
+        is(new double[] { 1, 2, 10, 11, 3, 4 }));
+    assertThat(PrDoubleArray.insert(new double[] { 1, 2, 3, 4 }, new double[0], 0), is(new double[] { 1, 2, 3, 4 }));
+    assertThat(PrDoubleArray.insert(new double[] { 1, 2, 3, 4 }, new double[] { 10, 11 }, 5),
+        is(new double[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrDoubleArray.insert(new double[] { 1, 2, 3, 4 }, new double[] { 10, 11 }, -4),
+        is(new double[] { 10, 11, 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrDoubleArray.append(new double[] { 1, 2, 3, 4 }, 10, 11), is(new double[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrDoubleArray.append(new double[] { 1, 2, 3, 4 }), is(new double[] { 1, 2, 3, 4 }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
