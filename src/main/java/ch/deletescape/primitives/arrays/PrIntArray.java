@@ -214,4 +214,64 @@ public final class PrIntArray {
     System.arraycopy(tmp, 0, distincts, 0, i);
     return distincts;
   }
+
+  /**
+   * Finds the first occurrence of a sequence of values in an array
+   * 
+   * @param array
+   *          the array to search
+   * @param sequence
+   *          the sequence to search for
+   * @return the index of the first sequence occurrence inside {@code array} or {@code -1} if the
+   *         sequence isn't found
+   */
+  public static int findSequence(int[] array, int... sequence) {
+    final int seqLen = sequence.length;
+    final int maxIdx = array.length - seqLen;
+    for (int i = 0; i <= maxIdx; i++) {
+      for (int j = 0; array[i + j] == sequence[j]; j++) {
+        if (j == seqLen - 1) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
+
+  /**
+   * Insert an array into another one starting at the specified {@code index}
+   * 
+   * @param array
+   *          the array where you want to insert the values
+   * @param insert
+   *          the array to insert into {@code array}
+   * @param index
+   *          the index from where to start inserting the values
+   * @return a new array, based on a copy of {@code array} with {@code insert} inserted into it
+   */
+  public static int[] insert(int[] array, int[] insert, int index) {
+    int lenArr = array.length;
+    int lenIns = insert.length;
+    int idx = Math.max(0, Math.min(lenArr, index));
+    int offset = Math.min(idx + 1, lenArr);
+    int[] arr = new int[lenArr + lenIns];
+    System.arraycopy(array, 0, arr, 0, offset);
+    System.arraycopy(insert, 0, arr, idx, lenIns);
+    System.arraycopy(array, idx, arr, idx + lenIns, lenArr - idx);
+    return arr;
+  }
+
+  /**
+   * Append values to the end of a int array
+   * 
+   * @param array
+   *          the array to append the values to
+   * @param values
+   *          the values to append
+   * @return a new array consisting of all values of {@code array} and {@code values}.
+   * @see #insert(int[], int[], int)
+   */
+  public static int[] append(int[] array, int... values) {
+    return insert(array, values, array.length);
+  }
 }

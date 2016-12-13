@@ -63,6 +63,32 @@ public class PrIntArrayTest {
     assertThat(PrIntArray.distinct(new int[0]), is(new int[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 1, 3), is(2));
+    assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 1, 1), is(-1));
+    assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 3), is(3));
+    assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 4), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrIntArray.insert(new int[] { 1, 2, 3, 4 }, new int[] { 10, 11 }, 2),
+        is(new int[] { 1, 2, 10, 11, 3, 4 }));
+    assertThat(PrIntArray.insert(new int[] { 1, 2, 3, 4 }, new int[0], 0), is(new int[] { 1, 2, 3, 4 }));
+    assertThat(PrIntArray.insert(new int[] { 1, 2, 3, 4 }, new int[] { 10, 11 }, 5),
+        is(new int[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrIntArray.insert(new int[] { 1, 2, 3, 4 }, new int[] { 10, 11 }, -4),
+        is(new int[] { 10, 11, 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrIntArray.append(new int[] { 1, 2, 3, 4 }, 10, 11), is(new int[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrIntArray.append(new int[] { 1, 2, 3, 4 }), is(new int[] { 1, 2, 3, 4 }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
