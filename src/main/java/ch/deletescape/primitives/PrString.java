@@ -47,10 +47,11 @@ public final class PrString {
     }
     // Working with a char array is better for performance than working with a String
     char[] str = format.toCharArray();
+    int lastIndex = 0;
     for (Object element : elements) {
-      int idx = PrCharArray.findSequence(str, FORMAT_TOKEN);
+      int idx = PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN);
       if (idx == -1) {
-        throw new SimpleFormatException("Too many elements supplied for \"" + format + "\"");
+        throw new SimpleFormatException(simpleFormat("Too many elements supplied for \"{}\"", format));
       }
       // Replace null values with the string "null" which is a char[] for performance reasons
       char[] eStr = element != null ? element.toString().toCharArray() : FORMAT_NULL_REPLACEMENT;
@@ -67,9 +68,10 @@ public final class PrString {
       System.arraycopy(str, idx + TOKEN_LENGTH, arr, idx + lenIns, lenArr - idx);
       // Reassigning the value of our temp array to our original array
       str = arr;
+      lastIndex = idx + lenIns;
     }
-    if (PrCharArray.findSequence(str, FORMAT_TOKEN) != -1) {
-      throw new SimpleFormatException("Not enough elements supplied for \"" + format + "\"");
+    if (PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN) != -1) {
+      throw new SimpleFormatException(simpleFormat("Not enough elements supplied for \"{}\"", format));
     }
     return new String(str);
   }
