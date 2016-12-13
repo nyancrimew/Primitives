@@ -32,4 +32,19 @@ public final class PrString {
     }
     return new String(ca);
   }
+
+  // following TODOs need to be done before making this a public api method
+  // TODO: Rewrite in a more performant way (replace on char array level)
+  // TODO: Throw exceptions in illegal cases (see TODOs in Test)
+  static String simpleFormat(String format, Object... elements) {
+    if (elements == null) {
+      return format;
+    }
+    String str = format;
+    for (Object element : elements) {
+      String eStr = element != null ? element.toString() : "null";
+      str = str.replaceFirst("\\{\\}", eStr);
+    }
+    return str;
+  }
 }
