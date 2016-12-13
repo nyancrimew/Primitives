@@ -239,4 +239,27 @@ public final class PrCharArray {
     }
     return -1;
   }
+
+  /**
+   * Insert an array into another one starting at the specified {@code index}
+   * 
+   * @param array
+   *          the array where you want to insert the values
+   * @param insert
+   *          the array to insert into {@code array}
+   * @param index
+   *          the index from where to start inserting the values
+   * @return a new array, based on a copy of {@code array} with {@code insert} inserted into it
+   */
+  public static char[] insert(char[] array, char[] insert, int index) {
+    int lenArr = array.length;
+    int lenIns = insert.length;
+    int idx = Math.max(0, Math.min(lenArr, index));
+    int offset = Math.min(idx + 1, lenArr);
+    char[] arr = new char[lenArr + lenIns];
+    System.arraycopy(array, 0, arr, 0, offset);
+    System.arraycopy(insert, 0, arr, idx, lenIns);
+    System.arraycopy(array, idx, arr, idx + lenIns, lenArr - idx);
+    return arr;
+  }
 }

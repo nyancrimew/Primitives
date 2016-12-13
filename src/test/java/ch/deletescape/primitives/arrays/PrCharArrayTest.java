@@ -73,6 +73,18 @@ public class PrCharArrayTest {
     assertThat(PrCharArray.findSequence(new char[] { 1, 2, 1, 3 }, (char) 4), is(-1));
   }
 
+  @Test
+  public void insert() {
+    assertThat(PrCharArray.insert(new char[] { 'a', 'b', 'c', 'd' }, new char[] { 'x', 'y' }, 2),
+        is(new char[] { 'a', 'b', 'x', 'y', 'c', 'd' }));
+    assertThat(PrCharArray.insert(new char[] { 'a', 'b', 'c', 'd' }, new char[0], 0),
+        is(new char[] { 'a', 'b', 'c', 'd' }));
+    assertThat(PrCharArray.insert(new char[] { 'a', 'b', 'c', 'd' }, new char[] { 'x', 'y' }, 5),
+        is(new char[] { 'a', 'b', 'c', 'd', 'x', 'y' }));
+    assertThat(PrCharArray.insert(new char[] { 'a', 'b', 'c', 'd' }, new char[] { 'x', 'y' }, -4),
+        is(new char[] { 'x', 'y', 'a', 'b', 'c', 'd' }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
