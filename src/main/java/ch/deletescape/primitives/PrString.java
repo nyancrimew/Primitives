@@ -65,8 +65,11 @@ public final class PrString {
       System.arraycopy(eStr, 0, arr, idx, lenIns);
       // Adding the end of the format string back to our new string, trimming away the {} sequence
       System.arraycopy(str, idx + TOKEN_LENGTH, arr, idx + lenIns, lenArr - idx);
-      // Reassinging the value of our temp array to our original array
+      // Reassigning the value of our temp array to our original array
       str = arr;
+    }
+    if (PrCharArray.findSequence(str, FORMAT_TOKEN) != -1) {
+      throw new SimpleFormatException("Not enough elements supplied for \"" + format + "\"");
     }
     return new String(str);
   }

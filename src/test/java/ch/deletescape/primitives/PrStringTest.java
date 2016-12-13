@@ -33,6 +33,8 @@ public class PrStringTest {
 
   @Test
   public void simpleFormatNotEnoughElements() {
+    thrown.expect(SimpleFormatException.class);
+    thrown.expectMessage(is("Not enough elements supplied for \"{} {}\""));
     PrString.simpleFormat("{} {}", "Test");
   }
 
