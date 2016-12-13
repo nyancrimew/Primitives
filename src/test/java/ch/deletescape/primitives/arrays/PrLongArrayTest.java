@@ -66,6 +66,32 @@ public class PrLongArrayTest {
     assertThat(PrLongArray.distinct(new long[0]), is(new long[0]));
   }
 
+  @Test
+  public void findSequence() {
+    assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 1, 3), is(2));
+    assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 1, 1), is(-1));
+    assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, (long) 3), is(3));
+    assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, (long) 4), is(-1));
+  }
+
+  @Test
+  public void insert() {
+    assertThat(PrLongArray.insert(new long[] { 1, 2, 3, 4 }, new long[] { 10, 11 }, 2),
+        is(new long[] { 1, 2, 10, 11, 3, 4 }));
+    assertThat(PrLongArray.insert(new long[] { 1, 2, 3, 4 }, new long[0], 0), is(new long[] { 1, 2, 3, 4 }));
+    assertThat(PrLongArray.insert(new long[] { 1, 2, 3, 4 }, new long[] { 10, 11 }, 5),
+        is(new long[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrLongArray.insert(new long[] { 1, 2, 3, 4 }, new long[] { 10, 11 }, -4),
+        is(new long[] { 10, 11, 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void append() {
+    assertThat(PrLongArray.append(new long[] { 1, 2, 3, 4 }, 10, 11), is(new long[] { 1, 2, 3, 4, 10, 11 }));
+    assertThat(PrLongArray.append(new long[] { 1, 2, 3, 4 }), is(new long[] { 1, 2, 3, 4 }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {
