@@ -47,4 +47,19 @@ public final class PrFloat {
     }
     return random.nextFloat();
   }
+
+  /**
+   * Checks if two floats are equal concerning a positive delta.
+   * 
+   * @param value1
+   *          the value to compare to {@code value2}
+   * @param value2
+   *          the value to compare to {@code value1}
+   * @param delta
+   *          a tolerance value for which distance we decide two floats are equal
+   * @return if the two floats are equal concerning a positive delta.
+   */
+  public static boolean equality(float value1, float value2, float delta) {
+    return Math.abs(value1 - value2) <= delta;
+  }
 }

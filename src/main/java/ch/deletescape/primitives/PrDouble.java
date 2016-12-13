@@ -37,4 +37,18 @@ public class PrDouble {
     return random.nextDouble();
   }
 
+  /**
+   * Checks if two double values are equal concerning a positive delta.
+   * 
+   * @param value1
+   *          the value to compare to {@code value2}
+   * @param value2
+   *          the value to compare to {@code value1}
+   * @param delta
+   *          a tolerance value for which distance we decide two doubles are equal
+   * @return if the two doubles are equal concerning a positive delta.
+   */
+  public static boolean equality(double value1, double value2, double delta) {
+    return Math.abs(value1 - value2) <= delta;
+  }
 }

@@ -5,6 +5,8 @@ import java.util.Random;
 import ch.deletescape.primitives.PrFloat;
 
 public final class PrFloatArray {
+  private static final float DELTA = 0.001f;
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -175,7 +177,8 @@ public final class PrFloatArray {
   }
 
   /**
-   * Returns true if the array contains the specified value
+   * Returns true if the array contains the specified value, a delta of
+   * {@code 0.001} is used for equality checks
    * 
    * @param array
    *          the array to search for {@code value}
@@ -185,7 +188,7 @@ public final class PrFloatArray {
    */
   public static boolean contains(float[] array, float value) {
     for (float item : array) {
-      if (item == value) {
+      if (PrFloat.equality(item, value, DELTA)) {
         return true;
       }
     }
@@ -214,7 +217,8 @@ public final class PrFloatArray {
   }
 
   /**
-   * Finds the first occurrence of a sequence of values in an array
+   * Finds the first occurrence of a sequence of values in an array, a delta of
+   * {@code 0.001} is used for equality checks
    * 
    * @param array
    *          the array to search
@@ -227,7 +231,7 @@ public final class PrFloatArray {
     final int seqLen = sequence.length;
     final int maxIdx = array.length - seqLen;
     for (int i = 0; i <= maxIdx; i++) {
-      for (int j = 0; array[i + j] == sequence[j]; j++) {
+      for (int j = 0; PrFloat.equality(array[i + j], sequence[j], DELTA); j++) {
         if (j == seqLen - 1) {
           return i;
         }

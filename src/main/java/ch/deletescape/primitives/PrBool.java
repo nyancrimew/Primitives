@@ -66,25 +66,27 @@ public final class PrBool {
   }
 
   /**
-   * Converts a double value to boolean (value {@code 1} equals {@code true})
+   * Converts a double value to boolean (value {@code 1} equals {@code true}, a delta of
+   * {@code 0.001} is used for the equality check)
    * 
    * @param dbl
    *          the double value to convert
    * @return the resulting boolean.
    */
   public static boolean from(double dbl) {
-    return dbl == 1.0;
+    return PrDouble.equality(dbl, 1.0, 0.001);
   }
 
   /**
-   * Converts a float value to boolean (value {@code 1} equals {@code true})
+   * Converts a float value to boolean (value {@code 1} equals {@code true}, a delta of
+   * {@code 0.001} is used for the equality check)
    * 
    * @param flt
    *          the float value to convert
    * @return the resulting boolean.
    */
   public static boolean from(float flt) {
-    return flt == 1f;
+    return PrFloat.equality(flt, 1f, 0.001f);
   }
 
   /**

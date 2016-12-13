@@ -5,6 +5,8 @@ import java.util.Random;
 import ch.deletescape.primitives.PrDouble;
 
 public final class PrDoubleArray {
+  private static final double DELTA = 0.001;
+
   /**
    * Private Constructor to prevent initialization
    */
@@ -174,7 +176,8 @@ public final class PrDoubleArray {
   }
 
   /**
-   * Returns true if the array contains the specified value
+   * Returns true if the array contains the specified value, a delta of
+   * {@code 0.001} is used for equality checks
    * 
    * @param array
    *          the array to search for {@code value}
@@ -184,7 +187,7 @@ public final class PrDoubleArray {
    */
   public static boolean contains(double[] array, double value) {
     for (double item : array) {
-      if (item == value) {
+      if (PrDouble.equality(item, value, DELTA)) {
         return true;
       }
     }
@@ -213,7 +216,8 @@ public final class PrDoubleArray {
   }
 
   /**
-   * Finds the first occurrence of a sequence of values in an array
+   * Finds the first occurrence of a sequence of values in an array, a delta of
+   * {@code 0.001} is used for equality checks
    * 
    * @param array
    *          the array to search
@@ -226,7 +230,7 @@ public final class PrDoubleArray {
     final int seqLen = sequence.length;
     final int maxIdx = array.length - seqLen;
     for (int i = 0; i <= maxIdx; i++) {
-      for (int j = 0; array[i + j] == sequence[j]; j++) {
+      for (int j = 0; PrDouble.equality(array[i + j], sequence[j], DELTA); j++) {
         if (j == seqLen - 1) {
           return i;
         }

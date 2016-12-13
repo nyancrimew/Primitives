@@ -20,6 +20,14 @@ public class PrFloatTest {
     assertThat(PrFloat.from(false), is(0f));
   }
 
+  @Test
+  public void equality() {
+    assertThat(PrFloat.equality(1f, PrFloat.from(1), 0.001f), is(true));
+    assertThat(PrFloat.equality(1f, 0.999f, 0.001f), is(true));
+    assertThat(PrFloat.equality(1f, 1.3f, 0.001f), is(false));
+    assertThat(PrFloat.equality(1f, 1.3f, 1f), is(true));
+  }
+
   // Calls the #random() method for coverage reasons
   @Test
   public void random() {
