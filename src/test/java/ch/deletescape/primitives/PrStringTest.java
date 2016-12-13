@@ -20,6 +20,7 @@ public class PrStringTest {
   public void simpleFormat() {
     assertThat(PrString.simpleFormat("{}", "Test"), is("Test"));
     assertThat(PrString.simpleFormat("No elements supplied"), is("No elements supplied"));
+    assertThat(PrString.simpleFormat("No elements supplied", null), is("No elements supplied"));
     assertThat(PrString.simpleFormat("{} {}", "Test", null), is("Test null"));
     // TODO: Throw Exception in the following cases:
     assertThat(PrString.simpleFormat("{} {}", "Test"), is("Test {}"));
