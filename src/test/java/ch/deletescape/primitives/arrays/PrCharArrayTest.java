@@ -85,6 +85,13 @@ public class PrCharArrayTest {
         is(new char[] { 'x', 'y', 'a', 'b', 'c', 'd' }));
   }
 
+  @Test
+  public void append() {
+    assertThat(PrCharArray.append(new char[] { 'a', 'b', 'c', 'd' }, 'x', 'y'),
+        is(new char[] { 'a', 'b', 'c', 'd', 'x', 'y' }));
+    assertThat(PrCharArray.append(new char[] { 'a', 'b', 'c', 'd' }), is(new char[] { 'a', 'b', 'c', 'd' }));
+  }
+
   // Calls the #random(int) method for coverage reasons
   @Test
   public void random() {

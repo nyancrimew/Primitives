@@ -262,4 +262,18 @@ public final class PrCharArray {
     System.arraycopy(array, idx, arr, idx + lenIns, lenArr - idx);
     return arr;
   }
+
+  /**
+   * Append values to the end of a char array
+   * 
+   * @param array
+   *          the array to append the values to
+   * @param values
+   *          the values to append
+   * @return a new array consisting of all values of {@code array} and {@code values}.
+   * @see #insert(char[], char[], int)
+   */
+  public static char[] append(char[] array, char... values) {
+    return insert(array, values, array.length);
+  }
 }
