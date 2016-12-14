@@ -107,5 +107,7 @@ public class PrByteArrayTest {
   @Test
   public void random() {
     PrByteArray.random(1);
+    // To cover the case where we already have a random object
+    PrByteArray.random(1);
   }
 }

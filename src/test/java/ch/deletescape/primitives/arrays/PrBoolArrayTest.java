@@ -55,6 +55,7 @@ public class PrBoolArrayTest {
   @Test
   public void contains() {
     assertThat(PrBoolArray.contains(new boolean[] { true, false }, true), is(true));
+    assertThat(PrBoolArray.contains(new boolean[] { false, true }, true), is(true));
     assertThat(PrBoolArray.contains(new boolean[] { false, false }, true), is(false));
   }
 
