@@ -225,9 +225,25 @@ public final class PrLongArray {
    *         sequence isn't found
    */
   public static int findSequence(long[] array, long... sequence) {
+    return findSequence(0, array, sequence);
+  }
+
+  /**
+   * Finds the first occurrence starting from {@code fromIndex} of a sequence of values in an array
+   * 
+   * @param fromIndex
+   *          the index from where to start searching
+   * @param array
+   *          the array to search
+   * @param sequence
+   *          the sequence to search for
+   * @return the index of the first sequence occurrence inside {@code array} or {@code -1} if the
+   *         sequence isn't found
+   */
+  public static int findSequence(int fromIndex, long[] array, long... sequence) {
     final int seqLen = sequence.length;
     final int maxIdx = array.length - seqLen;
-    for (int i = 0; i <= maxIdx; i++) {
+    for (int i = Math.min(fromIndex, maxIdx); i <= maxIdx; i++) {
       for (int j = 0; array[i + j] == sequence[j]; j++) {
         if (j == seqLen - 1) {
           return i;

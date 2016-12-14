@@ -65,6 +65,9 @@ public class PrByteArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrByteArray.findSequence(2, new byte[] { 1, 2, 1, 3 }, (byte) 2, (byte) 1), is(-1));
+    assertThat(PrByteArray.findSequence(2, new byte[] { 1, 2, 1, 2 }, (byte) 1, (byte) 2), is(2));
+
     assertThat(PrByteArray.findSequence(new byte[] { 1, 2, 1, 3 }, (byte) 2, (byte) 1), is(1));
     assertThat(PrByteArray.findSequence(new byte[] { 1, 2, 1, 3 }, (byte) 1, (byte) 3), is(2));
     assertThat(PrByteArray.findSequence(new byte[] { 1, 2, 1, 3 }, (byte) 1, (byte) 1), is(-1));

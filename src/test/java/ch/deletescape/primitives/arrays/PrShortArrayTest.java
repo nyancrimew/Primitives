@@ -65,6 +65,9 @@ public class PrShortArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrShortArray.findSequence(2, new short[] { 1, 2, 1, 3 }, (short) 2, (short) 1), is(-1));
+    assertThat(PrShortArray.findSequence(2, new short[] { 1, 2, 1, 2 }, (short) 1, (short) 2), is(2));
+
     assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 2, (short) 1), is(1));
     assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 1, (short) 3), is(2));
     assertThat(PrShortArray.findSequence(new short[] { 1, 2, 1, 3 }, (short) 1, (short) 1), is(-1));

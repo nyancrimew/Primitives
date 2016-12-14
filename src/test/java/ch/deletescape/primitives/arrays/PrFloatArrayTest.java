@@ -68,6 +68,9 @@ public class PrFloatArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrFloatArray.findSequence(2, new float[] { 1, 2, 1, 3 }, 2, 1), is(-1));
+    assertThat(PrFloatArray.findSequence(2, new float[] { 1, 2, 1, 2 }, 1, 2), is(2));
+
     assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 2, 1), is(1));
     assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 1, 3), is(2));
     assertThat(PrFloatArray.findSequence(new float[] { 1, 2, 1, 3 }, 1, 1), is(-1));

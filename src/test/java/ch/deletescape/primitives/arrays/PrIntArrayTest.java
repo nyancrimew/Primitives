@@ -65,6 +65,9 @@ public class PrIntArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrIntArray.findSequence(2, new int[] { 1, 2, 1, 3 }, 2, 1), is(-1));
+    assertThat(PrIntArray.findSequence(2, new int[] { 1, 2, 1, 2 }, 1, 2), is(2));
+
     assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 2, 1), is(1));
     assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 1, 3), is(2));
     assertThat(PrIntArray.findSequence(new int[] { 1, 2, 1, 3 }, 1, 1), is(-1));

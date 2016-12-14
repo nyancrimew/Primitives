@@ -68,6 +68,9 @@ public class PrLongArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrLongArray.findSequence(2, new long[] { 1, 2, 1, 3 }, 2, 1), is(-1));
+    assertThat(PrLongArray.findSequence(2, new long[] { 1, 2, 1, 2 }, 1, 2), is(2));
+
     assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 2, 1), is(1));
     assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 1, 3), is(2));
     assertThat(PrLongArray.findSequence(new long[] { 1, 2, 1, 3 }, 1, 1), is(-1));

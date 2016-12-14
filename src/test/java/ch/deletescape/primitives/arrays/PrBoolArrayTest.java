@@ -67,6 +67,9 @@ public class PrBoolArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrBoolArray.findSequence(2, new boolean[] { true, false, true, true }, false, true), is(-1));
+    assertThat(PrBoolArray.findSequence(2, new boolean[] { true, false, false, true }, false, true), is(2));
+
     assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, false, true), is(1));
     assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, true, true), is(2));
     assertThat(PrBoolArray.findSequence(new boolean[] { true, false, true, true }, false, false), is(-1));

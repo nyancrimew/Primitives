@@ -67,6 +67,9 @@ public class PrDoubleArrayTest {
 
   @Test
   public void findSequence() {
+    assertThat(PrDoubleArray.findSequence(2, new double[] { 1, 2, 1, 3 }, 2, 1), is(-1));
+    assertThat(PrDoubleArray.findSequence(2, new double[] { 1, 2, 1, 2 }, 1, 2), is(2));
+
     assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 2, 1), is(1));
     assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 1, 3), is(2));
     assertThat(PrDoubleArray.findSequence(new double[] { 1, 2, 1, 3 }, 1, 1), is(-1));
