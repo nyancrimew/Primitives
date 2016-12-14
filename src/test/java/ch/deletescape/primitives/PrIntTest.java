@@ -8,6 +8,25 @@ import org.junit.Test;
 public class PrIntTest {
 
   @Test
+  public void fromByte() {
+    assertThat(PrInt.from((byte) 1), is(1));
+    assertThat(PrInt.from(Byte.MAX_VALUE), is(127));
+  }
+
+  @Test
+  public void fromShort() {
+    assertThat(PrInt.from((short) 1), is(1));
+    assertThat(PrInt.from(Short.MAX_VALUE), is(32767));
+  }
+
+  @Test
+  public void fromChar() {
+    assertThat(PrInt.from('\0'), is(0));
+    assertThat(PrInt.from(Character.MAX_VALUE), is(65535));
+    assertThat(PrInt.from((char) 1), is(1));
+  }
+
+  @Test
   public void fromLong() {
     assertThat(PrInt.from(1L), is(1));
     assertThat(PrInt.from(Long.MAX_VALUE), is(-1));

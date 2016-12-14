@@ -7,6 +7,12 @@ import org.junit.Test;
 
 public class PrShortTest {
   @Test
+  public void fromByte() {
+    assertThat(PrShort.from((byte) 1), is((short) 1));
+    assertThat(PrShort.from(Byte.MAX_VALUE), is((short) 127));
+  }
+
+  @Test
   public void fromChar() {
     assertThat(PrShort.from((char) 1), is((short) 1));
     assertThat(PrShort.from('\0'), is((short) 0));

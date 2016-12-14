@@ -11,6 +11,72 @@ public class PrDouble {
   private PrDouble() {}
 
   /**
+   * Converts a byte value to double
+   * 
+   * @param b
+   *          the byte value to convert
+   * @return the resulting double.
+   */
+  public static double from(byte b) {
+    return b;
+  }
+
+  /**
+   * Converts a char value to double
+   * 
+   * @param c
+   *          the char value to convert
+   * @return the resulting double.
+   */
+  public static double from(char c) {
+    return c;
+  }
+
+  /**
+   * Converts a short value to double
+   * 
+   * @param shrt
+   *          the short value to convert
+   * @return the resulting double.
+   */
+  public static double from(short shrt) {
+    return shrt;
+  }
+
+  /**
+   * Converts a long value to double
+   * 
+   * @param lng
+   *          the long value to convert
+   * @return the resulting double.
+   */
+  public static double from(long lng) {
+    return lng;
+  }
+
+  /**
+   * Converts a int value to double
+   * 
+   * @param i
+   *          the int value to convert
+   * @return the resulting double.
+   */
+  public static double from(int i) {
+    return i;
+  }
+
+  /**
+   * Converts a float value to double
+   * 
+   * @param flt
+   *          the float value to convert
+   * @return the resulting double.
+   */
+  public static double from(float flt) {
+    return flt;
+  }
+
+  /**
    * Converts a boolean value to double, {@code true} resulting in {@code 1} and {@code false}
    * resulting in {@code 0}
    * 

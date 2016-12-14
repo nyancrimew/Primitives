@@ -11,6 +11,50 @@ public final class PrLong {
   private PrLong() {}
 
   /**
+   * Converts a byte value to long
+   * 
+   * @param b
+   *          the byte value to convert
+   * @return the resulting long.
+   */
+  public static long from(byte b) {
+    return b;
+  }
+
+  /**
+   * Converts a char value to long
+   * 
+   * @param c
+   *          the char value to convert
+   * @return the resulting long.
+   */
+  public static long from(char c) {
+    return c;
+  }
+
+  /**
+   * Converts a short value to long
+   * 
+   * @param shrt
+   *          the short value to convert
+   * @return the resulting long.
+   */
+  public static long from(short shrt) {
+    return shrt;
+  }
+
+  /**
+   * Converts a int value to long
+   * 
+   * @param i
+   *          the int value to convert
+   * @return the resulting long.
+   */
+  public static long from(int i) {
+    return i;
+  }
+
+  /**
    * Converts a double value to long by simply casting it
    * 
    * @param dbl

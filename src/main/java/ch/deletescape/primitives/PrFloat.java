@@ -11,6 +11,61 @@ public final class PrFloat {
   private PrFloat() {}
 
   /**
+   * Converts a byte value to float
+   * 
+   * @param b
+   *          the byte value to convert
+   * @return the resulting float.
+   */
+  public static float from(byte b) {
+    return b;
+  }
+
+  /**
+   * Converts a char value to float
+   * 
+   * @param c
+   *          the char value to convert
+   * @return the resulting float.
+   */
+  public static float from(char c) {
+    return c;
+  }
+
+  /**
+   * Converts a short value to float
+   * 
+   * @param shrt
+   *          the short value to convert
+   * @return the resulting float.
+   */
+  public static float from(short shrt) {
+    return shrt;
+  }
+
+  /**
+   * Converts a long value to float
+   * 
+   * @param lng
+   *          the long value to convert
+   * @return the resulting float.
+   */
+  public static float from(long lng) {
+    return lng;
+  }
+
+  /**
+   * Converts a int value to float
+   * 
+   * @param i
+   *          the int value to convert
+   * @return the resulting float.
+   */
+  public static float from(int i) {
+    return i;
+  }
+
+  /**
    * Converts a double value to float by simply casting it
    * 
    * @param dbl

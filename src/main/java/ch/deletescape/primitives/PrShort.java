@@ -9,6 +9,17 @@ public final class PrShort {
   private PrShort() {}
 
   /**
+   * Converts a byte value to short
+   * 
+   * @param b
+   *          the byte value to convert
+   * @return the resulting short.
+   */
+  public static short from(byte b) {
+    return b;
+  }
+
+  /**
    * Converts a char value to short by simply casting it
    * 
    * @param c
