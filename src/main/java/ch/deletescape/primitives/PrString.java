@@ -8,6 +8,7 @@ import ch.deletescape.primitives.arrays.PrCharArray;
  * @author deletescape
  */
 public final class PrString {
+  private static final String ELEMENT_COUNT_MISSMATCH_ERROR = "Number of elements ({}) and tokens ({}) doesn't match.";
   private static final char[] FORMAT_TOKEN = new char[] { '{', '}' };
   private static final int TOKEN_LENGTH = FORMAT_TOKEN.length;
   private static final char[] FORMAT_NULL_REPLACEMENT = new char[] { 'n', 'u', 'l', 'l' };
@@ -55,22 +56,21 @@ public final class PrString {
    *           tokens
    */
   public static String simpleFormat(String format, Object... elements) {
-    // We simply return the format string if we have no elements at all
-    // TODO: This should be improved to also check if there are any formatting tokens inside the
-    // format string
-    if (elements == null) {
-      return format;
-    }
     // Working with a char array is better for performance than working with a String
     char[] str = format.toCharArray();
+    // --- Preparation and validation: ---
+    int elementCount = elements == null ? 0 : elements.length;
+    int tokenCount = PrCharArray.countSequence(str, FORMAT_TOKEN);
+    if (elementCount > tokenCount || elementCount < tokenCount) {
+      throw new SimpleFormatException(simpleFormat(ELEMENT_COUNT_MISSMATCH_ERROR, elementCount, tokenCount));
+    }
+    if (elementCount == 0 && tokenCount == 0) {
+      return format;
+    }
+    // --- The formatting algorithm itself starts here: ---
     int lastIndex = 0;
     for (Object element : elements) {
       int idx = PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN);
-      // If there are still elements left but no more formatting tokens can be found there are too
-      // many elements
-      if (idx == -1) {
-        throw new SimpleFormatException(simpleFormat("Too many elements supplied for \"{}\"", format));
-      }
       // Replace null values with the string "null" which is a char[] for performance reasons
       char[] eStr = element != null ? element.toString().toCharArray() : FORMAT_NULL_REPLACEMENT;
       // We want to trim away the {} token, so we subtract it from the format strings total length
@@ -88,11 +88,6 @@ public final class PrString {
       str = arr;
       // We need a way to save how much of the string we have processed already
       lastIndex = idx + lenIns;
-    }
-    // If we end up here with the end of the string still containing formatting tokens there aren't
-    // enough elements
-    if (PrCharArray.findSequence(lastIndex, str, FORMAT_TOKEN) != -1) {
-      throw new SimpleFormatException(simpleFormat("Not enough elements supplied for \"{}\"", format));
     }
     return new String(str);
   }

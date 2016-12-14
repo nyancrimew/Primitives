@@ -33,14 +33,14 @@ public class PrStringTest {
   @Test
   public void simpleFormatNotEnoughElements() {
     thrown.expect(SimpleFormatException.class);
-    thrown.expectMessage(is("Not enough elements supplied for \"{} {}\""));
+    thrown.expectMessage(is("Number of elements (1) and tokens (2) doesn't match."));
     PrString.simpleFormat("{} {}", "Test");
   }
 
   @Test
   public void simpleFormatTooManyElements() {
     thrown.expect(SimpleFormatException.class);
-    thrown.expectMessage(is("Too many elements supplied for \"{}\""));
+    thrown.expectMessage(is("Number of elements (3) and tokens (1) doesn't match."));
     PrString.simpleFormat("{}", "Test", "Test 2", "Test 3");
   }
 
