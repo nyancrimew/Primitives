@@ -141,7 +141,7 @@ You can check if a `short` array contains a certain value like this:
 
 ```java
 short[] sa = new short[] { 1, 2, 3 };
-boolean contains = PrShort.contains(sa, PrShort.from(2));
+boolean contains = PrShortArray.contains(sa, PrShort.from(2));
 ```
 
 The same pattern can be applied to all the other types.
@@ -152,7 +152,7 @@ To get only the unique values in a `long` array, you can use the following code 
 
 ```java
 long[] la = new long[] { 5, 3, 4, 5, 4, 5 };
-long[] uniques = PrLong.distinct(la);
+long[] uniques = PrLongArray.distinct(la);
 ```
 
 The above snippet would result in an array containing `{ 5, 3, 4 }`.
