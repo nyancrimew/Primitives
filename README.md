@@ -68,6 +68,7 @@
 * `PrInt`
 * `PrLong`
 * `PrShort`
+* `PrString`
 
 #### Package `ch.deletescape.primitives.arrays`
 
