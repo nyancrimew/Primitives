@@ -55,6 +55,12 @@
 * [Array Joining](#array-joining)
 * [Array Contains](#array-contains)
 * [Array Distinct](#array-distinct)
+* [Array Sequence Searching](#array-sequence-searching)
+* [Array Sequence Counting](#array-sequence-counting)
+* [Array Inserting](#array-inserting)
+* [Array Appending](#array-appending)
+* [String Reversing](#string-reversing)
+* [String Formatting](#string-formatting)
 
 ### Available Classes
 
@@ -150,6 +156,66 @@ long[] uniques = PrLong.distinct(la);
 ```
 
 The above snippet would result in an array containing `{ 5, 3, 4 }`.
+
+### Array Sequence Searching
+
+If you want to find the first occurrence of `1` followed by `2` inside an `int` array you can just use this snippet:
+
+```java
+int[] ia = new int[] { 5, 3, 1, 2, 4, 5, 4, 5 };
+int index = PrIntArray.findSequence(ia, 1, 2);
+```
+
+### Array Sequence Counting
+
+Finding out how often `1` followed by `2` occurs inside a `short` array is really simple.
+
+```java
+short[] sa = new short[] { 5, 3, 1, 2, 4, 1, 2, 4, 5 };
+int count = PrShortArray.countSequence(sa, (short) 1, (short) 2);
+```
+
+### Array Inserting
+
+To insert a `char` array into another the following code is used.
+
+```java
+char[] ca1 = new char[] { 'a', 'd' };
+char[] ca2 = new char[] { 'b', 'c' };
+char[] abcd = PrCharArray.insert(ca1, ca2, 1);
+```
+
+### Array Appending
+
+Appending values to the end of a `long` array has never been easier!
+
+```java
+long[] la = new long[] { 1, 2, 3 };
+long[] longer = PrLongArray.append(la, 4, 5);
+```
+
+### String Reversing
+
+`PrString` allows you to reverse strings without a big impact on memory usage.
+
+```java
+String s = "Hello!";
+String reverse = PrString.reverse(s);
+```
+
+The snippet above would result in `"!elloH"`.
+
+### String Formatting
+
+A simple way to format strings without a big memory impact or complicated syntax is `PrString.simpleFormat`.
+
+```java
+String world = "World";
+char sign = '!';
+String greeting = PrString.simpleFormat("Hello {}{}", world, sign);
+```
+
+This would obviously result in `"Hello World!"`.
 
 ## License
 
