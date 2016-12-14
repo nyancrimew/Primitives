@@ -45,4 +45,11 @@ public class PrStringTest {
     PrString.simpleFormat("{}", "Test", "Test 2", "Test 3");
   }
 
+  @Test
+  public void repeat() {
+    assertThat(PrString.repeat(5, ' '), is("     "));
+    assertThat(PrString.repeat(5, 'a', ' '), is("a a a a a "));
+    assertThat(PrString.repeat(3, "tst"), is("tsttsttst"));
+    assertThat(PrString.repeat(2, ""), is(""));
+  }
 }

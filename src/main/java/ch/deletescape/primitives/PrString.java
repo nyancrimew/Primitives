@@ -92,4 +92,40 @@ public final class PrString {
     return new String(str);
   }
 
+  /**
+   * Repeats the String {@code str} {@code times} number of times. A value of {@code 2} for
+   * {@code times} and {@code "tst"} for {@code str} would thus result in {@code "tsttst"}
+   * 
+   * @param times
+   *          the number of times to repeat the supplied string
+   * @param str
+   *          the string to repeat
+   * @return a string consisting of {@code str} repeated {@code times} times
+   * @see #repeat(int, char...)
+   */
+  public static String repeat(int times, String str) {
+    return repeat(times, str.toCharArray());
+  }
+
+  /**
+   * Repeats the characters {@code chars} {@code times} number of times. A value of {@code 2} for
+   * {@code times} and {@code 'a',' ','b'} for {@code chars} would thus result in {@code "a ba b"}
+   * 
+   * @param times
+   *          the number of times to repeat the supplied chars
+   * @param chars
+   *          the chars to repeat
+   * @return a string consisting of {@code chars} repeated {@code times} times
+   */
+  public static String repeat(int times, char... chars) {
+    int len = chars.length;
+    int resLen = times * len;
+    char[] res = new char[resLen];
+    for (int i = 0; i < resLen; i += len) {
+      for (int j = 0; j < len; j++) {
+        res[i + j] = chars[j];
+      }
+    }
+    return new String(res);
+  }
 }
