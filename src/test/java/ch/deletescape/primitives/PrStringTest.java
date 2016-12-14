@@ -28,6 +28,7 @@ public class PrStringTest {
     assertThat(PrString.simpleFormat("No elements supplied", null), is("No elements supplied"));
     assertThat(PrString.simpleFormat("{} {}", "Test", null), is("Test null"));
     assertThat(PrString.simpleFormat("{} {}", "{}", "Test"), is("{} Test"));
+    assertThat(PrString.simpleFormat("{}", 1), is("1"));
   }
 
   @Test
