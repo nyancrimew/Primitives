@@ -76,6 +76,16 @@ public class PrByteArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrByteArray.countSequence(2, new byte[] { 1, 2, 1, 3 }, (byte) 2, (byte) 1), is(0));
+    assertThat(PrByteArray.countSequence(1, new byte[] { 1, 2, 1, 3 }, (byte) 1), is(1));
+
+    assertThat(PrByteArray.countSequence(new byte[] { 1, 2, 1, 3 }, (byte) 2, (byte) 1), is(1));
+    assertThat(PrByteArray.countSequence(new byte[] { 1, 2, 1, 3 }, (byte) 1), is(2));
+    assertThat(PrByteArray.countSequence(new byte[] { 1, 2, 1, 3 }, (byte) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrByteArray.insert(new byte[] { 1, 2, 3, 4 }, new byte[] { 10, 11 }, 2),
         is(new byte[] { 1, 2, 10, 11, 3, 4 }));

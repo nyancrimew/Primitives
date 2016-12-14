@@ -79,6 +79,16 @@ public class PrFloatArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrFloatArray.countSequence(2, new float[] { 1, 2, 1, 3 }, 2, 1), is(0));
+    assertThat(PrFloatArray.countSequence(1, new float[] { 1, 2, 1, 3 }, (float) 1), is(1));
+
+    assertThat(PrFloatArray.countSequence(new float[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrFloatArray.countSequence(new float[] { 1, 2, 1, 3 }, (float) 1), is(2));
+    assertThat(PrFloatArray.countSequence(new float[] { 1, 2, 1, 3 }, (float) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrFloatArray.insert(new float[] { 1, 2, 3, 4 }, new float[] { 10, 11 }, 2),
         is(new float[] { 1, 2, 10, 11, 3, 4 }));

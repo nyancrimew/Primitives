@@ -256,6 +256,45 @@ public final class PrDoubleArray {
   }
 
   /**
+   * Counts the number of times {@code sequence} can be found inside {@code array}
+   * 
+   * @param array
+   *          the array to search
+   * @param sequence
+   *          the sequence to search for
+   * @return the number of occurrences of {@code sequence} inside {@code array}
+   * @see #findSequence(double[], double...)
+   */
+  public static int countSequence(double[] array, double... sequence) {
+    return countSequence(0, array, sequence);
+  }
+
+  /**
+   * Counts the number of times {@code sequence} can be found inside {@code array}, starting from
+   * {@code from index}
+   * 
+   * @param fromIndex
+   *          the index from where to start searching
+   * @param array
+   *          the array to search
+   * @param sequence
+   *          the sequence to search for
+   * @return the number of occurrences of {@code sequence} inside {@code array}
+   * @see #findSequence(int, double[], double...)
+   */
+  public static int countSequence(int fromIndex, double[] array, double... sequence) {
+    int count = 0;
+    int idx = fromIndex;
+    final int len = sequence.length;
+    final int maxIdx = array.length - 1;
+    while (idx < maxIdx && (idx = findSequence(idx, array, sequence)) != -1) {
+      count++;
+      idx += len;
+    }
+    return count;
+  }
+
+  /**
    * Insert an array into another one starting at the specified {@code index}
    * 
    * @param array

@@ -265,6 +265,7 @@ public final class PrCharArray {
    * @param sequence
    *          the sequence to search for
    * @return the number of occurrences of {@code sequence} inside {@code array}
+   * @see #findSequence(char[], char...)
    */
   public static int countSequence(char[] array, char... sequence) {
     return countSequence(0, array, sequence);
@@ -281,6 +282,7 @@ public final class PrCharArray {
    * @param sequence
    *          the sequence to search for
    * @return the number of occurrences of {@code sequence} inside {@code array}
+   * @see #findSequence(int, char[], char...)
    */
   public static int countSequence(int fromIndex, char[] array, char... sequence) {
     int count = 0;

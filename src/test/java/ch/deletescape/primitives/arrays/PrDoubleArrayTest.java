@@ -78,6 +78,16 @@ public class PrDoubleArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrDoubleArray.countSequence(2, new double[] { 1, 2, 1, 3 }, 2, 1), is(0));
+    assertThat(PrDoubleArray.countSequence(1, new double[] { 1, 2, 1, 3 }, (double) 1), is(1));
+
+    assertThat(PrDoubleArray.countSequence(new double[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrDoubleArray.countSequence(new double[] { 1, 2, 1, 3 }, (double) 1), is(2));
+    assertThat(PrDoubleArray.countSequence(new double[] { 1, 2, 1, 3 }, (double) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrDoubleArray.insert(new double[] { 1, 2, 3, 4 }, new double[] { 10, 11 }, 2),
         is(new double[] { 1, 2, 10, 11, 3, 4 }));

@@ -76,6 +76,16 @@ public class PrIntArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrIntArray.countSequence(2, new int[] { 1, 2, 1, 3 }, 2, 1), is(0));
+    assertThat(PrIntArray.countSequence(1, new int[] { 1, 2, 1, 3 }, 1), is(1));
+
+    assertThat(PrIntArray.countSequence(new int[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrIntArray.countSequence(new int[] { 1, 2, 1, 3 }, 1), is(2));
+    assertThat(PrIntArray.countSequence(new int[] { 1, 2, 1, 3 }, 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrIntArray.insert(new int[] { 1, 2, 3, 4 }, new int[] { 10, 11 }, 2),
         is(new int[] { 1, 2, 10, 11, 3, 4 }));

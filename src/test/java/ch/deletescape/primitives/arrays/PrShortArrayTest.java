@@ -76,6 +76,16 @@ public class PrShortArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrShortArray.countSequence(2, new short[] { 1, 2, 1, 3 }, (short) 2, (short) 1), is(0));
+    assertThat(PrShortArray.countSequence(1, new short[] { 1, 2, 1, 3 }, (short) 1), is(1));
+
+    assertThat(PrShortArray.countSequence(new short[] { 1, 2, 1, 3 }, (short) 2, (short) 1), is(1));
+    assertThat(PrShortArray.countSequence(new short[] { 1, 2, 1, 3 }, (short) 1), is(2));
+    assertThat(PrShortArray.countSequence(new short[] { 1, 2, 1, 3 }, (short) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrShortArray.insert(new short[] { 1, 2, 3, 4 }, new short[] { 10, 11 }, 2),
         is(new short[] { 1, 2, 10, 11, 3, 4 }));

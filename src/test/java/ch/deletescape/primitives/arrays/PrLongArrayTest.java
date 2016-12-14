@@ -79,6 +79,16 @@ public class PrLongArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrLongArray.countSequence(2, new long[] { 1, 2, 1, 3 }, 2, 1), is(0));
+    assertThat(PrLongArray.countSequence(1, new long[] { 1, 2, 1, 3 }, (long) 1), is(1));
+
+    assertThat(PrLongArray.countSequence(new long[] { 1, 2, 1, 3 }, 2, 1), is(1));
+    assertThat(PrLongArray.countSequence(new long[] { 1, 2, 1, 3 }, (long) 1), is(2));
+    assertThat(PrLongArray.countSequence(new long[] { 1, 2, 1, 3 }, (long) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrLongArray.insert(new long[] { 1, 2, 3, 4 }, new long[] { 10, 11 }, 2),
         is(new long[] { 1, 2, 10, 11, 3, 4 }));

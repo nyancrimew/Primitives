@@ -78,6 +78,16 @@ public class PrBoolArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrBoolArray.countSequence(2, new boolean[] { true, false, true, false }, false, true), is(0));
+    assertThat(PrBoolArray.countSequence(1, new boolean[] { true, false, true, false }, true), is(1));
+
+    assertThat(PrBoolArray.countSequence(new boolean[] { true, false, true, false }, false, true), is(1));
+    assertThat(PrBoolArray.countSequence(new boolean[] { true, false, true, false }, false), is(2));
+    assertThat(PrBoolArray.countSequence(new boolean[] { true, true, true, true }, false), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrBoolArray.insert(new boolean[] { true, false, true, true }, new boolean[] { true, false }, 2),
         is(new boolean[] { true, false, true, false, true, true }));
