@@ -116,6 +116,12 @@
 <li><a href="#array-joining">Array Joining</a></li>
 <li><a href="#array-contains">Array Contains</a></li>
 <li><a href="#array-distinct">Array Distinct</a></li>
+<li><a href="#array-sequence-searching">Array Sequence Searching</a></li>
+<li><a href="#array-sequence-counting">Array Sequence Counting</a></li>
+<li><a href="#array-inserting">Array Inserting</a></li>
+<li><a href="#array-appending">Array Appending</a></li>
+<li><a href="#array-reversing">Array Reversing</a></li>
+<li><a href="#array-formatting">Array Formatting</a></li>
 </ul>
 
 <h3>
@@ -196,25 +202,71 @@
 <div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
 <span class="pl-smi">String</span> str <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>; <span class="pl-pds">"</span></span>, ia);</pre></div>
 
-<h3>
-<a id="array-contains" class="anchor" href="#array-contains" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Contains</h3>
+<h3><a id="array-contains" class="anchor" href="#array-contains" aria-hidden="true"></a>Array Contains</h3>
 
 <p>You can check if a <code>short</code> array contains a certain value like this:</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
-<span class="pl-k">boolean</span> contains <span class="pl-k">=</span> <span class="pl-smi">PrShort</span><span class="pl-k">.</span>contains(sa, <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(<span class="pl-c1">2</span>));</pre></div>
+<span class="pl-k">boolean</span> contains <span class="pl-k">=</span> <span class="pl-smi">PrShortArray</span><span class="pl-k">.</span>contains(sa, <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(<span class="pl-c1">2</span>));</pre></div>
 
 <p>The same pattern can be applied to all the other types.</p>
 
-<h3>
-<a id="array-distinct" class="anchor" href="#array-distinct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Distinct</h3>
+<h3><a id="array-distinct" class="anchor" href="#array-distinct" aria-hidden="true"></a>Array Distinct</h3>
 
 <p>To get only the unique values in a <code>long</code> array, you can use the following code which also applies to all other types.</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
-<span class="pl-k">long</span>[] uniques <span class="pl-k">=</span> <span class="pl-smi">PrLong</span><span class="pl-k">.</span>distinct(la);</pre></div>
+<span class="pl-k">long</span>[] uniques <span class="pl-k">=</span> <span class="pl-smi">PrLongArray</span><span class="pl-k">.</span>distinct(la);</pre></div>
 
 <p>The above snippet would result in an array containing <code>{ 5, 3, 4 }</code>.</p>
+
+<h3><a id="array-sequence-searching" class="anchor" href="#array-sequence-searching" aria-hidden="true"></a>Array Sequence Searching</h3>
+
+<p>If you want to find the first occurrence of <code>1</code> followed by <code>2</code> inside an <code>int</code> array you can just use this snippet:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">int</span> index <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>findSequence(ia, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>);</pre></div>
+
+<h3><a id="array-sequence-counting" class="anchor" href="#array-sequence-counting" aria-hidden="true"></a>Array Sequence Counting</h3>
+
+<p>Finding out how often <code>1</code> followed by <code>2</code> occurs inside a <code>short</code> array is really simple.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">int</span> count <span class="pl-k">=</span> <span class="pl-smi">PrShortArray</span><span class="pl-k">.</span>countSequence(sa, (<span class="pl-k">short</span>) <span class="pl-c1">1</span>, (<span class="pl-k">short</span>) <span class="pl-c1">2</span>);</pre></div>
+
+<h3><a id="array-inserting" class="anchor" href="#array-inserting" aria-hidden="true"></a>Array Inserting</h3>
+
+<p>To insert a <code>char</code> array into another the following code is used.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">char</span>[] ca1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span> };
+<span class="pl-k">char</span>[] ca2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span> };
+<span class="pl-k">char</span>[] abcd <span class="pl-k">=</span> <span class="pl-smi">PrCharArray</span><span class="pl-k">.</span>insert(ca1, ca2, <span class="pl-c1">1</span>);</pre></div>
+
+<h3><a id="array-appending" class="anchor" href="#array-appending" aria-hidden="true"></a>Array Appending</h3>
+
+<p>Appending values to the end of a <code>long</code> array has never been easier!</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">long</span>[] longer <span class="pl-k">=</span> <span class="pl-smi">PrLongArray</span><span class="pl-k">.</span>append(la, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>);</pre></div>
+
+<h3><a id="string-reversing" class="anchor" href="#string-reversing" aria-hidden="true"></a>String Reversing</h3>
+
+<p><code>PrString</code> allows you to reverse strings without a big impact on memory usage.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> s <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-pds">"</span></span>;
+<span class="pl-smi">String</span> reverse <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>reverse(s);</pre></div>
+
+<p>The snippet above would result in <code>"!elloH"</code>.</p>
+
+<h3><a id="string-formatting" class="anchor" href="#string-formatting" aria-hidden="true"></a>String Formatting</h3>
+
+<p>A simple way to format strings without a big memory impact or complicated syntax is <code>PrString.simpleFormat</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> world <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>World<span class="pl-pds">"</span></span>;
+<span class="pl-k">char</span> sign <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>!<span class="pl-pds">'</span></span>;
+<span class="pl-smi">String</span> greeting <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>simpleFormat(<span class="pl-s"><span class="pl-pds">"</span>Hello {}{}<span class="pl-pds">"</span></span>, world, sign);</pre></div>
+
+<p>This would obviously result in <code>"Hello World!"</code>.</p>
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
