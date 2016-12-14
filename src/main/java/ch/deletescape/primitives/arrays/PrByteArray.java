@@ -286,7 +286,7 @@ public final class PrByteArray {
    * @param sequence
    *          the sequence to search for
    * @return the number of occurrences of {@code sequence} inside {@code array}
-   * @see #findSequence(int, byte[], char...)
+   * @see #findSequence(int, byte[], byte...)
    */
   public static int countSequence(int fromIndex, byte[] array, byte... sequence) {
     int count = 0;
