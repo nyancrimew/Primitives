@@ -286,7 +286,8 @@ public final class PrCharArray {
     int count = 0;
     int idx = fromIndex;
     final int len = sequence.length;
-    while ((idx = findSequence(idx, array, sequence)) != -1) {
+    final int maxIdx = array.length - 1;
+    while (idx < maxIdx && (idx = findSequence(idx, array, sequence)) != -1) {
       count++;
       idx += len;
     }
