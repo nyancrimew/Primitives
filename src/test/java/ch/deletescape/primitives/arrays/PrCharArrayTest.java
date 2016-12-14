@@ -77,6 +77,16 @@ public class PrCharArrayTest {
   }
 
   @Test
+  public void countSequence() {
+    assertThat(PrCharArray.countSequence(2, new char[] { 1, 2, 1, 3 }, (char) 2, (char) 1), is(0));
+    assertThat(PrCharArray.countSequence(1, new char[] { 1, 2, 1, 3 }, (char) 1), is(1));
+
+    assertThat(PrCharArray.countSequence(new char[] { 1, 2, 1, 3 }, (char) 2, (char) 1), is(1));
+    assertThat(PrCharArray.countSequence(new char[] { 1, 2, 1, 3 }, (char) 1), is(2));
+    assertThat(PrCharArray.countSequence(new char[] { 1, 2, 1, 3 }, (char) 4), is(0));
+  }
+
+  @Test
   public void insert() {
     assertThat(PrCharArray.insert(new char[] { 'a', 'b', 'c', 'd' }, new char[] { 'x', 'y' }, 2),
         is(new char[] { 'a', 'b', 'x', 'y', 'c', 'd' }));
