@@ -61,10 +61,10 @@ public final class PrString {
     // --- Preparation and validation: ---
     int elementCount = elements == null ? 0 : elements.length;
     int tokenCount = PrCharArray.countSequence(str, FORMAT_TOKEN);
-    if (elementCount > tokenCount || elementCount < tokenCount) {
+    if (elementCount != tokenCount) {
       throw new SimpleFormatException(simpleFormat(ELEMENT_COUNT_MISSMATCH_ERROR, elementCount, tokenCount));
     }
-    if (elementCount == 0 && tokenCount == 0) {
+    if (elementCount == 0) { // tokenCount is 0 too in this case
       return format;
     }
     // --- The formatting algorithm itself starts here: ---
