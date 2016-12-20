@@ -211,9 +211,8 @@ public final class PrBoolArray {
     boolean first = array[0];
     if (contains(array, !first)) {
       return new boolean[] { first, !first };
-    } else {
-      return new boolean[] { first };
     }
+    return new boolean[] { first };
   }
 
   /**
