@@ -1,7 +1,6 @@
 package ch.deletescape.primitives.arrays;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
@@ -14,18 +13,22 @@ import org.junit.Test;
  * 
  * @author deletescape
  */
-public class PrivateConstTest {
+public class ClassFormatTest {
 
   @Test
   public void test() throws Exception {
     Class<?>[] classes = new Class[] { PrBoolArray.class, PrByteArray.class, PrCharArray.class, PrDoubleArray.class,
         PrFloatArray.class, PrIntArray.class, PrLongArray.class, PrShortArray.class };
     for (Class<?> clazz : classes) {
-      Constructor<?> constructor = clazz.getDeclaredConstructor();
 
+      // Class should be final
+      int classModifiers = clazz.getModifiers();
+      assertTrue(clazz.getName() + " is not final!", Modifier.isFinal(classModifiers));
+
+      Constructor<?> constructor = clazz.getDeclaredConstructor();
       // Constructor should be private
       int modifiers = constructor.getModifiers();
-      assertThat(Modifier.isPrivate(modifiers), is(true));
+      assertTrue("Default constructor in " + clazz.getName() + " is not private!", Modifier.isPrivate(modifiers));
 
       constructor.setAccessible(true);
       constructor.newInstance();
