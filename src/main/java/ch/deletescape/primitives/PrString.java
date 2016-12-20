@@ -9,9 +9,9 @@ import ch.deletescape.primitives.arrays.PrCharArray;
  */
 public final class PrString {
   private static final String ELEMENT_COUNT_MISSMATCH_ERROR = "Number of elements ({}) and tokens ({}) doesn't match.";
-  private static final char[] FORMAT_TOKEN = new char[] { '{', '}' };
+  private static final char[] FORMAT_TOKEN = { '{', '}' };
   private static final int TOKEN_LENGTH = FORMAT_TOKEN.length;
-  private static final char[] FORMAT_NULL_REPLACEMENT = new char[] { 'n', 'u', 'l', 'l' };
+  private static final char[] FORMAT_NULL_REPLACEMENT = { 'n', 'u', 'l', 'l' };
 
   /**
    * Private Constructor to prevent initialization
