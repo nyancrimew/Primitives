@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 import org.junit.Test;
 
@@ -23,7 +24,8 @@ public class PrivateConstTest {
       Constructor<?> constructor = clazz.getDeclaredConstructor();
 
       // Constructor should be private
-      assertThat(constructor.isAccessible(), is(false));
+      int modifiers = constructor.getModifiers();
+      assertThat(Modifier.isPrivate(modifiers), is(true));
 
       constructor.setAccessible(true);
       constructor.newInstance();
