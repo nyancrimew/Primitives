@@ -3,7 +3,6 @@ package ch.deletescape.primitives;
 import java.util.Random;
 
 public final class PrFloat {
-  private static Random random;
 
   /**
    * Private Constructor to prevent initialization
@@ -97,10 +96,7 @@ public final class PrFloat {
    * @see Random
    */
   public static float random() {
-    if (random == null) {
-      random = new Random();
-    }
-    return random.nextFloat();
+    return RandomGeneratorHolder.random.nextFloat();
   }
 
   /**

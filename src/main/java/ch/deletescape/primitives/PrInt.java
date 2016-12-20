@@ -3,7 +3,6 @@ package ch.deletescape.primitives;
 import java.util.Random;
 
 public final class PrInt {
-  private static Random random;
 
   /**
    * Private Constructor to prevent initialization
@@ -96,9 +95,6 @@ public final class PrInt {
    * @see Random
    */
   public static int random() {
-    if (random == null) {
-      random = new Random();
-    }
-    return random.nextInt();
+    return RandomGeneratorHolder.random.nextInt();
   }
 }

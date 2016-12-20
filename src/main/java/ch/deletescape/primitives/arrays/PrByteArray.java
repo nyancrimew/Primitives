@@ -5,7 +5,6 @@ import java.util.Random;
 import ch.deletescape.primitives.PrByte;
 
 public final class PrByteArray {
-  private static Random random;
 
   /**
    * Private Constructor to prevent initialization
@@ -135,11 +134,10 @@ public final class PrByteArray {
    * @see Random
    */
   public static byte[] random(int size) {
-    if (random == null) {
-      random = new Random();
-    }
     byte[] tmp = new byte[size];
-    random.nextBytes(tmp);
+    for (int i = 0; i < size; i++) {
+      tmp[i] = PrByte.random();
+    }
     return tmp;
   }
 

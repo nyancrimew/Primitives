@@ -18,7 +18,7 @@ public class PrivateConstTest {
   @Test
   public void test() throws Exception {
     Class<?>[] classes = new Class[] { PrBool.class, PrByte.class, PrChar.class, PrDouble.class, PrFloat.class,
-        PrInt.class, PrLong.class, PrShort.class, PrString.class };
+        PrInt.class, PrLong.class, PrShort.class, PrString.class, RandomGeneratorHolder.class };
     for (Class<?> clazz : classes) {
       Constructor<?> constructor = clazz.getDeclaredConstructor();
 
