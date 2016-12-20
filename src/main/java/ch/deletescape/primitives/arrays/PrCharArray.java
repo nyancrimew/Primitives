@@ -245,8 +245,8 @@ public final class PrCharArray {
    *         sequence isn't found
    */
   public static int findSequence(int fromIndex, char[] array, char... sequence) {
-    final int seqLen = sequence.length;
-    final int maxIdx = array.length - seqLen;
+    int seqLen = sequence.length;
+    int maxIdx = array.length - seqLen;
     for (int i = Math.min(fromIndex, maxIdx); i <= maxIdx; i++) {
       for (int j = 0; array[i + j] == sequence[j]; j++) {
         if (j == seqLen - 1) {
@@ -287,8 +287,8 @@ public final class PrCharArray {
   public static int countSequence(int fromIndex, char[] array, char... sequence) {
     int count = 0;
     int idx = fromIndex;
-    final int len = sequence.length;
-    final int maxIdx = array.length - 1;
+    int len = sequence.length;
+    int maxIdx = array.length - 1;
     while (idx < maxIdx && (idx = findSequence(idx, array, sequence)) != -1) {
       count++;
       idx += len;

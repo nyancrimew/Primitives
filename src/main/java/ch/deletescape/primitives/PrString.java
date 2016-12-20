@@ -31,7 +31,7 @@ public final class PrString {
       return str;
     }
     char[] ca = str.toCharArray();
-    final int maxIdx = ca.length - 1;
+    int maxIdx = ca.length - 1;
     for (int i = 0; i <= maxIdx / 2; i++) {
       char c = ca[i];
       ca[i] = ca[maxIdx - i];

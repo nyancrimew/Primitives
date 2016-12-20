@@ -244,8 +244,8 @@ public final class PrShortArray {
    *         sequence isn't found
    */
   public static int findSequence(int fromIndex, short[] array, short... sequence) {
-    final int seqLen = sequence.length;
-    final int maxIdx = array.length - seqLen;
+    int seqLen = sequence.length;
+    int maxIdx = array.length - seqLen;
     for (int i = Math.min(fromIndex, maxIdx); i <= maxIdx; i++) {
       for (int j = 0; array[i + j] == sequence[j]; j++) {
         if (j == seqLen - 1) {
@@ -286,8 +286,8 @@ public final class PrShortArray {
   public static int countSequence(int fromIndex, short[] array, short... sequence) {
     int count = 0;
     int idx = fromIndex;
-    final int len = sequence.length;
-    final int maxIdx = array.length - 1;
+    int len = sequence.length;
+    int maxIdx = array.length - 1;
     while (idx < maxIdx && (idx = findSequence(idx, array, sequence)) != -1) {
       count++;
       idx += len;
