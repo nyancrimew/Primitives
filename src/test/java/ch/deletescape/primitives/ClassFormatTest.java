@@ -3,16 +3,11 @@ package ch.deletescape.primitives;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import org.junit.Test;
 
-/**
- * "Pseudo test" to get coverage for private empty constructors.
- * Yes, I don't like this. Yes it is ugly, but it makes the coverage reports a lot more readable
- * 
- * @author deletescape
- */
 public class ClassFormatTest {
 
   @Test
@@ -27,9 +22,17 @@ public class ClassFormatTest {
 
       Constructor<?> constructor = clazz.getDeclaredConstructor();
       // Constructor should be private
-      int modifiers = constructor.getModifiers();
-      assertTrue("Default constructor in " + clazz.getName() + " is not private!", Modifier.isPrivate(modifiers));
+      int constructorModifiers = constructor.getModifiers();
+      assertTrue("Default constructor in " + clazz.getName() + " is not private!",
+          Modifier.isPrivate(constructorModifiers));
 
+      for (Method method : clazz.getDeclaredMethods()) {
+        // Methods should be static
+        int methodModifiers = method.getModifiers();
+        assertTrue(method.toGenericString() + " is not static!", Modifier.isStatic(methodModifiers));
+      }
+
+      // Get coverage on the private constructor
       constructor.setAccessible(true);
       constructor.newInstance();
     }
