@@ -217,6 +217,8 @@ String greeting = PrString.simpleFormat("Hello {}{}", world, sign);
 
 This would obviously result in `"Hello World!"`.
 
+> `simpleFormat` is approximately 5 times faster than `String.format` (which to be fair also has a lot more features).
+
 ## License
 
 MIT License
