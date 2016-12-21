@@ -1,0 +1,9 @@
+-dontshrink
+-renamesourcefileattribute Source
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod 
+-keep, allowoptimization public final class *
+-keepnames class ** extends **Exception
+-keepclassmembernames public final class * {
+	public *;
+}
+-optimizations code/merging,code/simplification/variable,code/simplification/arithmetic,code/simplification/cast,code/allocation/variable,code/simplification/string

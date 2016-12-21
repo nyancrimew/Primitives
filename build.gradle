@@ -1,3 +1,5 @@
+import proguard.gradle.ProGuardTask
+
 apply plugin: 'java'
 apply plugin:"jacoco"
 repositories {
@@ -29,3 +31,24 @@ jacocoTestReport {
     }
 }
 check.dependsOn jacocoTestReport
+
+build.dependsOn proguard
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+ 
+    dependencies {
+        classpath 'net.sf.proguard:proguard-gradle:5.3.2'
+    }
+}
+
+task proguard(type: ProGuardTask, dependsOn: 'jar') {
+    configuration 'proguard.txt'
+ 
+    injars jar.archivePath
+    outjars "$buildDir/libs/${archivesBaseName}-proguard.jar"
+    
+    libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
+}

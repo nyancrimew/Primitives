@@ -11,7 +11,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 install: echo "skip './gradlew assemble' step"
-script: ./gradlew build --continue --no-daemon 
+script: ./gradlew build --continue --no-daemon && mv -f build/libs/Primitives-proguard.jar build/libs/Primitives.jar 
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
