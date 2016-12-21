@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Primitives</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="../">Primitives <small>v0.2.2-beta</small></a></h1>
+        <p>Everything you&#39;ll ever need to work with Java primitive types!</p>
+
+        <p class="view"><a href="https://github.com/Deletescape-Media/Primitives">View the Project on GitHub <small>Deletescape-Media/Primitives</small></a></p>
+
+		<div class="nav">
+	        <ul>
+	          <li><a href="https://github.com/Deletescape-Media/Primitives/releases/tag/v0.2.2">Download <strong>v0.2.2-beta</strong></a></li>
+	          <li><a href="https://github.com/Deletescape-Media/Primitives/tree/v0.2.2">View On <strong>GitHub</strong></a></li>
+	        </ul>
+	        <ul>
+	          <li><a href="#quick-start">Read <strong>Quick Start</strong></a></li>
+	          <li><a href="#usage">Read <strong>Usage Manual</strong></a></li>
+	        </ul>
+        </div>
+        <p class="license"><a href="#license"><strong>Read the LICENSE </strong><small>MIT</small></a></p>
+      </header>
+      <section>
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+      
+<ul>
+<li>
+<p>Dreaming of a simple way to convert <code>byte[]</code> to <code>int[]</code>?</p>
+
+<p><strong>How about that:</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">int</span>[] example <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>from(<span class="pl-k">new</span> <span class="pl-smi">byte</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> });</pre></div>
+
+<ul>
+<li>
+<p>You need to concatenate two <code>char</code> arrays?</p>
+
+<p><strong>Nothing easier than that!</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">char</span>[] pt1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>h<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span> };
+    <span class="pl-k">char</span>[] pt2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>l<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span> };
+    <span class="pl-k">char</span>[] result <span class="pl-k">=</span> <span class="pl-smi">PrCharArray</span><span class="pl-k">.</span>concatAll(pt1, pt2);</pre></div>
+
+<ul>
+<li>
+<p><code>String.join()</code> doesn't work for your <code>int</code> array?</p>
+
+<p><strong>It might not, but the following code sure does!</strong></p>
+</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">int</span>[] input <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">3</span>, <span class="pl-c1">2</span>, <span class="pl-c1">1</span> };
+    <span class="pl-smi">String</span> result <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>;<span class="pl-pds">"</span></span>, input);</pre></div>
+
+<blockquote>
+<p><strong>Primitives is everything you'll ever need to work with primitive types!</strong></p>
+</blockquote>
+
+<h2>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Start</h2>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+
+<ol>
+<li>Download the binary jar file from the <a href="https://github.com/Deletescape-Media/Primitives/releases/latest">latest release on GitHub</a>
+</li>
+<li>Additionally download the source and/or javadoc jar if needed</li>
+<li>Add the binary jar to your projects classpath</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>
+<a href="#available-classes">Available Classes</a>
+
+<ul>
+<li><a href="#package-chdeletescapeprimitives">Package <code>ch.deletescape.primitives</code></a></li>
+<li><a href="#package-chdeletescapeprimitives-arrays">Package <code>ch.deletescape.primitives.arrays</code></a></li>
+</ul>
+</li>
+<li>
+<a href="#conversions">Conversions</a>
+
+<ul>
+<li><a href="#boolean-conversions"><code>boolean</code> Conversions</a></li>
+</ul>
+</li>
+<li>
+<a href="#random">Random</a>
+
+<ul>
+<li><a href="#random-arrays">Random Arrays</a></li>
+</ul>
+</li>
+<li><a href="#array-concatenation">Array Concatenation</a></li>
+<li><a href="#array-joining">Array Joining</a></li>
+<li><a href="#array-contains">Array Contains</a></li>
+<li><a href="#array-distinct">Array Distinct</a></li>
+<li><a href="#array-sequence-searching">Array Sequence Searching</a></li>
+<li><a href="#array-sequence-counting">Array Sequence Counting</a></li>
+<li><a href="#array-inserting">Array Inserting</a></li>
+<li><a href="#array-appending">Array Appending</a></li>
+<li><a href="#array-reversing">Array Reversing</a></li>
+<li><a href="#array-formatting">Array Formatting</a></li>
+</ul>
+
+<h3>
+<a id="available-classes" class="anchor" href="#available-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available Classes</h3>
+
+<h4>
+<a id="package-chdeletescapeprimitives" class="anchor" href="#package-chdeletescapeprimitives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives</code>
+</h4>
+
+<ul>
+<li><code>PrBool</code></li>
+<li><code>PrByte</code></li>
+<li><code>PrChar</code></li>
+<li><code>PrDouble</code></li>
+<li><code>PrFloat</code></li>
+<li><code>PrInt</code></li>
+<li><code>PrLong</code></li>
+<li><code>PrShort</code></li>
+<li><code>PrString</code></li>
+</ul>
+
+<h4>
+<a id="package-chdeletescapeprimitivesarrays" class="anchor" href="#package-chdeletescapeprimitivesarrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives.arrays</code>
+</h4>
+
+<ul>
+<li><code>PrBoolArray</code></li>
+<li><code>PrByteArray</code></li>
+<li><code>PrCharArray</code></li>
+<li><code>PrDoubleArray</code></li>
+<li><code>PrFloatArray</code></li>
+<li><code>PrIntArray</code></li>
+<li><code>PrLongArray</code></li>
+<li><code>PrShortArray</code></li>
+</ul>
+
+<h3>
+<a id="conversions" class="anchor" href="#conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conversions</h3>
+
+<p>In the following example an <code>int</code> value is converted to <code>short</code> using <code>PrShort</code>, all other conversions work exactly the same way.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+<span class="pl-k">short</span> s <span class="pl-k">=</span> <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(i);</pre></div>
+
+<h4>
+<a id="boolean-conversions" class="anchor" href="#boolean-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>boolean</code> Conversions</h4>
+
+<p>Conversions from <code>boolean</code> return a value of <code>1</code> for <code>true</code> and a value of <code>0</code> for <code>false</code>. When converting to <code>boolean</code> a value of <code>1</code> returns <code>true</code>, any other value will result in <code>false</code>. The same applies to <code>boolean[]</code> conversions.</p>
+
+<h3>
+<a id="random" class="anchor" href="#random" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random</h3>
+
+<p>The next small code snipped shows how to generate a <a href="https://en.wikipedia.org/wiki/Pseudorandom">pseudorandom</a> <code>int</code> value using <code>PrInt</code>, random generation for other primitive types work the same way.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-smi">PrInt</span><span class="pl-k">.</span>random();</pre></div>
+
+<h4>
+<a id="random-arrays" class="anchor" href="#random-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random Arrays</h4>
+
+<p>The difference when generating an array of random values, for example a <code>byte</code> array, is that the size of the array needs to be specified.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">byte</span>[] ba <span class="pl-k">=</span> <span class="pl-smi">PrByteArray</span><span class="pl-k">.</span>random(<span class="pl-c1">5</span>);</pre></div>
+
+<h3>
+<a id="array-concatenation" class="anchor" href="#array-concatenation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Concatenation</h3>
+
+<p>To concate two or more <code>boolean</code> arrays using <code>PrBoolArray</code> you can refer to the following piece of code. Array concatenations of other types follow the same pattern.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">boolean</span>[] ba1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">boolean</span>[] { <span class="pl-c1">true</span>, <span class="pl-c1">false</span> };
+<span class="pl-k">boolean</span>[] ba2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">boolean</span>[] { <span class="pl-c1">false</span>, <span class="pl-c1">false</span> };
+<span class="pl-k">boolean</span>[] merge <span class="pl-k">=</span> <span class="pl-smi">PrBoolArray</span><span class="pl-k">.</span>concatAll(ba1, ba2);</pre></div>
+
+<h3>
+<a id="array-joining" class="anchor" href="#array-joining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Joining</h3>
+
+<p>The following code shows how to easily convert an <code>int</code> array to a beautiful <code>String</code>, the same way <code>String.join()</code> works for <code>CharSequence</code> items. This can also be used for arrays of all other types.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-smi">String</span> str <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>join(<span class="pl-s"><span class="pl-pds">"</span>; <span class="pl-pds">"</span></span>, ia);</pre></div>
+
+<h3><a id="array-contains" class="anchor" href="#array-contains" aria-hidden="true"></a>Array Contains</h3>
+
+<p>You can check if a <code>short</code> array contains a certain value like this:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">boolean</span> contains <span class="pl-k">=</span> <span class="pl-smi">PrShortArray</span><span class="pl-k">.</span>contains(sa, <span class="pl-smi">PrShort</span><span class="pl-k">.</span>from(<span class="pl-c1">2</span>));</pre></div>
+
+<p>The same pattern can be applied to all the other types.</p>
+
+<h3><a id="array-distinct" class="anchor" href="#array-distinct" aria-hidden="true"></a>Array Distinct</h3>
+
+<p>To get only the unique values in a <code>long</code> array, you can use the following code which also applies to all other types.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">long</span>[] uniques <span class="pl-k">=</span> <span class="pl-smi">PrLongArray</span><span class="pl-k">.</span>distinct(la);</pre></div>
+
+<p>The above snippet would result in an array containing <code>{ 5, 3, 4 }</code>.</p>
+
+<h3><a id="array-sequence-searching" class="anchor" href="#array-sequence-searching" aria-hidden="true"></a>Array Sequence Searching</h3>
+
+<p>If you want to find the first occurrence of <code>1</code> followed by <code>2</code> inside an <code>int</code> array you can just use this snippet:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">int</span>[] ia <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">int</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">int</span> index <span class="pl-k">=</span> <span class="pl-smi">PrIntArray</span><span class="pl-k">.</span>findSequence(ia, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>);</pre></div>
+
+<h3><a id="array-sequence-counting" class="anchor" href="#array-sequence-counting" aria-hidden="true"></a>Array Sequence Counting</h3>
+
+<p>Finding out how often <code>1</code> followed by <code>2</code> occurs inside a <code>short</code> array is really simple.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">5</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span> };
+<span class="pl-k">int</span> count <span class="pl-k">=</span> <span class="pl-smi">PrShortArray</span><span class="pl-k">.</span>countSequence(sa, (<span class="pl-k">short</span>) <span class="pl-c1">1</span>, (<span class="pl-k">short</span>) <span class="pl-c1">2</span>);</pre></div>
+
+<h3><a id="array-inserting" class="anchor" href="#array-inserting" aria-hidden="true"></a>Array Inserting</h3>
+
+<p>To insert a <code>char</code> array into another the following code is used.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">char</span>[] ca1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span> };
+<span class="pl-k">char</span>[] ca2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">char</span>[] { <span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span> };
+<span class="pl-k">char</span>[] abcd <span class="pl-k">=</span> <span class="pl-smi">PrCharArray</span><span class="pl-k">.</span>insert(ca1, ca2, <span class="pl-c1">1</span>);</pre></div>
+
+<h3><a id="array-appending" class="anchor" href="#array-appending" aria-hidden="true"></a>Array Appending</h3>
+
+<p>Appending values to the end of a <code>long</code> array has never been easier!</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">long</span>[] longer <span class="pl-k">=</span> <span class="pl-smi">PrLongArray</span><span class="pl-k">.</span>append(la, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>);</pre></div>
+
+<h3><a id="string-reversing" class="anchor" href="#string-reversing" aria-hidden="true"></a>String Reversing</h3>
+
+<p><code>PrString</code> allows you to reverse strings without a big impact on memory usage.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> s <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello!<span class="pl-pds">"</span></span>;
+<span class="pl-smi">String</span> reverse <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>reverse(s);</pre></div>
+
+<p>The snippet above would result in <code>"!elloH"</code>.</p>
+
+<h3><a id="string-formatting" class="anchor" href="#string-formatting" aria-hidden="true"></a>String Formatting</h3>
+
+<p>A simple way to format strings without a big memory impact or complicated syntax is <code>PrString.simpleFormat</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> world <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>World<span class="pl-pds">"</span></span>;
+<span class="pl-k">char</span> sign <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>!<span class="pl-pds">'</span></span>;
+<span class="pl-smi">String</span> greeting <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>simpleFormat(<span class="pl-s"><span class="pl-pds">"</span>Hello {}{}<span class="pl-pds">"</span></span>, world, sign);</pre></div>
+
+<p>This would obviously result in <code>"Hello World!"</code>.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT License</p>
+
+<p>Copyright (c) 2016 Deletescape Media</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Deletescape-Media">Deletescape-Media</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
