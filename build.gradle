@@ -32,8 +32,6 @@ jacocoTestReport {
 }
 check.dependsOn jacocoTestReport
 
-build.dependsOn proguard
-
 buildscript {
     repositories {
         mavenCentral()
@@ -52,3 +50,6 @@ task proguard(type: ProGuardTask, dependsOn: 'jar') {
     
     libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
 }
+
+
+build.dependsOn proguard
