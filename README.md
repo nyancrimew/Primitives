@@ -61,6 +61,7 @@
 * [Array Appending](#array-appending)
 * [String Reversing](#string-reversing)
 * [String Formatting](#string-formatting)
+* [String Repeating](#string-repeating)
 
 ### Available Classes
 
@@ -218,6 +219,17 @@ String greeting = PrString.simpleFormat("Hello {}{}", world, sign);
 This would obviously result in `"Hello World!"`.
 
 > `simpleFormat` is approximately 5 times faster than `String.format` (which to be fair also has a lot more features).
+
+### String Repeating
+
+To repeat a string multiple times simply do the following:
+
+```java
+String str = "ab";
+String letters = PrString.repeat(4, str);
+```
+
+This would result in `"abababab"` (the string `"ab"` repeated 4 times).
 
 ## License
 
