@@ -122,6 +122,7 @@
 <li><a href="#array-appending">Array Appending</a></li>
 <li><a href="#array-reversing">Array Reversing</a></li>
 <li><a href="#array-formatting">Array Formatting</a></li>
+<li><a href="#string-repeating">String Repeating</a></li>
 </ul>
 
 <h3>
@@ -267,6 +268,15 @@
 <span class="pl-smi">String</span> greeting <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>simpleFormat(<span class="pl-s"><span class="pl-pds">"</span>Hello {}{}<span class="pl-pds">"</span></span>, world, sign);</pre></div>
 
 <p>This would obviously result in <code>"Hello World!"</code>.</p>
+<h3><a id="string-repeating" class="anchor" href="#string-repeating" aria-hidden="true"></a>String Repeating</h3>
+
+<p>To repeat a string multiple times simply do the following:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">String</span> str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ab<span class="pl-pds">"</span></span>;
+<span class="pl-smi">String</span> letters <span class="pl-k">=</span> <span class="pl-smi">PrString</span><span class="pl-k">.</span>repeat(<span class="pl-c1">4</span>, str);</pre></div>
+
+<p>This would result in <code>"abababab"</code> (the string <code>"ab"</code> repeated 4 times).</p>
+
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
