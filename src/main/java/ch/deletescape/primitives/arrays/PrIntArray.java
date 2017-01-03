@@ -206,8 +206,7 @@ public final class PrIntArray {
     int i = 0;
     for (int item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     int[] distincts = new int[i];

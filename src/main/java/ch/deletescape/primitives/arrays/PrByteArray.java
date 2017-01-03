@@ -211,8 +211,7 @@ public final class PrByteArray {
     int i = 0;
     for (byte item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     byte[] distincts = new byte[i];

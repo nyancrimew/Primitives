@@ -208,8 +208,7 @@ public final class PrShortArray {
     int i = 0;
     for (short item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     short[] distincts = new short[i];

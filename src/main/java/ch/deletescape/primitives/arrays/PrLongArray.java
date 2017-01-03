@@ -205,8 +205,7 @@ public final class PrLongArray {
     int i = 0;
     for (long item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     long[] distincts = new long[i];

@@ -207,8 +207,7 @@ public final class PrFloatArray {
     int i = 0;
     for (float item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     float[] distincts = new float[i];

@@ -208,8 +208,7 @@ public final class PrCharArray {
     int i = 0;
     for (char item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     char[] distincts = new char[i];

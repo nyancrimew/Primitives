@@ -206,8 +206,7 @@ public final class PrDoubleArray {
     int i = 0;
     for (double item : array) {
       if (!contains(tmp, item)) {
-        tmp[i] = item;
-        i++;
+        tmp[i++] = item;
       }
     }
     double[] distincts = new double[i];
