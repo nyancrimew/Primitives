@@ -34,7 +34,7 @@
       </header>
       <section>
 <h2>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"></a>Introduction</h2>
       
 <ul>
 <li>
@@ -74,10 +74,10 @@
 </blockquote>
 
 <h2>
-<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Start</h2>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"></a>Quick Start</h2>
 
 <h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"></a>Installation</h3>
 
 <ol>
 <li>Download the binary jar file from the <a href="https://github.com/Deletescape-Media/Primitives/releases/latest">latest release on GitHub</a>
@@ -87,7 +87,7 @@
 </ol>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"></a>Usage</h2>
 
 <ul>
 <li>
@@ -126,10 +126,10 @@
 </ul>
 
 <h3>
-<a id="available-classes" class="anchor" href="#available-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available Classes</h3>
+<a id="available-classes" class="anchor" href="#available-classes" aria-hidden="true"></a>Available Classes</h3>
 
 <h4>
-<a id="package-chdeletescapeprimitives" class="anchor" href="#package-chdeletescapeprimitives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives</code>
+<a id="package-chdeletescapeprimitives" class="anchor" href="#package-chdeletescapeprimitives" aria-hidden="true"></a>Package <code>ch.deletescape.primitives</code>
 </h4>
 
 <ul>
@@ -145,7 +145,7 @@
 </ul>
 
 <h4>
-<a id="package-chdeletescapeprimitivesarrays" class="anchor" href="#package-chdeletescapeprimitivesarrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package <code>ch.deletescape.primitives.arrays</code>
+<a id="package-chdeletescapeprimitivesarrays" class="anchor" href="#package-chdeletescapeprimitivesarrays" aria-hidden="true"></a>Package <code>ch.deletescape.primitives.arrays</code>
 </h4>
 
 <ul>
@@ -160,7 +160,7 @@
 </ul>
 
 <h3>
-<a id="conversions" class="anchor" href="#conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conversions</h3>
+<a id="conversions" class="anchor" href="#conversions" aria-hidden="true"></a>Conversions</h3>
 
 <p>In the following example an <code>int</code> value is converted to <code>short</code> using <code>Shorts</code>, all other conversions work exactly the same way.</p>
 
@@ -168,26 +168,26 @@
 <span class="pl-k">short</span> s <span class="pl-k">=</span> <span class="pl-smi">Shorts</span><span class="pl-k">.</span>from(i);</pre></div>
 
 <h4>
-<a id="boolean-conversions" class="anchor" href="#boolean-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>boolean</code> Conversions</h4>
+<a id="boolean-conversions" class="anchor" href="#boolean-conversions" aria-hidden="true"></a><code>boolean</code> Conversions</h4>
 
 <p>Conversions from <code>boolean</code> return a value of <code>1</code> for <code>true</code> and a value of <code>0</code> for <code>false</code>. When converting to <code>boolean</code> a value of <code>1</code> returns <code>true</code>, any other value will result in <code>false</code>. The same applies to <code>boolean[]</code> conversions.</p>
 
 <h3>
-<a id="random" class="anchor" href="#random" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random</h3>
+<a id="random" class="anchor" href="#random" aria-hidden="true"></a>Random</h3>
 
 <p>The next small code snippet shows how to generate a <a href="https://en.wikipedia.org/wiki/Pseudorandom">pseudorandom</a> <code>int</code> value using <code>Ints</code>, random generation for other primitive types work the same way.</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-smi">Ints</span><span class="pl-k">.</span>random();</pre></div>
 
 <h4>
-<a id="random-arrays" class="anchor" href="#random-arrays" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Random Arrays</h4>
+<a id="random-arrays" class="anchor" href="#random-arrays" aria-hidden="true"></a>Random Arrays</h4>
 
 <p>The difference when generating an array of random values, for example a <code>byte</code> array, is that the size of the array needs to be specified.</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">byte</span>[] ba <span class="pl-k">=</span> <span class="pl-smi">ByteArrays</span><span class="pl-k">.</span>random(<span class="pl-c1">5</span>);</pre></div>
 
 <h3>
-<a id="array-concatenation" class="anchor" href="#array-concatenation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Concatenation</h3>
+<a id="array-concatenation" class="anchor" href="#array-concatenation" aria-hidden="true"></a>Array Concatenation</h3>
 
 <p>To concate two or more <code>boolean</code> arrays using <code>BoolArrays</code> you can refer to the following piece of code. Array concatenations of other types follow the same pattern.</p>
 
@@ -196,7 +196,7 @@
 <span class="pl-k">boolean</span>[] merge <span class="pl-k">=</span> <span class="pl-smi">BoolArrays</span><span class="pl-k">.</span>concatAll(ba1, ba2);</pre></div>
 
 <h3>
-<a id="array-joining" class="anchor" href="#array-joining" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Array Joining</h3>
+<a id="array-joining" class="anchor" href="#array-joining" aria-hidden="true"></a>Array Joining</h3>
 
 <p>The following code shows how to easily convert an <code>int</code> array to a beautiful <code>String</code>, the same way <code>String.join()</code> works for <code>CharSequence</code> items. This can also be used for arrays of all other types.</p>
 
@@ -278,7 +278,7 @@
 <p>This would result in <code>"abababab"</code> (the string <code>"ab"</code> repeated 4 times).</p>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"></a>License</h2>
 
 <p>MIT License</p>
 
