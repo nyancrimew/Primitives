@@ -103,7 +103,7 @@ Conversions from `boolean` return a value of `1` for `true` and a value of `0` f
 
 ### Random
 
-The next small code snipped shows how to generate a [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandom) `int` value using `Ints`, random generation for other primitive types work the same way.
+The next small code snippet shows how to generate a [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandom) `int` value using `Ints`, random generation for other primitive types work the same way.
 
 ```java
 int i = Ints.random();
