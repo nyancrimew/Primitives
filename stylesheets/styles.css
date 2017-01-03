@@ -292,4 +292,15 @@ footer {
     font-size:12pt;
     color:#444;
   }
+  .view, .nav, .license {
+  display: none;
+  }
+  
+  a {
+    color: inherit;
+  }
+  
+  a code {
+    color: #333;
+  }
 }
