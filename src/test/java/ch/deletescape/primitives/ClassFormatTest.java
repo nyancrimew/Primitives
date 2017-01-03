@@ -12,8 +12,8 @@ public class ClassFormatTest {
 
   @Test
   public void test() throws Exception {
-    Class<?>[] classes = new Class[] { PrBool.class, PrByte.class, PrChar.class, PrDouble.class, PrFloat.class,
-        PrInt.class, PrLong.class, PrShort.class, PrString.class, RandomGeneratorHolder.class };
+    Class<?>[] classes = new Class[] { Bools.class, Bytes.class, Chars.class, Doubles.class, Floats.class,
+        Ints.class, Longs.class, Shorts.class, Strings.class, RandomGeneratorHolder.class };
     for (Class<?> clazz : classes) {
 
       // Class should be final
