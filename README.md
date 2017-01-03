@@ -12,7 +12,7 @@
 	**How about that:**
 
 ```java
-    int[] example = PrIntArray.from(new byte[] { 1, 2, 3 });
+    int[] example = IntArrays.from(new byte[] { 1, 2, 3 });
 ```
 * You need to concatenate two `char` arrays?
 
@@ -21,7 +21,7 @@
 ```java
     char[] pt1 = new char[] { 'h', 'e', 'l' };
     char[] pt2 = new char[] { 'l', 'o' };
-    char[] result = PrCharArray.concatAll(pt1, pt2);
+    char[] result = CharArrays.concatAll(pt1, pt2);
 ```
 * `String.join()` doesn't work for your `int` array?
 
@@ -29,7 +29,7 @@
 	
 ```java
     int[] input = new int[] { 3, 2, 1 };
-    String result = PrIntArray.join(";", input);
+    String result = IntArrays.join(";", input);
 ```
 
 >**Primitives is everything you'll ever need to work with primitive types!**
@@ -67,34 +67,34 @@
 
 #### Package `ch.deletescape.primitives`
 
-* `PrBool`
-* `PrByte`
-* `PrChar`
-* `PrDouble`
-* `PrFloat`
-* `PrInt`
-* `PrLong`
-* `PrShort`
-* `PrString`
+* `Bools`
+* `Bytes`
+* `Chars`
+* `Doubles`
+* `Floats`
+* `Ints`
+* `Longs`
+* `Shorts`
+* `Strings`
 
 #### Package `ch.deletescape.primitives.arrays`
 
-* `PrBoolArray`
-* `PrByteArray`
-* `PrCharArray`
-* `PrDoubleArray`
-* `PrFloatArray`
-* `PrIntArray`
-* `PrLongArray`
-* `PrShortArray`
+* `BoolArrays`
+* `ByteArrays`
+* `CharArrays`
+* `DoubleArrays`
+* `FloatArrays`
+* `IntArrays`
+* `LongArrays`
+* `ShortArrays`
 
 ### Conversions
 
-In the following example an `int` value is converted to `short` using `PrShort`, all other conversions work exactly the same way.
+In the following example an `int` value is converted to `short` using `Shorts`, all other conversions work exactly the same way.
 
 ```java
 int i = 1;
-short s = PrShort.from(i);
+short s = Shorts.from(i);
 ```
 
 #### `boolean` Conversions
@@ -103,10 +103,10 @@ Conversions from `boolean` return a value of `1` for `true` and a value of `0` f
 
 ### Random
 
-The next small code snipped shows how to generate a [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandom) `int` value using `PrInt`, random generation for other primitive types work the same way.
+The next small code snipped shows how to generate a [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandom) `int` value using `Ints`, random generation for other primitive types work the same way.
 
 ```java
-int i = PrInt.random();
+int i = Ints.random();
 ```
 
 #### Random Arrays
@@ -114,17 +114,17 @@ int i = PrInt.random();
 The difference when generating an array of random values, for example a `byte` array, is that the size of the array needs to be specified.
 
 ```java
-byte[] ba = PrByteArray.random(5);
+byte[] ba = ByteArrays.random(5);
 ```
 
 ### Array Concatenation
 
-To concate two or more `boolean` arrays using `PrBoolArray` you can refer to the following piece of code. Array concatenations of other types follow the same pattern.
+To concate two or more `boolean` arrays using `BoolArrays` you can refer to the following piece of code. Array concatenations of other types follow the same pattern.
 
 ```java
 boolean[] ba1 = new boolean[] { true, false };
 boolean[] ba2 = new boolean[] { false, false };
-boolean[] merge = PrBoolArray.concatAll(ba1, ba2);
+boolean[] merge = BoolArrays.concatAll(ba1, ba2);
 ```
 
 ### Array Joining
@@ -133,7 +133,7 @@ The following code shows how to easily convert an `int` array to a beautiful `St
 
 ```java
 int[] ia = new int[] { 1, 4, 5 };
-String str = PrIntArray.join("; ", ia);
+String str = IntArrays.join("; ", ia);
 ```
 
 ### Array Contains
@@ -142,7 +142,7 @@ You can check if a `short` array contains a certain value like this:
 
 ```java
 short[] sa = new short[] { 1, 2, 3 };
-boolean contains = PrShortArray.contains(sa, PrShort.from(2));
+boolean contains = ShortArrays.contains(sa, Shorts.from(2));
 ```
 
 The same pattern can be applied to all the other types.
@@ -153,7 +153,7 @@ To get only the unique values in a `long` array, you can use the following code 
 
 ```java
 long[] la = new long[] { 5, 3, 4, 5, 4, 5 };
-long[] uniques = PrLongArray.distinct(la);
+long[] uniques = LongArrays.distinct(la);
 ```
 
 The above snippet would result in an array containing `{ 5, 3, 4 }`.
@@ -164,7 +164,7 @@ If you want to find the first occurrence of `1` followed by `2` inside an `int` 
 
 ```java
 int[] ia = new int[] { 5, 3, 1, 2, 4, 5, 4, 5 };
-int index = PrIntArray.findSequence(ia, 1, 2);
+int index = IntArrays.findSequence(ia, 1, 2);
 ```
 
 ### Array Sequence Counting
@@ -173,7 +173,7 @@ Finding out how often `1` followed by `2` occurs inside a `short` array is reall
 
 ```java
 short[] sa = new short[] { 5, 3, 1, 2, 4, 1, 2, 4, 5 };
-int count = PrShortArray.countSequence(sa, (short) 1, (short) 2);
+int count = ShortArrays.countSequence(sa, (short) 1, (short) 2);
 ```
 
 ### Array Inserting
@@ -183,7 +183,7 @@ To insert a `char` array into another the following code is used.
 ```java
 char[] ca1 = new char[] { 'a', 'd' };
 char[] ca2 = new char[] { 'b', 'c' };
-char[] abcd = PrCharArray.insert(ca1, ca2, 1);
+char[] abcd = CharArrays.insert(ca1, ca2, 1);
 ```
 
 ### Array Appending
@@ -192,28 +192,28 @@ Appending values to the end of a `long` array has never been easier!
 
 ```java
 long[] la = new long[] { 1, 2, 3 };
-long[] longer = PrLongArray.append(la, 4, 5);
+long[] longer = LongArrays.append(la, 4, 5);
 ```
 
 ### String Reversing
 
-`PrString` allows you to reverse strings without a big impact on memory usage.
+`Strings` allows you to reverse strings without a big impact on memory usage.
 
 ```java
 String s = "Hello!";
-String reverse = PrString.reverse(s);
+String reverse = Strings.reverse(s);
 ```
 
 The snippet above would result in `"!elloH"`.
 
 ### String Formatting
 
-A simple way to format strings without a big memory impact or complicated syntax is `PrString.simpleFormat`.
+A simple way to format strings without a big memory impact or complicated syntax is `Strings.simpleFormat`.
 
 ```java
 String world = "World";
 char sign = '!';
-String greeting = PrString.simpleFormat("Hello {}{}", world, sign);
+String greeting = Strings.simpleFormat("Hello {}{}", world, sign);
 ```
 
 This would obviously result in `"Hello World!"`.
@@ -226,7 +226,7 @@ To repeat a string multiple times simply do the following:
 
 ```java
 String str = "ab";
-String letters = PrString.repeat(4, str);
+String letters = Strings.repeat(4, str);
 ```
 
 This would result in `"abababab"` (the string `"ab"` repeated 4 times).
