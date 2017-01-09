@@ -113,7 +113,7 @@ public class CharArraysTest {
   @Test
   public void min() {
     assertThat(CharArrays.min('a'), is('a'));
-    assertThat(CharArrays.min('a', 'b', 'c'), is('a'));
+    assertThat(CharArrays.min('b', 'a', 'c'), is('a'));
     assertThat(CharArrays.min('b', 'b', 'b'), is('b'));
   }
 
