@@ -6,6 +6,10 @@ repositories {
     jcenter()
 }
 
+javadoc {
+  options.stylesheetFile = new File(projectDir, "stylesheet.css");
+}
+
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
