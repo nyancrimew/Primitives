@@ -330,4 +330,63 @@ public final class FloatArrays {
   public static float[] append(float[] array, float... values) {
     return insert(array, values, array.length);
   }
+
+  /**
+   * Returns the greater of any number values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the biggest value from {@code values}
+   */
+  public static float max(float... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get max value from empty array");
+    }
+    float max = values[0];
+    for (float i : values) {
+      if (i > max) {
+        max = i;
+      }
+    }
+    return max;
+  }
+
+  /**
+   * Returns the smaller of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the smallest value from {@code values}
+   */
+  public static float min(float... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get min value from empty array");
+    }
+    float min = values[0];
+    for (float i : values) {
+      if (i < min) {
+        min = i;
+      }
+    }
+    return min;
+  }
+
+  /**
+   * Returns the average of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the average value of {@code values}
+   */
+  public static float avg(float... values) {
+    int len = values.length;
+    if (len == 0) {
+      throw new InvalidArrayException("Can't get average value from empty array");
+    }
+    float total = 0;
+    for (float i : values) {
+      total += i;
+    }
+    return total / len;
+  }
 }

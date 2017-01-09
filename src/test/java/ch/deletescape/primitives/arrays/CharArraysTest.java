@@ -3,9 +3,14 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CharArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+
   @Test
   public void fromLong() {
     assertThat(CharArrays.from(new long[] { 1L, Long.MAX_VALUE, Long.MAX_VALUE - 1 }),
@@ -103,6 +108,48 @@ public class CharArraysTest {
     assertThat(CharArrays.append(new char[] { 'a', 'b', 'c', 'd' }, 'x', 'y'),
         is(new char[] { 'a', 'b', 'c', 'd', 'x', 'y' }));
     assertThat(CharArrays.append(new char[] { 'a', 'b', 'c', 'd' }), is(new char[] { 'a', 'b', 'c', 'd' }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(CharArrays.min('a'), is('a'));
+    assertThat(CharArrays.min('a', 'b', 'c'), is('a'));
+    assertThat(CharArrays.min('b', 'b', 'b'), is('b'));
+  }
+
+  @Test
+  public void max() {
+    assertThat(CharArrays.max('a'), is('a'));
+    assertThat(CharArrays.max('a', 'b', 'c'), is('c'));
+    assertThat(CharArrays.max('b', 'b', 'b'), is('b'));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(CharArrays.avg((char) 1), is(1.0));
+    assertThat(CharArrays.avg(new char[] { 1, 2, 3 }), is(2.0));
+    assertThat(CharArrays.avg(new char[] { 2, 2, 2 }), is(2.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    CharArrays.min(new char[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    CharArrays.max(new char[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    CharArrays.avg(new char[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

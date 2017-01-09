@@ -3,9 +3,15 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class FloatArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final float ONE_THIRD = 1 / 3f;
+
   @Test
   public void fromInt() {
     assertThat(FloatArrays.from(new int[] { 1, Integer.MAX_VALUE, Integer.MAX_VALUE - 1 }),
@@ -103,6 +109,48 @@ public class FloatArraysTest {
   public void append() {
     assertThat(FloatArrays.append(new float[] { 1, 2, 3, 4 }, 10, 11), is(new float[] { 1, 2, 3, 4, 10, 11 }));
     assertThat(FloatArrays.append(new float[] { 1, 2, 3, 4 }), is(new float[] { 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(FloatArrays.min(1), is(1f));
+    assertThat(FloatArrays.min(-3, 5, -6), is(-6f));
+    assertThat(FloatArrays.min(-3, -3, -3), is(-3f));
+  }
+
+  @Test
+  public void max() {
+    assertThat(FloatArrays.max(1), is(1f));
+    assertThat(FloatArrays.max(-3, 5, -6), is(5f));
+    assertThat(FloatArrays.max(-3, -3, -3), is(-3f));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(FloatArrays.avg(1), is(1f));
+    assertThat(FloatArrays.avg(-3, 5, -6), is(-(1 + ONE_THIRD)));
+    assertThat(FloatArrays.avg(-3, -3, -3), is(-3f));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    FloatArrays.min(new float[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    FloatArrays.max(new float[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    FloatArrays.avg(new float[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

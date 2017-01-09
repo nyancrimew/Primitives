@@ -3,9 +3,15 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class IntArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final double ONE_THIRD = 1 / 3.0;
+
   @Test
   public void fromLong() {
     assertThat(IntArrays.from(new long[] { 1L, Long.MAX_VALUE, Long.MAX_VALUE - 1 }), is(new int[] { 1, -1, -2 }));
@@ -100,6 +106,48 @@ public class IntArraysTest {
   public void append() {
     assertThat(IntArrays.append(new int[] { 1, 2, 3, 4 }, 10, 11), is(new int[] { 1, 2, 3, 4, 10, 11 }));
     assertThat(IntArrays.append(new int[] { 1, 2, 3, 4 }), is(new int[] { 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(IntArrays.min(1), is(1));
+    assertThat(IntArrays.min(-3, 5, -6), is(-6));
+    assertThat(IntArrays.min(-3, -3, -3), is(-3));
+  }
+
+  @Test
+  public void max() {
+    assertThat(IntArrays.max(1), is(1));
+    assertThat(IntArrays.max(-3, 5, -6), is(5));
+    assertThat(IntArrays.max(-3, -3, -3), is(-3));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(IntArrays.avg(1), is(1.0));
+    assertThat(IntArrays.avg(-3, 5, -6), is(-(1 + ONE_THIRD)));
+    assertThat(IntArrays.avg(-3, -3, -3), is(-3.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    IntArrays.min(new int[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    IntArrays.max(new int[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    IntArrays.avg(new int[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

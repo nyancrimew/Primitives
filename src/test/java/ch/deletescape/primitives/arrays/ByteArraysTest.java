@@ -3,9 +3,15 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ByteArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final double ONE_THIRD = 1 / 3.0;
+
   @Test
   public void fromLong() {
     assertThat(ByteArrays.from(new long[] { 1L, Long.MAX_VALUE, Long.MAX_VALUE - 1 }), is(new byte[] { 1, -1, -2 }));
@@ -101,6 +107,48 @@ public class ByteArraysTest {
     assertThat(ByteArrays.append(new byte[] { 1, 2, 3, 4 }, (byte) 10, (byte) 11),
         is(new byte[] { 1, 2, 3, 4, 10, 11 }));
     assertThat(ByteArrays.append(new byte[] { 1, 2, 3, 4 }), is(new byte[] { 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(ByteArrays.min((byte) 1), is((byte) 1));
+    assertThat(ByteArrays.min(new byte[] { -3, 5, -6 }), is((byte) -6));
+    assertThat(ByteArrays.min(new byte[] { -3, -3, -3 }), is((byte) -3L));
+  }
+
+  @Test
+  public void max() {
+    assertThat(ByteArrays.max((byte) 1), is((byte) 1));
+    assertThat(ByteArrays.max(new byte[] { -3, 5, -6 }), is((byte) 5));
+    assertThat(ByteArrays.max(new byte[] { -3, -3, -3 }), is((byte) -3));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(ByteArrays.avg((byte) 1), is(1.0));
+    assertThat(ByteArrays.avg(new byte[] { -3, 5, -6 }), is(-(1 + ONE_THIRD)));
+    assertThat(ByteArrays.avg(new byte[] { -3, -3, -3 }), is(-3.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    ByteArrays.min(new byte[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    ByteArrays.max(new byte[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    ByteArrays.avg(new byte[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

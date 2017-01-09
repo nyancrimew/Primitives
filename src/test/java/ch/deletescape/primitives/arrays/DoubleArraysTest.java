@@ -3,9 +3,15 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class DoubleArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final double ONE_THIRD = 1 / 3.0;
+
   @Test
   public void fromInt() {
     assertThat(DoubleArrays.from(new int[] { 1, Integer.MAX_VALUE, Integer.MAX_VALUE - 1 }),
@@ -102,6 +108,48 @@ public class DoubleArraysTest {
   public void append() {
     assertThat(DoubleArrays.append(new double[] { 1, 2, 3, 4 }, 10, 11), is(new double[] { 1, 2, 3, 4, 10, 11 }));
     assertThat(DoubleArrays.append(new double[] { 1, 2, 3, 4 }), is(new double[] { 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(DoubleArrays.min(1), is(1.0));
+    assertThat(DoubleArrays.min(-3, 5, -6), is(-6.0));
+    assertThat(DoubleArrays.min(-3, -3, -3), is(-3.0));
+  }
+
+  @Test
+  public void max() {
+    assertThat(DoubleArrays.max(1), is(1.0));
+    assertThat(DoubleArrays.max(-3, 5, -6), is(5.0));
+    assertThat(DoubleArrays.max(-3, -3, -3), is(-3.0));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(DoubleArrays.avg(1), is(1.0));
+    assertThat(DoubleArrays.avg(-3, 5, -6), is(-(1 + ONE_THIRD)));
+    assertThat(DoubleArrays.avg(-3, -3, -3), is(-3.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    DoubleArrays.min(new double[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    DoubleArrays.max(new double[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    DoubleArrays.avg(new double[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

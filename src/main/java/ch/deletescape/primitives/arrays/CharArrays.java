@@ -331,4 +331,63 @@ public final class CharArrays {
   public static char[] append(char[] array, char... values) {
     return insert(array, values, array.length);
   }
+
+  /**
+   * Returns the greater of any number values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the biggest value from {@code values}
+   */
+  public static char max(char... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get max value from empty array");
+    }
+    char max = values[0];
+    for (char i : values) {
+      if (i > max) {
+        max = i;
+      }
+    }
+    return max;
+  }
+
+  /**
+   * Returns the smaller of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the smallest value from {@code values}
+   */
+  public static char min(char... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get min value from empty array");
+    }
+    char min = values[0];
+    for (char i : values) {
+      if (i < min) {
+        min = i;
+      }
+    }
+    return min;
+  }
+
+  /**
+   * Returns the average of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the average value of {@code values}
+   */
+  public static double avg(char... values) {
+    int len = values.length;
+    if (len == 0) {
+      throw new InvalidArrayException("Can't get average value from empty array");
+    }
+    char total = 0;
+    for (char i : values) {
+      total += i;
+    }
+    return total / (double) len;
+  }
 }

@@ -333,4 +333,63 @@ public final class ByteArrays {
   public static byte[] append(byte[] array, byte... values) {
     return insert(array, values, array.length);
   }
+
+  /**
+   * Returns the greater of any number values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the biggest value from {@code values}
+   */
+  public static byte max(byte... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get max value from empty array");
+    }
+    byte max = values[0];
+    for (byte i : values) {
+      if (i > max) {
+        max = i;
+      }
+    }
+    return max;
+  }
+
+  /**
+   * Returns the smaller of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the smallest value from {@code values}
+   */
+  public static byte min(byte... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get min value from empty array");
+    }
+    byte min = values[0];
+    for (byte i : values) {
+      if (i < min) {
+        min = i;
+      }
+    }
+    return min;
+  }
+
+  /**
+   * Returns the average of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the average value of {@code values}
+   */
+  public static double avg(byte... values) {
+    int len = values.length;
+    if (len == 0) {
+      throw new InvalidArrayException("Can't get average value from empty array");
+    }
+    byte total = 0;
+    for (byte i : values) {
+      total += i;
+    }
+    return total / (double) len;
+  }
 }

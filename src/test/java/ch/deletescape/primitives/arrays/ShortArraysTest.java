@@ -3,16 +3,22 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ShortArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final double ONE_THIRD = 1 / 3.0;
+
   @Test
   public void fromLong() {
     assertThat(ShortArrays.from(new long[] { 1L, Long.MAX_VALUE, Long.MAX_VALUE - 1 }), is(new short[] { 1, -1, -2 }));
   }
 
   @Test
-  public void fromInt() {
+  public void fromShort() {
     assertThat(ShortArrays.from(new int[] { 1, Integer.MAX_VALUE }), is(new short[] { 1, -1 }));
   }
 
@@ -103,7 +109,49 @@ public class ShortArraysTest {
     assertThat(ShortArrays.append(new short[] { 1, 2, 3, 4 }), is(new short[] { 1, 2, 3, 4 }));
   }
 
-  // Calls the #random(int) method for coverage reasons
+  @Test
+  public void min() {
+    assertThat(ShortArrays.min((short) 1), is((short) 1));
+    assertThat(ShortArrays.min(new short[] { -3, -5, -6 }), is((short) -6));
+    assertThat(ShortArrays.min(new short[] { -3, -3, -3 }), is((short) -3));
+  }
+
+  @Test
+  public void max() {
+    assertThat(ShortArrays.max((short) 1), is((short) 1));
+    assertThat(ShortArrays.max(new short[] { -3, 5, -6 }), is((short) 5));
+    assertThat(ShortArrays.max(new short[] { -3, -3, -3 }), is((short) -3));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(ShortArrays.avg((short) 1), is(1.0));
+    assertThat(ShortArrays.avg(new short[] { -3, 5, -6 }), is(-(1 + ONE_THIRD)));
+    assertThat(ShortArrays.avg(new short[] { -3, -3, -3 }), is(-3.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    ShortArrays.min(new short[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    ShortArrays.max(new short[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    ShortArrays.avg(new short[0]);
+  }
+
+  // Calls the #random(short) method for coverage reasons
   @Test
   public void random() {
     ShortArrays.random(1);

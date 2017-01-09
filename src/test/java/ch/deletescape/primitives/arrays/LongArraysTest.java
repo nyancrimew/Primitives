@@ -3,9 +3,15 @@ package ch.deletescape.primitives.arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class LongArraysTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+  private static final double ONE_THIRD = 1 / 3.0;
+
   @Test
   public void fromInt() {
     assertThat(LongArrays.from(new int[] { 1, Integer.MAX_VALUE, Integer.MAX_VALUE - 1 }),
@@ -103,6 +109,48 @@ public class LongArraysTest {
   public void append() {
     assertThat(LongArrays.append(new long[] { 1, 2, 3, 4 }, 10, 11), is(new long[] { 1, 2, 3, 4, 10, 11 }));
     assertThat(LongArrays.append(new long[] { 1, 2, 3, 4 }), is(new long[] { 1, 2, 3, 4 }));
+  }
+
+  @Test
+  public void min() {
+    assertThat(LongArrays.min(1), is(1L));
+    assertThat(LongArrays.min(-3, 5, -6), is(-6L));
+    assertThat(LongArrays.min(-3, -3, -3), is(-3L));
+  }
+
+  @Test
+  public void max() {
+    assertThat(LongArrays.max(1), is(1L));
+    assertThat(LongArrays.max(-3, 5, -6), is(5L));
+    assertThat(LongArrays.max(-3, -3, -3), is(-3L));
+  }
+
+  @Test
+  public void avg() {
+    assertThat(LongArrays.avg(1), is(1.0));
+    assertThat(LongArrays.avg(-3, 5, -6), is(-(1 + ONE_THIRD)));
+    assertThat(LongArrays.avg(-3, -3, -3), is(-3.0));
+  }
+
+  @Test
+  public void minEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get min value from empty array"));
+    LongArrays.min(new long[0]);
+  }
+
+  @Test
+  public void maxEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get max value from empty array"));
+    LongArrays.max(new long[0]);
+  }
+
+  @Test
+  public void avgEmptyArray() {
+    thrown.expect(InvalidArrayException.class);
+    thrown.expectMessage(is("Can't get average value from empty array"));
+    LongArrays.avg(new long[0]);
   }
 
   // Calls the #random(int) method for coverage reasons

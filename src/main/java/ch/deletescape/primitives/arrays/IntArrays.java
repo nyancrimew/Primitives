@@ -328,4 +328,63 @@ public final class IntArrays {
   public static int[] append(int[] array, int... values) {
     return insert(array, values, array.length);
   }
+
+  /**
+   * Returns the greater of any number values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the biggest value from {@code values}
+   */
+  public static int max(int... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get max value from empty array");
+    }
+    int max = values[0];
+    for (int i : values) {
+      if (i > max) {
+        max = i;
+      }
+    }
+    return max;
+  }
+
+  /**
+   * Returns the smaller of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the smallest value from {@code values}
+   */
+  public static int min(int... values) {
+    if (values.length == 0) {
+      throw new InvalidArrayException("Can't get min value from empty array");
+    }
+    int min = values[0];
+    for (int i : values) {
+      if (i < min) {
+        min = i;
+      }
+    }
+    return min;
+  }
+
+  /**
+   * Returns the average of any number of values.
+   * 
+   * @param values
+   *          the values to compare
+   * @return the average value of {@code values}
+   */
+  public static double avg(int... values) {
+    int len = values.length;
+    if (len == 0) {
+      throw new InvalidArrayException("Can't get average value from empty array");
+    }
+    int total = 0;
+    for (int i : values) {
+      total += i;
+    }
+    return total / (double) len;
+  }
 }
