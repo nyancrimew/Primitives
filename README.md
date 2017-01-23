@@ -204,7 +204,7 @@ String s = "Hello!";
 String reverse = Strings.reverse(s);
 ```
 
-The snippet above would result in `"!elloH"`.
+The snippet above would result in `"!olleH"`.
 
 ### String Formatting
 
