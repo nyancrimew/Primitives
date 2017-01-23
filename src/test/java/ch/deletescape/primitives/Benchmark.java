@@ -15,6 +15,8 @@ public class Benchmark {
   private static final int SIZE_DISTINCT = 25_000;
 
   public static void main(String[] args) {
+    // Making sure our random instance is already initialized
+    RandomGeneratorHolder.random.nextInt();
     randomArrays();
     average();
     distinct();
