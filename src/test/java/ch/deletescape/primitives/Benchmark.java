@@ -65,14 +65,15 @@ public class Benchmark {
     watch.stop();
     long shortTime = watch.getDuration();
 
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "int", toMs(intTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "boolean", toMs(boolTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "byte", toMs(byteTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "char", toMs(charTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "double", toMs(doubleTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "float", toMs(floatTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "long", toMs(longTime)));
-    System.out.println(Strings.simpleFormat("{}-Array generation took {}ms", "short", toMs(shortTime)));
+    String formatString = "{}-Array Generation took {}ms";
+    System.out.println(Strings.simpleFormat(formatString, "int", toMs(intTime)));
+    System.out.println(Strings.simpleFormat(formatString, "byte", toMs(byteTime)));
+    System.out.println(Strings.simpleFormat(formatString, "char", toMs(charTime)));
+    System.out.println(Strings.simpleFormat(formatString, "double", toMs(doubleTime)));
+    System.out.println(Strings.simpleFormat(formatString, "float", toMs(floatTime)));
+    System.out.println(Strings.simpleFormat(formatString, "long", toMs(longTime)));
+    System.out.println(Strings.simpleFormat(formatString, "short", toMs(shortTime)));
+    System.out.println(Strings.simpleFormat(formatString, "boolean", toMs(boolTime)));
   }
 
   private static void average() {
@@ -190,13 +191,13 @@ public class Benchmark {
 
     String formatString = "{}-Distinct calculation took {}ms";
     System.out.println(Strings.simpleFormat(formatString, "int", toMs(intTime)));
+    System.out.println(Strings.simpleFormat(formatString, "boolean", toMs(boolTime)));
     System.out.println(Strings.simpleFormat(formatString, "byte", toMs(byteTime)));
     System.out.println(Strings.simpleFormat(formatString, "char", toMs(charTime)));
     System.out.println(Strings.simpleFormat(formatString, "double", toMs(doubleTime)));
     System.out.println(Strings.simpleFormat(formatString, "float", toMs(floatTime)));
     System.out.println(Strings.simpleFormat(formatString, "long", toMs(longTime)));
     System.out.println(Strings.simpleFormat(formatString, "short", toMs(shortTime)));
-    System.out.println(Strings.simpleFormat(formatString, "boolean", toMs(boolTime)));
   }
 
   private static void stringsGeneral() {
