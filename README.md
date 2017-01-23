@@ -218,7 +218,9 @@ String greeting = Strings.simpleFormat("Hello {}{}", world, sign);
 
 This would obviously result in `"Hello World!"`.
 
-> `simpleFormat` is approximately 5 times faster than `String.format` (which to be fair also has a lot more features).
+> `simpleFormat` is approximately 5 times faster than `String.format` (which to be fair also has a lot more features). 
+
+> _A more in depth test showed that in fact when dealing with a lot of elements (10000+) `String.format` is the faster implementation._ 
 
 ### String Repeating
 
