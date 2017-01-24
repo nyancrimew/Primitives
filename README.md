@@ -59,6 +59,9 @@
 * [Array Sequence Counting](#array-sequence-counting)
 * [Array Inserting](#array-inserting)
 * [Array Appending](#array-appending)
+* [Min / Max](#min-max)
+* [Average](#average)
+* [Sum](#sum)
 * [String Reversing](#string-reversing)
 * [String Formatting](#string-formatting)
 * [String Repeating](#string-repeating)
@@ -193,6 +196,34 @@ Appending values to the end of a `long` array has never been easier!
 ```java
 long[] la = new long[] { 1, 2, 3 };
 long[] longer = LongArrays.append(la, 4, 5);
+```
+
+### Min / Max
+
+You can simply get the smallest `short` value with the following code.
+
+```java
+short[] sa = new short[] { 1, 2, 3 };
+short smallest = ShortArrays.min(sa);
+```
+
+To get the highest value you'd just replace `min` with `max`.
+
+### Average
+
+Calculating an average `float` value has never been as easy!
+
+```java
+float average = FloatArrays.avg(1f, 7f, 7f);
+```
+
+### Sum
+
+Summing up a big array of `double` values can be done like in the next snippet
+
+```java
+double[] da = new double[] { 1.4, 2, 3 };
+double sum = DoubleArrays.min(da);
 ```
 
 ### String Reversing
