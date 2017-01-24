@@ -1,5 +1,6 @@
 package ch.deletescape.primitives.arrays;
 
+import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -156,6 +157,13 @@ public class IntArraysTest {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get average value from empty array"));
     IntArrays.avg(new int[0]);
+  }
+
+  @Test
+  public void randomFromValues() {
+    assertThat(IntArrays.random(new int[] { 1 }), is(1));
+    assertThat(IntArrays.random(1, 1, 1), is(1));
+    assertThat(IntArrays.random(1, 2, 3), anyOf(is(1), is(2), is(3)));
   }
 
   // Calls the #random(int) method for coverage reasons

@@ -398,4 +398,15 @@ public final class IntArrays {
     }
     return total;
   }
+
+  /**
+   * Returns a random value from the supplied values
+   * 
+   * @param values
+   *          the values to choose a random value from
+   * @return a value randomly chosen from {@code values}
+   */
+  public static int random(int... values) {
+    return values[Math.floorMod(Ints.random(), values.length)];
+  }
 }
