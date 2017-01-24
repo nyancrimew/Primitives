@@ -133,6 +133,13 @@ public class LongArraysTest {
   }
 
   @Test
+  public void sum() {
+    assertThat(LongArrays.sum(1), is(1L));
+    assertThat(LongArrays.sum(1, 2, 3), is(6L));
+    assertThat(LongArrays.sum(-3, -3, -3), is(-9L));
+  }
+
+  @Test
   public void minEmptyArray() {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get min value from empty array"));

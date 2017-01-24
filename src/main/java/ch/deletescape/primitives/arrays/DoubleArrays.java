@@ -382,10 +382,21 @@ public final class DoubleArrays {
     if (len == 0) {
       throw new InvalidArrayException("Can't get average value from empty array");
     }
+    return sum(values) / len;
+  }
+
+  /**
+   * Returns the sum of any number of values.
+   * 
+   * @param values
+   *          the values to sum up
+   * @return the sum of {@code values}
+   */
+  public static double sum(double... values) {
     double total = 0;
     for (double i : values) {
       total += i;
     }
-    return total / len;
+    return total;
   }
 }

@@ -133,6 +133,13 @@ public class FloatArraysTest {
   }
 
   @Test
+  public void sum() {
+    assertThat(FloatArrays.sum(1), is(1f));
+    assertThat(FloatArrays.sum(1, 2, 3), is(6f));
+    assertThat(FloatArrays.sum(-3, -3, -3), is(-9f));
+  }
+
+  @Test
   public void minEmptyArray() {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get min value from empty array"));

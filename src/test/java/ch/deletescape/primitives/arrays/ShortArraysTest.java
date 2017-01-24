@@ -131,6 +131,13 @@ public class ShortArraysTest {
   }
 
   @Test
+  public void sum() {
+    assertThat(ShortArrays.sum((short) 1), is((short) 1));
+    assertThat(ShortArrays.sum(new short[] { 1, 2, 3 }), is((short) 6));
+    assertThat(ShortArrays.sum(new short[] { -3, -3, -3 }), is((short) -9));
+  }
+
+  @Test
   public void minEmptyArray() {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get min value from empty array"));

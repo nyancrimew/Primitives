@@ -132,6 +132,13 @@ public class CharArraysTest {
   }
 
   @Test
+  public void sum() {
+    assertThat(CharArrays.sum((char) 1), is((char) 1));
+    assertThat(CharArrays.sum(new char[] { 1, 2, 3 }), is((char) 6));
+    assertThat(CharArrays.sum(new char[] { 3, 3, 3 }), is((char) 9));
+  }
+
+  @Test
   public void minEmptyArray() {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get min value from empty array"));

@@ -384,10 +384,21 @@ public final class CharArrays {
     if (len == 0) {
       throw new InvalidArrayException("Can't get average value from empty array");
     }
+    return sum(values) / (double) len;
+  }
+
+  /**
+   * Returns the sum of any number of values.
+   * 
+   * @param values
+   *          the values to sum up
+   * @return the sum of {@code values}
+   */
+  public static char sum(char... values) {
     char total = 0;
     for (char i : values) {
       total += i;
     }
-    return total / (double) len;
+    return total;
   }
 }

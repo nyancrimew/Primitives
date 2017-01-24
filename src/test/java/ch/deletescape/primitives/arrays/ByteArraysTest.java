@@ -131,6 +131,13 @@ public class ByteArraysTest {
   }
 
   @Test
+  public void sum() {
+    assertThat(ByteArrays.sum((byte) 1), is((byte) 1));
+    assertThat(ByteArrays.sum(new byte[] { 1, 2, 3 }), is((byte) 6));
+    assertThat(ByteArrays.sum(new byte[] { -3, -3, -3 }), is((byte) -9));
+  }
+
+  @Test
   public void minEmptyArray() {
     thrown.expect(InvalidArrayException.class);
     thrown.expectMessage(is("Can't get min value from empty array"));
