@@ -135,6 +135,7 @@ public class ByteArraysTest {
     assertThat(ByteArrays.sum((byte) 1), is((byte) 1));
     assertThat(ByteArrays.sum(new byte[] { 1, 2, 3 }), is((byte) 6));
     assertThat(ByteArrays.sum(new byte[] { -3, -3, -3 }), is((byte) -9));
+    assertThat(ByteArrays.sum(new byte[0]), is((byte) 0));
   }
 
   @Test

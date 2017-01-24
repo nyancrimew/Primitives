@@ -136,6 +136,7 @@ public class CharArraysTest {
     assertThat(CharArrays.sum((char) 1), is((char) 1));
     assertThat(CharArrays.sum(new char[] { 1, 2, 3 }), is((char) 6));
     assertThat(CharArrays.sum(new char[] { 3, 3, 3 }), is((char) 9));
+    assertThat(CharArrays.sum(new char[0]), is((char) 0));
   }
 
   @Test

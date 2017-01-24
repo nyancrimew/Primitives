@@ -136,6 +136,7 @@ public class DoubleArraysTest {
     assertThat(DoubleArrays.sum(1), is(1.0));
     assertThat(DoubleArrays.sum(1, 2, 3), is(6.0));
     assertThat(DoubleArrays.sum(-3, -3, -3), is(-9.0));
+    assertThat(DoubleArrays.sum(new double[0]), is(0.0));
   }
 
   @Test

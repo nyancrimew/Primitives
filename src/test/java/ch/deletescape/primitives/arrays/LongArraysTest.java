@@ -137,6 +137,7 @@ public class LongArraysTest {
     assertThat(LongArrays.sum(1), is(1L));
     assertThat(LongArrays.sum(1, 2, 3), is(6L));
     assertThat(LongArrays.sum(-3, -3, -3), is(-9L));
+    assertThat(LongArrays.sum(new long[0]), is(0L));
   }
 
   @Test

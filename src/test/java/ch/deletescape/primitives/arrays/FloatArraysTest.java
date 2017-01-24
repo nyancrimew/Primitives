@@ -137,6 +137,7 @@ public class FloatArraysTest {
     assertThat(FloatArrays.sum(1), is(1f));
     assertThat(FloatArrays.sum(1, 2, 3), is(6f));
     assertThat(FloatArrays.sum(-3, -3, -3), is(-9f));
+    assertThat(FloatArrays.sum(new float[0]), is(0f));
   }
 
   @Test

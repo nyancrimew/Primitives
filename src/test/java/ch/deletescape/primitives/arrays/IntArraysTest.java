@@ -134,6 +134,7 @@ public class IntArraysTest {
     assertThat(IntArrays.sum(1), is(1));
     assertThat(IntArrays.sum(1, 2, 3), is(6));
     assertThat(IntArrays.sum(-3, -3, -3), is(-9));
+    assertThat(IntArrays.sum(new int[0]), is(0));
   }
 
   @Test

@@ -135,6 +135,7 @@ public class ShortArraysTest {
     assertThat(ShortArrays.sum((short) 1), is((short) 1));
     assertThat(ShortArrays.sum(new short[] { 1, 2, 3 }), is((short) 6));
     assertThat(ShortArrays.sum(new short[] { -3, -3, -3 }), is((short) -9));
+    assertThat(ShortArrays.sum(new short[0]), is((short) 0));
   }
 
   @Test
