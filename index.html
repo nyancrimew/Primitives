@@ -120,6 +120,9 @@
 <li><a href="#array-sequence-counting">Array Sequence Counting</a></li>
 <li><a href="#array-inserting">Array Inserting</a></li>
 <li><a href="#array-appending">Array Appending</a></li>
+<li><a href="#min--max">Min / Max</a></li>
+<li><a href="#average">Average</a></li>
+<li><a href="#sum">Sum</a></li>
 <li><a href="#string-reversing">String Reversing</a></li>
 <li><a href="#string-formatting">String Formatting</a></li>
 <li><a href="#string-repeating">String Repeating</a></li>
@@ -249,6 +252,28 @@
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">long</span>[] la <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">long</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
 <span class="pl-k">long</span>[] longer <span class="pl-k">=</span> <span class="pl-smi">LongArrays</span><span class="pl-k">.</span>append(la, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>);</pre></div>
+
+<h3><a id="min--max" class="anchor" href="#min--max" aria-hidden="true"></a>Min / Max</h3>
+
+<p>You can simply get the smallest <code>short</code> value with the following code.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">short</span>[] sa <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">short</span>[] { <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">short</span> smallest <span class="pl-k">=</span> <span class="pl-smi">ShortArrays</span><span class="pl-k">.</span>min(sa);</pre></div>
+
+<p>To get the highest value you'd just replace <code>min</code> with <code>max</code>.</p>
+
+<h3><a id="average" class="anchor" href="#average" aria-hidden="true"></a>Average</h3>
+
+<p>Calculating an average <code>float</code> value has never been as easy!</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">float</span> average <span class="pl-k">=</span> <span class="pl-smi">FloatArrays</span><span class="pl-k">.</span>avg(<span class="pl-c1">1f</span>, <span class="pl-c1">7f</span>, <span class="pl-c1">7f</span>);</pre></div>
+
+<h3><a id="sum" class="anchor" href="#sum" aria-hidden="true"></a>Sum</h3>
+
+<p>Summing up a big array of <code>double</code> values can be done like in the next snippet</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">double</span>[] da <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">double</span>[] { <span class="pl-c1">1.4</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> };
+<span class="pl-k">double</span> sum <span class="pl-k">=</span> <span class="pl-smi">DoubleArrays</span><span class="pl-k">.</span>sum(da);</pre></div>
 
 <h3><a id="string-reversing" class="anchor" href="#string-reversing" aria-hidden="true"></a>String Reversing</h3>
 
