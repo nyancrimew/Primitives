@@ -59,7 +59,7 @@
 * [Array Sequence Counting](#array-sequence-counting)
 * [Array Inserting](#array-inserting)
 * [Array Appending](#array-appending)
-* [Min / Max](#min-max)
+* [Min / Max](#min--max)
 * [Average](#average)
 * [Sum](#sum)
 * [String Reversing](#string-reversing)
@@ -223,7 +223,7 @@ Summing up a big array of `double` values can be done like in the next snippet
 
 ```java
 double[] da = new double[] { 1.4, 2, 3 };
-double sum = DoubleArrays.min(da);
+double sum = DoubleArrays.sum(da);
 ```
 
 ### String Reversing
