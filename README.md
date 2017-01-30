@@ -3,7 +3,7 @@
 [![Codacy grade](https://img.shields.io/codacy/grade/09d4fe9b4a904a8aa34c49d7c130410e.svg)](https://www.codacy.com/app/deletescape/Primitives)
 [![Github All Releases](https://img.shields.io/github/downloads/Deletescape-Media/Primitives/total.svg)](https://github.com/Deletescape-Media/Primitives/releases)
 
-#[Deletescape Primitives](http://primitives.deletescape.ch)
+# [Deletescape Primitives](http://primitives.deletescape.ch)
 
 **[Quick Start](#quick-start) --- [Usage](#usage) --- [License](#license)**
 
